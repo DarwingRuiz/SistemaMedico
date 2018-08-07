@@ -1,8 +1,9 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace SistemaMedico\Http\Controllers;
 
 use Illuminate\Http\Request;
+use SistemaMedico\Deporte;
 
 class HomeController extends Controller
 {
@@ -13,8 +14,10 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('auth');
+      $this->middleware('auth');
     }
+
+
 
     /**
      * Show the application dashboard.
@@ -23,6 +26,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $provinces = Deporte::all();
+
+        return view('Atleta.Vista_prueba',compact('provinces'));
     }
 }

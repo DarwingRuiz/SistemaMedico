@@ -39,7 +39,7 @@ return [
     |
     */
 
-    'debug' => env('APP_DEBUG', false),
+    'debug' => env('APP_DEBUG', true),
 
     /*
     |--------------------------------------------------------------------------
@@ -154,11 +154,11 @@ return [
         /*
          * Application Service Providers...
          */
-        App\Providers\AppServiceProvider::class,
-        App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
-        App\Providers\EventServiceProvider::class,
-        App\Providers\RouteServiceProvider::class,
+        SistemaMedico\Providers\AppServiceProvider::class,
+        SistemaMedico\Providers\AuthServiceProvider::class,
+        // SistemaMedico\Providers\BroadcastServiceProvider::class,
+        SistemaMedico\Providers\EventServiceProvider::class,
+        SistemaMedico\Providers\RouteServiceProvider::class,
 
     ],
 

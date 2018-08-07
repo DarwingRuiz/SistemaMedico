@@ -12,9 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('layouts.admin');
 });
-
+Route::resource('atleta', 'AtletaController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/indonesia','HomeController@index');

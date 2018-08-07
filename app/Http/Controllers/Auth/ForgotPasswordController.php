@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Http\Controllers\Auth;
+namespace SistemaMedico\Http\Controllers\Auth;
 
-use App\Http\Controllers\Controller;
+use SistemaMedico\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\SendsPasswordResetEmails;
 
 class ForgotPasswordController extends Controller

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Providers;
+namespace SistemaMedico\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
