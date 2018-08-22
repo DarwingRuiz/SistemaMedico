@@ -4,7 +4,7 @@ namespace SistemaMedico\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use SistemaMedico\Categoria; 
+use SistemaMedico\Categoria;
 
 class WebServicesController extends Controller
 {

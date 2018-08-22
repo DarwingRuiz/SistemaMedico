@@ -18,5 +18,3 @@ Route::resource('atleta', 'AtletaController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/indonesia','HomeController@index');

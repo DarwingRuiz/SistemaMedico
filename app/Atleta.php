@@ -7,8 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Atleta extends Model
 {
     //
-     protected $table='datosatleta';
-    protected $primaryKey='id';
+    protected $table='datosatleta';
+    // protected $primaryKey='id_atleta';
     public $timestamps = false;
 
     protected $fillable=[
@@ -37,6 +37,15 @@ class Atleta extends Model
         'telpadre',
         'emergencia',
         'diremergencia',
-        'embarazo'
-    ];
+        'embarazo'];
+
+    public function deportes(){
+        return $this->belongsToMany('\SistemaMedico\Deporte','Atleta_Categoria_Deporte')
+            ->withPivot('id_categoria');
+    }
+
+    public function categoria(){
+        return $this->belongsToMany('\SistemaMedico\Categoria','Atleta_Categoria_Deporte')
+            ->withPivot('id_deporte');
+    }
 }

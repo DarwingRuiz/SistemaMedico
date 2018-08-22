@@ -27,11 +27,11 @@ class AtletaController extends Controller
      */
     public function index()
     {
-        $atleta=Atleta::orderBy('pnombre','ASC')->paginate(5);
-      $atleta->each(function ($atleta){
-          $atleta->deporte;
-          $atleta->categoria;
-      });
+        $atleta=Atleta::orderBy('pnombre','ASC')->get();
+      // $atleta->each(function ($atleta){
+      //     $atleta->deporte;
+      //     $atleta->categoria;
+      // });
        /* dd($atleta);*/
         return view('Atleta.index')->with("atletas",$atleta);
     }
@@ -107,9 +107,9 @@ class AtletaController extends Controller
         $atleta->emergencia=$request->get('emergencia');
         $atleta->diremergencia=$request->get('diremergencia');
         $atleta->save();
-
-        $atleta->deporte()->sync($request->deporte);
-        $atleta->categoria()->sync($request->categoria);
+        
+        $atleta->deportes()->attach($request->get('deporte'),[$request->get('categoria')]);
+        return redirect('/atleta');
     }
 
     /**

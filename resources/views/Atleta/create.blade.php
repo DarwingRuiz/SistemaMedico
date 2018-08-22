@@ -5,14 +5,26 @@
 @section('content')
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+      <div class="block-header">
+          @if (count($errors)>0)
+              <div class="alert bg-red">
+                  <ul>
+                      @foreach ($errors->all() as $error)
+                          <li>{{$error}}</li>
+                      @endforeach
+                  </ul>
+              </div>
+          @endif
+      </div>
       <div class="card">
           <div class="card-body p-b-0">
               <h4 class="card-title">Customtab Tab</h4>
           </div>
           <form class="floating-labels m-t-40" role="form" action="{{url('/atleta')}}" method="post" autocomplete="off" enctype="multipart/form-data" >
+              {{csrf_field()}}
           <!-- Nav tabs -->
           <ul class="nav nav-tabs customtab" role="tablist">
-              <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab"><span class="hidden-sm-up"></span> <span class="hidden-xs-down">Datos Generales</span></a> </li>
+               <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Datos Generales</span></a> </li>
               <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab2" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Direccion y Correo</span></a> </li>
               <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab3" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Deporte y Diciplina</span></a> </li>
               <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab4" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Datos Familiares</span></a> </li>
@@ -155,19 +167,100 @@
               {{-- <div class="tab-pane p-20" id="tab3" role="tabpanel">3</div> --}}
               <div class="tab-pane  p-20" id="tab3" role="tabpanel">
                 <fieldset>
-                  <div class="row">
-                    <div class="form-group">
-                      <select class="form-control p-0" name="deporte" id="select-deporte">
-                        <option value="0" disable="true" selected="true">=== Select Provinces ===</option>
-                        @foreach ($deporte as $key => $value)
-                          <option value="{{$value->id}}">{{ $value->nombre }}</option>
-                        @endforeach
-                      </select>
+                  <div class="row col-md-12">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <select class="form-control p-0" name="deporte" id="select-deporte">
+                          <option value="0" disable="true" selected="true">=== Seleccione un deporte ===</option>
+                          @foreach ($deporte as $key => $value)
+                            <option value="{{$value->id_deporte}}">{{ $value->nombre }}</option>
+                          @endforeach
+                        </select>
+                      </div>
                     </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                        <select class="form-control p-0" name="categoria" id="select-categoria">
+                          <option value="0" disable="true" selected="true">=== Seleccione sus Categoria ===</option>
+                        </select>
+                      </div>
+                    </div>
+
                   </div>
                 </fieldset>
               </div>
-              <div class="tab-pane p-20" id="tab4" role="tabpanel">dwf</div>
+              <div class="tab-pane p-20" id="tab4" role="tabpanel">
+                <fieldset>
+                  <div class="row col-md-12">
+                    <div class="col-md-6">
+                      <div class="form-group">
+                            <input type="text" class="form-control" name="nombremadre" id="nombmadre">
+                          <span class="bar"></span>
+                          <label for="nombmadre">Nombre de la madre</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                            <input type="text" class="form-control" name="telmadre" id="telmadre">
+                          <span class="bar"></span>
+                          <label for="telmadre">Telefono de la madre</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                            <input type="text" class="form-control" name="nombrepadre" id="nombrepadre">
+                          <span class="bar"></span>
+                          <label for="nombrepadre">Nombre del padre</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                            <input type="text" class="form-control" name="telpadre" id="telpadre">
+                          <span class="bar"></span>
+                          <label for="telpadre">Telefono del padre</label>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                          <input type="text" class="form-control" name="emergencia" id="emergencia">
+                          <span class="bar"></span>
+                          <label for="emergencia">En emergencia llamar a: </label>
+                          <span class="help-block"><small>(Nombre)</small></span>
+                      </div>
+                    </div>
+                    <div class="col-md-6">
+                      <div class="form-group">
+                         <input type="text" class="form-control" name="diremergencia" id="diremergencia">
+                          <span class="bar"></span>
+                          <label for="diremergencia">Direccion: </label>
+
+                      </div>
+                    </div>
+                  </div>{{-- fin del row --}}
+                  <div class="row col-md-12">
+                    <div class="col-md-4">
+
+                    </div>
+                    <div class="col-md-4">
+                      <div class="btn-group" role="group">
+                          <button type="reset"  class="btn btn-danger btn-rounded"><i class="fa fa-times"></i> Cancelar</button>
+                          <button type="submit"  class="btn btn-primary btn-rounded"><i class="fa fa-save"></i> Guardar</button>
+                      </div>
+                    </div>
+                    <div class="col-md-4">
+
+                    </div>
+
+                  </div>
+
+                </fieldset>
+
+                 {{-- <div class="row col-md-12">
+                   <div class="col-md-6">
+
+                   </div>
+                 </div> --}}
+              </div>
           </div>
         </form>
       </div>
@@ -247,4 +340,23 @@
            });
        });
    </script>
+   {{--Select Dinamico  --}}
+   <script type="text/javascript">
+     $(function () {
+       $('#select-deporte').on('change',categoriaSelec);
+     });
+
+     function categoriaSelec() {
+       var Id_deporte = $(this).val();
+       //Ajax
+         $.get('/api/categoria/'+Id_deporte+'/categoria',function (data) {
+           var html_select= '<option value="" disable>==Seleccione una Categoria==</option>';
+           for (var i = 0; i < data.length; ++i) {
+             html_select += '<option value="'+data[i].id_categoria+'">'+data[i].categoria+'</option>';
+            }
+            $('#select-categoria').html(html_select);
+         });
+
+     }
+     </script>
 @endsection
