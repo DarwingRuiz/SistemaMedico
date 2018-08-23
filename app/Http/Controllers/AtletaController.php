@@ -28,11 +28,19 @@ class AtletaController extends Controller
     public function index()
     {
         $atleta=Atleta::orderBy('pnombre','ASC')->get();
-      // $atleta->each(function ($atleta){
-      //     $atleta->deporte;
-      //     $atleta->categoria;
-      // });
-       /* dd($atleta);*/
+        $atleta->each(function ($atleta){
+          // $atleta->deporte;
+          // $atleta->categoria;
+            foreach ($atleta->categoria as $menu) {
+                //obteniendo los datos de un menu específico
+                echo $menu->categoria;
+               
+                //obteniendo datos de la tabla pivot por menu
+               // echo $menu->pivot->task_id;
+                //echo $menu->pivot->status;
+            }
+         });
+        dd($atleta);
         return view('Atleta.index')->with("atletas",$atleta);
     }
     /**
@@ -83,7 +91,8 @@ class AtletaController extends Controller
         $atleta->correoe=$request->get('correoe');
         $atleta->tconvencional=$request->get('tconvencional');
         $atleta->tcelular=$request->get('tcelular');
-        if ($request->get('genero')=="Masculino"){
+        if ($request->get('genero')=="Masculino")
+        {
             $atleta->embarazo="no";
         }
         elseif ($request->get('genero')=="Femenino"){
@@ -108,7 +117,7 @@ class AtletaController extends Controller
         $atleta->diremergencia=$request->get('diremergencia');
         $atleta->save();
         
-        $atleta->deportes()->attach($request->get('deporte'),[$request->get('categoria')]);
+        $atleta->categoria()->attach($request->get('categoria'),['deporte_id' => $request->get('deporte')]);
         return redirect('/atleta');
     }
 

@@ -1,5 +1,5 @@
 <?php
-
+ 
 namespace SistemaMedico;
 
 use Illuminate\Database\Eloquent\Model;
@@ -39,13 +39,13 @@ class Atleta extends Model
         'diremergencia',
         'embarazo'];
 
-    public function deportes(){
-        return $this->belongsToMany('\SistemaMedico\Deporte','Atleta_Categoria_Deporte')
-            ->withPivot('id_categoria');
-    }
-
     public function categoria(){
         return $this->belongsToMany('\SistemaMedico\Categoria','Atleta_Categoria_Deporte')
-            ->withPivot('id_deporte');
+            ->withPivot('categoria_id');
+    }
+
+    public function deporte(){
+        return $this->belongsToMany('\SistemaMedico\Deporte','Atleta_Categoria_Deporte')
+            ->withPivot('deporte_id');
     }
 }

@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 namespace SistemaMedico;
 
@@ -12,11 +12,11 @@ class Categoria extends Model
 
     public function atleta(){
       return $this->belongsToMany('\SistemaMedico\Atleta','Atleta_Categoria_Deporte')
-      ->withPivot('id_deporte');
+      ->withPivot('atleta_id');
       }
 
-      public function deportes(){
+      public function deporte(){
        	return $this->belongsToMany('\SistemaMedico\Deporte','Atleta_Categoria_Deporte')
-        ->withPivot('id_atleta');
+        ->withPivot('deporte_id');
       }
 }

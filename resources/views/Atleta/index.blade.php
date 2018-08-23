@@ -4,11 +4,16 @@
 @endsection
 @section('content')
   <div class="row el-element-overlay">
+    <div class="col-md-12">
+      <h4>LISTADO DE ATLETAS</h4>
+      <button class="btn btn-primary">Nuevo Atleta</button>
+    </div>
+    
     @foreach ($atletas as $at)
       <div class="col-lg-3 col-md-6">
           <div class="card">
               <div class="el-card-item">
-                  <div class="el-card-avatar el-overlay-1"> <img height="600px" with="600px" src="{{asset('imagenes/perfiles/'.$at->Foto)}}" alt="{{ $at->pnombre}}" />
+                  <div class="el-card-avatar el-overlay-1"> <img  src="{{asset('imagenes/perfiles/'.$at->Foto)}}" alt="{{ $at->pnombre}}" />
                       <div class="el-overlay scrl-dwn">
                           <ul class="el-info">
                               <li><a class="btn default btn-outline image-popup-vertical-fit" href="{{asset('imagenes/perfiles/'.$at->Foto)}}"><i class="icon-magnifier"></i></a></li>
