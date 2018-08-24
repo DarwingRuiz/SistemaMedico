@@ -285,7 +285,7 @@
          $('.dropify').dropify();
 
          // Translated
-         $('.dropify-fr').dropify({
+         $('.dropify-fr').dropify({ 
              messages: {
                  default: 'Glissez-déposez un fichier ici ou cliquez',
                  replace: 'Glissez-déposez un fichier ou cliquez pour remplacer',

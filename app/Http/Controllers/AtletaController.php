@@ -12,7 +12,7 @@ use Response;
 use DB;
 use SistemaMedico\Categoria;
 use SistemaMedico\Deporte;
-use SistemaMedico\Cuestionariomedicamentos;
+use SistemaMedico\Cuestionariomedicamentos; 
 //use Laracasts\Flash\Flash;
 
 //use SistemaMedico\Http\Requests;
