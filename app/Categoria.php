@@ -12,11 +12,11 @@ class Categoria extends Model
 
     public function atleta(){
       return $this->belongsToMany('\SistemaMedico\Atleta','Atleta_Categoria_Deporte')
-      ->withPivot('atleta_id');
+      ->withPivot('id_atleta','id_deporte');
       }
 
       public function deporte(){
        	return $this->belongsToMany('\SistemaMedico\Deporte','Atleta_Categoria_Deporte')
-        ->withPivot('deporte_id');
+        ->withPivot('deporte_id','id_atleta');
       }
 }

@@ -12,6 +12,7 @@ use Response;
 use DB;
 use SistemaMedico\Categoria;
 use SistemaMedico\Deporte;
+use SistemaMedico\Cuestionariomedicamentos;
 //use Laracasts\Flash\Flash;
 
 //use SistemaMedico\Http\Requests;
@@ -27,20 +28,16 @@ class AtletaController extends Controller
      */
     public function index()
     {
-        $atleta=Atleta::orderBy('pnombre','ASC')->get();
-        $atleta->each(function ($atleta){
-          // $atleta->deporte;
-          // $atleta->categoria;
-            foreach ($atleta->categoria as $menu) {
-                //obteniendo los datos de un menu específico
-                echo $menu->categoria;
-               
-                //obteniendo datos de la tabla pivot por menu
-               // echo $menu->pivot->task_id;
-                //echo $menu->pivot->status;
-            }
-         });
-        dd($atleta);
+        $atleta=DB::table('datosatleta as atle')
+                ->join('atleta_categoria_deporte as acp','acp.atleta_id','=','atle.id_atleta')
+                ->join('categorias as cat','cat.id_categoria','=','acp.categoria_id')
+                ->join('deporte as dep','dep.id_deporte','=','acp.deporte_id')
+                ->select('atle.*','cat.categoria as categoria','dep.nombre as deporte')
+               // ->where('atle.id_atleta','=','acp.id_atleta')
+                ->orderBy('atle.pnombre','desc')
+                ->paginate(10);
+        // $cuest_medico=Cuestionariomedicamentos::find($atleta->id_atleta);
+        // dd($cuest_medico);
         return view('Atleta.index')->with("atletas",$atleta);
     }
     /**
@@ -50,14 +47,11 @@ class AtletaController extends Controller
      */
     public function create()
     {
-        //variables deporte y categoria
-
-        //$states = Deporte::list('nombre','id');
-        //$deporte = DB::table('deporte')->pluck("nombre","id")->all();
-        //$deporte=DB::table('deporte')->get();
+        $departamento=DB::table('departamento')->get();
+        //dd($departamento);
         $deporte=Deporte::all();
         $hospital=DB::table('hospital')->get();
-        return view('Atleta.create',compact('deporte','hospital'));
+        return view('Atleta.create',compact('deporte','hospital','departamento'));
     }
 
     /**

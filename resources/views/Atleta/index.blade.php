@@ -6,7 +6,7 @@
   <div class="row el-element-overlay">
     <div class="col-md-12">
       <h4>LISTADO DE ATLETAS</h4>
-      <button class="btn btn-primary">Nuevo Atleta</button>
+      <!-- <button class="btn btn-primary">Nuevo Atleta</button> -->
     </div>
     
     @foreach ($atletas as $at)
@@ -22,14 +22,19 @@
                       </div>
                   </div>
                   <div class="el-card-content">
-                      <h3 class="box-title">{{$at->pnombre." ".$at->papellido." ".$at->sapellido}}</h3>
-                       <small>Edad: {{$at->edad}}</small>
+                      <h3 class="box-title">{{$at->pnombre." ".$at->papellido}}</h3>
+                       <label>Edad: {{$at->edad}}</label>
                       <br/>
-                      <small>Correo: {{$at->correoe}}</small>
+                      <label>Correo: {{$at->correoe}}</label>
                       <br/>
-                      <small>Deportes:</small>
+                      <label>Deportes: {{$at->deporte}}</label>
                       <br>
-                      <small>Categoria:</small>
+                      <label>Categoria: {{$at->categoria}}</label>
+                     <div class="col-md-12">
+                      <a href="#"><button class="btn waves-effect waves-light btn-rounded btn-xs btn-primary">cuestionario med</button></a>
+                      <a href="#"><button class="btn waves-effect waves-light btn-rounded btn-xs btn-danger">examen fisico</button></a>
+                    </div>
+                      
                    </div>
               </div>
           </div>

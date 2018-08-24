@@ -131,14 +131,23 @@
 
                     </div>
                     <div class="form-group col-md-4 m-t-10 ">
-                        <input type="text" class="form-control" id="departamento" name="departamento">
+                        {{-- <input type="text" class="form-control" id="departamento" name="departamento">
                         <span class="bar"></span>
-                        <label for="departamento">Departamento</label>
+                        <label for="departamento">Departamento</label> --}}
+                         <select class="form-control p-0" name="departamento" id="select-departamento">
+                          <option value="0" disable="true" selected="true">==Seleccione un Departamento==</option>
+                          @foreach ($departamento as $key => $value)
+                            <option value="{{$value->ID}}">{{ $value->Nombre }}</option>
+                          @endforeach
+                        </select>
                     </div>
                     <div class="form-group col-md-4 m-t-10 ">
-                        <input type="text" class="form-control" name="municipio" id="municipio">
+                       {{--  <input type="text" class="form-control" name="municipio" id="municipio">
                         <span class="bar"></span>
-                        <label for="municipio">Municipio</label>
+                        <label for="municipio">Municipio</label> --}}
+                        <select class="form-control p-0" name="municipio" id="select-municipio">
+                          <option value="0" disable="true" selected="true">=== Seleccione un municipio ===</option>
+                        </select>
                     </div>
                     <div class="col-md-2">
                         <div class="form-group">
@@ -340,7 +349,7 @@
            });
        });
    </script>
-   {{--Select Dinamico  --}}
+   {{--Select Dinamico deporte y categoria  --}}
    <script type="text/javascript">
      $(function () {
        $('#select-deporte').on('change',categoriaSelec);
@@ -355,6 +364,25 @@
              html_select += '<option value="'+data[i].id_categoria+'">'+data[i].categoria+'</option>';
             }
             $('#select-categoria').html(html_select);
+         });
+
+     }
+     </script>
+     {{--Select Dinamico departamento y municipio --}}
+   <script type="text/javascript">
+     $(function () {
+       $('#select-departamento').on('change',municipioSelec);
+     });
+
+     function municipioSelec() {
+       var Id_departamento = $(this).val();
+       //Ajax
+         $.get('/api/municipio/'+Id_departamento+'/municipio',function (data) {
+           var html_select= '<option value="" disable>Seleccione un Municipio</option>';
+           for (var i = 0; i < data.length; ++i) {
+             html_select += '<option value="'+data[i].ID+'">'+data[i].Nombre+'</option>';
+            }
+            $('#select-municipio').html(html_select);
          });
 
      }

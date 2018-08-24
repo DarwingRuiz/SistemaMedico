@@ -17,3 +17,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 Route::get('/categoria/{id}/categoria','WebServicesController@byCategoria');
+Route::get('/municipio/{id}/municipio','WebServicesController@byMunicipio');
