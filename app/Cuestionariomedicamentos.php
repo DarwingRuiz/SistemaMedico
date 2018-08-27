@@ -16,7 +16,5 @@ class Cuestionariomedicamentos extends Model
      'idatleta',
  ];
 
-    public function  atleta(){
-        return $this->belongsToMany('\SistemaMedico\Atleta');
-    }
+    
 }

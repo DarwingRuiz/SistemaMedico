@@ -34,11 +34,18 @@ class AtletaController extends Controller
                 ->join('deporte as dep','dep.id_deporte','=','acp.deporte_id')
                 ->select('atle.*','cat.categoria as categoria','dep.nombre as deporte')
                // ->where('atle.id_atleta','=','acp.id_atleta')
-                ->orderBy('atle.pnombre','desc')
-                ->paginate(10);
+                ->orderBy('atle.pnombre','desc')->get();
         // $cuest_medico=Cuestionariomedicamentos::find($atleta->id_atleta);
         // dd($cuest_medico);
-        return view('Atleta.index')->with("atletas",$atleta);
+        
+        // foreach($atleta as $d) {
+        //     $cm=DB::table('medicamentos as med')
+        //     ->where('med.idatleta','=',$d->id_atleta)->get();
+        // }
+        //$cm=Cuestionariomedicamentos::get();
+        
+        //dd($cm);
+        return view('Atleta.index',compact('atleta','cm'));
     }
     /**
      * Show the form for creating a new resource.

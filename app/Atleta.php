@@ -48,4 +48,5 @@ class Atleta extends Model
         return $this->belongsToMany('\SistemaMedico\Deporte','Atleta_Categoria_Deporte')
             ->withPivot('deporte_id','categoria_id');
     }
+    
 }

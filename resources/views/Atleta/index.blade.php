@@ -9,7 +9,7 @@
       <!-- <button class="btn btn-primary">Nuevo Atleta</button> -->
     </div>
     
-    @foreach ($atletas as $at)
+    @foreach ($atleta as $at)
       <div class="col-lg-3 col-md-6">
           <div class="card">
               <div class="el-card-item">
@@ -25,14 +25,25 @@
                       <h3 class="box-title">{{$at->pnombre." ".$at->papellido}}</h3>
                        <label>Edad: {{$at->edad}}</label>
                       <br/>
-                      <label>Correo: {{$at->correoe}}</label>
+                      <label>Correo: <small>{{$at->correoe}}</small></label>
                       <br/>
                       <label>Deportes: {{$at->deporte}}</label>
                       <br>
                       <label>Categoria: {{$at->categoria}}</label>
+
                      <div class="col-md-12">
-                      <a href="#"><button class="btn waves-effect waves-light btn-rounded btn-xs btn-primary">cuestionario med</button></a>
-                      <a href="#"><button class="btn waves-effect waves-light btn-rounded btn-xs btn-danger">examen fisico</button></a>
+                     {{-- @foreach ($cm as $d)
+                     <label>{{$d->idatleta}}</label>
+                       @if ($d->idatleta == $at->id_atleta)
+                       {{$var=$d->idatleta}}
+                        <a href="#"><button class="btn waves-effect waves-light btn-rounded btn-xs btn-primary">cuestionario med</button></a>
+                        
+                      @else
+                        <a href="#"><button class="btn waves-effect waves-light btn-rounded btn-xs btn-danger">cuestionario med</button></a>
+                      @endif
+                     @endforeach --}}
+                      <a href="{{ action('CuestionarioMedicoController@create',["id"=>$at->id_atleta,"nombre"=>$at->nombrecompleto]) }}"><button class="btn waves-effect waves-light btn-rounded btn-xs btn-success">cuestionario med</button></a>
+                      <a href="#"><button class="btn waves-effect waves-light btn-rounded btn-xs btn-success">examen fisico</button></a>
                     </div>
                       
                    </div>
