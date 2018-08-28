@@ -14,8 +14,8 @@ class Deporte extends Model
     	return $this->belongsToMany('\SistemaMedico\Atleta','Atleta_Categoria_Deporte')
      ->withPivot('id_atleta','id_categoria');
    }
-   public function categoria(){
-   return $this->belongsToMany('\SistemaMedico\Categoria','Atleta_Categoria_Deporte')
-   ->withPivot('id_categoria','id_atleta');
-   }
+   // public function categoria(){
+   // return $this->belongsToMany('\SistemaMedico\Categoria','Atleta_Categoria_Deporte')
+   // ->withPivot('id_categoria','id_atleta');
+   // }
 }

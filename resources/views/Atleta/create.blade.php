@@ -50,32 +50,33 @@
 
                                  </div>
                                  <div class="form-group col-md-3 ">
-                                     <input type="text" id="snombre" class="form-control" name="snombre" value="{{old('snombre')}}" required>
+                                     <input type="text" id="snombre" style="text-transform: capitalize;" class="form-control" name="snombre" value="{{old('snombre')}}" required>
                                      <span class="bar"></span>
                                      <label for="snombre">Segundo Nombre</label>
 
                                  </div>
                                  <div class="form-group col-md-3">
-                                   <input type="text" id="papellido" class="form-control" name="papellido" value="{{old('papellido')}}" required>
+                                   <input type="text" id="papellido" style="text-transform: capitalize;" class="form-control" name="papellido" value="{{old('papellido')}}" required>
                                    <span class="bar"></span>
                                    <label for="papellido">Primer Apellido</label>
 
                                  </div>
                                  <div class="form-group col-md-3 ">
-                                   <input type="text" id="sapellido" class="form-control" name="sapellido" value="{{old('sapellido')}}" required>
+                                   <input type="text" id="sapellido" class="form-control" style="text-transform: capitalize;" name="sapellido" value="{{old('sapellido')}}" required>
                                    <span class="bar"></span>
                                    <label for="sapellido">Segundo Apellido</label>
                                  </div>
                                  <div class="form-group col-md-4">
                                        <div class="form-line">
-                                         <input type="text" class="form-control" name="edad" required value="{{old('edad')}}" id="edad" required>
+                                         <input type="text" 
+                                         class="form-control" name="edad" required value="{{old('edad')}}" id="edad" required>
                                          <span class="bar"></span>
                                          <label for="edad">Edad</label>
                                        </div>
                                  </div>
                                  <div class="form-group col-md-4">
                                        <div class="form-line">
-                                         <input type="text" class="form-control" name="numcedula" required value="{{old('numcedula')}}" id="numcedula">
+                                         <input type="text" class="form-control"  name="numcedula" required value="{{old('numcedula')}}" id="numcedula">
                                          <span class="bar"></span>
                                          <label for="numcedula">Numero de Cedula</label>
                                        </div>
@@ -115,12 +116,12 @@
 
                           </div>
                           <div class="form-group col-md-4 m-t-10 ">
-                              <input type="tel" class="form-control" id="telefonocelular" name="tcelular">
+                              <input type="tel" minlength="8" maxlength="8" class="form-control" id="telefonocelular" name="tcelular">
                               <span class="bar"></span>
                               <label for="telefonocelular">Telefono Celular</label>
                           </div>
                           <div class="form-group col-md-4 m-t-10 ">
-                                <input type="text" class="form-control" name="tconvencional" id="telconven">
+                                <input type="text" minlength="8" maxlength="8" class="form-control" name="tconvencional" id="telconven">
                               <span class="bar"></span>
                               <label for="telconven">Telefono Convencional</label>
                           </div>
@@ -193,8 +194,41 @@
                                 <option value="0" disable="true" selected="true">=== Seleccione sus Categoria ===</option>
                               </select>
                             </div>
+                            <button data-toggle="modal" data-target="#responsive-modal" class="model_img img-responsive"> Crear Categoria</button>
                           </div>
+                          {{-- modal --}}
+                          <div id="responsive-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+                                    <div class="modal-dialog">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                                                <h4 class="modal-title">Crear Categoria</h4>
+                                            </div>
+                                            <div class="modal-body">
+                                                <form class="floating-labels" action="{{url('/cate')}}" method="POST" role="form">
+                                                  @csrf
+                                                    <div class="form-group">
 
+                                                       <select class="form-control p-0" name="c_deporte" id="select-deporte-categoira">
+                                                        <option value="0" disable="true" selected="true">=== Seleccione un deporte ===</option>
+                                                        @foreach ($deporte as $key => $value)
+                                                          <option value="{{$value->id_deporte}}">{{ $value->nombre }}</option>
+                                                        @endforeach
+                                                      </select>
+                                                    </div>
+                                                    <div class="form-group">
+                                                      <input type="text" name="categoria_nombre" class="form-control" id="categoria_nombre">
+                                                        <label for="categoria_nombre" class="control-label">Nombre de la Categoria</label>
+                                                    </div>
+                                                </form>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="reset" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
+                                                <button  class="btn btn-danger waves-effect waves-light" id="guardar_categoria">Guardar</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                         </div>
                       </fieldset>
                     </div>
@@ -261,7 +295,7 @@
                           </div>
 
                         </div>
-
+                         
                       </fieldset>
 
                        {{-- <div class="row col-md-12">
@@ -388,4 +422,41 @@
 
      }
      </script>
+     <script>
+         jQuery(document).ready(function(){
+            jQuery('#guardar_categoria').click(function(e){
+               e.preventDefault();
+               $.ajaxSetup({
+                  headers: {
+                      'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
+                  }
+              });
+               jQuery.ajax({
+                  url: "{{ url('api/cate') }}",
+                  method: 'post',
+                  data: {
+                     nombre_categoria: jQuery('#categoria_nombre').val(),
+                     iddeporte: jQuery('#select-deporte-categoira').val(),
+                    
+                  },
+                  success: function(result){
+                    if(result.errors)
+                    {
+                      jQuery('.alert-danger').html('');
+
+                      jQuery.each(result.errors, function(key, value){
+                        jQuery('.alert-danger').show();
+                        jQuery('.alert-danger').append('<li>'+value+'</li>');
+                      });
+                    }
+                    else
+                    {
+                      jQuery('.alert-danger').hide();
+                      $('#open').hide();
+                      $('#myModal').modal('hide');
+                    }
+                  }});
+               });
+            });
+      </script>
 @endsection

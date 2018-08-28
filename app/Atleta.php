@@ -41,12 +41,12 @@ class Atleta extends Model
 
     public function categoria(){
         return $this->belongsToMany('\SistemaMedico\Categoria','Atleta_Categoria_Deporte')
-            ->withPivot('categoria_id','deporte_id');
+            ->withPivot('categoria_id');
     }
 
-    public function deporte(){
-        return $this->belongsToMany('\SistemaMedico\Deporte','Atleta_Categoria_Deporte')
-            ->withPivot('deporte_id','categoria_id');
-    }
+    // public function deporte(){
+    //     return $this->belongsToMany('\SistemaMedico\Deporte','Atleta_Categoria_Deporte')
+    //         ->withPivot('deporte_id','categoria_id');
+    // }
     
 }

@@ -12,10 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return 'Por favor no joda aqui';
 });
 Route::resource('atleta', 'AtletaController');
 Route::resource('CuestionarioMedico','CuestionarioMedicoController');
+Route::resource('/cate','CategoriaController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

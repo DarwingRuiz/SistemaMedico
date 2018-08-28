@@ -31,7 +31,7 @@ class AtletaController extends Controller
         $atleta=DB::table('datosatleta as atle')
                 ->join('atleta_categoria_deporte as acp','acp.atleta_id','=','atle.id_atleta')
                 ->join('categorias as cat','cat.id_categoria','=','acp.categoria_id')
-                ->join('deporte as dep','dep.id_deporte','=','acp.deporte_id')
+                ->join('deporte as dep','dep.id_deporte','=','cat.iddeporte')
                 ->select('atle.*','cat.categoria as categoria','dep.nombre as deporte')
                // ->where('atle.id_atleta','=','acp.id_atleta')
                 ->orderBy('atle.pnombre','desc')->get();
@@ -108,7 +108,7 @@ class AtletaController extends Controller
             $atleta->hospital="1";
         }
         $atleta->direccion=$request->get('direccion');
-        $atleta->departamento=$request->get('departamento');
+        // $atleta->departamento=$request->get('departamento');
         $atleta->municipio=$request->get('municipio');
         $atleta->nombremadre=$request->get('nombremadre');
         $atleta->telmadre=$request->get('telmadre');
