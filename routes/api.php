@@ -18,4 +18,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::get('/categoria/{id}/categoria','WebServicesController@byCategoria');
 Route::get('/municipio/{id}/municipio','WebServicesController@byMunicipio');
-Route::post('/cate','WebServicesController@store');
+Route::post('Hospital','HospitalController@store');

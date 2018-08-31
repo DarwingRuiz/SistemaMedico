@@ -1,26 +1,25 @@
 @extends('layouts.admin')
 @section('head')
   <link rel="stylesheet" href="../assets/plugins/dropify/dist/css/dropify.min.css">
+      {{-- <link href="../assets/plugins/toast-master/css/jquery.toast.css" rel="stylesheet"> --}}
+      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
 @endsection
 @section('content')
   <div class="row">
     <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      <div class="block-header">
-          @if (count($errors)>0)
-              <div class="alert bg-red">
-                  <ul>
-                      @foreach ($errors->all() as $error)
-                          <li>{{$error}}</li>
-                      @endforeach
-                  </ul>
-              </div>
-          @endif
-      </div>
+      @if (count($errors)>0)
+                    <div class="alert alert-danger">
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                                <li>{{$error}}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
       <div class="card">
           <div class="card-body p-b-0">
-              <h4 class="card-title">Customtab Tab</h4>
-         
-                <form class="floating-labels m-t-40" role="form" action="{{url('/atleta')}}" method="post" autocomplete="off" enctype="multipart/form-data" >
+           <h4 class="card-title">Registro de atletas</h4>
+                <form class="floating-labels m-t-40" role="form" action="{{url('/atleta')}}" method="post" autocomplete="off" enctype="multipart/form-data" novalidate="true">
                     {{csrf_field()}}
                 <!-- Nav tabs -->
                 <ul class="nav nav-tabs customtab" role="tablist">
@@ -37,46 +36,48 @@
                              <div class="row">
                                <div class="col-md-4 row ">
                                  <div class="form-group col-md-12">
-                                   <label for="input-file-now">Seleccione una fotografia</label>
+                                  <div class="col-md-12 m-b-30">
+                                     <label for="input-file-now">Seleccione una fotografia</label>
+                                  </div>
                                    <input type="file" name="foto" id="input-file-now" class="dropify" />
                                   </div>
                                </div>
                                  {{--datos nombre--}}
                                <div class="col-md-8 row  ">
                                  <div class="form-group col-md-3">
-                                     <input type="text" id="pnombre" style="text-transform: capitalize;" class="form-control" name="pnombre" value="{{old('pnombre')}}" required>
+                                     <input type="text" id="pnombre" style="text-transform: capitalize;" class="form-control" name="pnombre" value="{{old('pnombre')}}" >
                                      <span class="bar"></span>
                                      <label for="pnombre">Primer Nombre</label>
 
                                  </div>
                                  <div class="form-group col-md-3 ">
-                                     <input type="text" id="snombre" style="text-transform: capitalize;" class="form-control" name="snombre" value="{{old('snombre')}}" required>
+                                     <input type="text" id="snombre" style="text-transform: capitalize;" class="form-control" name="snombre" value="{{old('snombre')}}" >
                                      <span class="bar"></span>
                                      <label for="snombre">Segundo Nombre</label>
 
                                  </div>
                                  <div class="form-group col-md-3">
-                                   <input type="text" id="papellido" style="text-transform: capitalize;" class="form-control" name="papellido" value="{{old('papellido')}}" required>
+                                   <input type="text" id="papellido" style="text-transform: capitalize;" class="form-control" name="papellido" value="{{old('papellido')}}" >
                                    <span class="bar"></span>
                                    <label for="papellido">Primer Apellido</label>
 
                                  </div>
                                  <div class="form-group col-md-3 ">
-                                   <input type="text" id="sapellido" class="form-control" style="text-transform: capitalize;" name="sapellido" value="{{old('sapellido')}}" required>
+                                   <input type="text" id="sapellido" class="form-control" style="text-transform: capitalize;" name="sapellido" value="{{old('sapellido')}}" >
                                    <span class="bar"></span>
                                    <label for="sapellido">Segundo Apellido</label>
                                  </div>
                                  <div class="form-group col-md-4">
                                        <div class="form-line">
                                          <input type="text" 
-                                         class="form-control" name="edad" required value="{{old('edad')}}" id="edad" required>
+                                         class="form-control" name="edad"  value="{{old('edad')}}" id="edad" >
                                          <span class="bar"></span>
                                          <label for="edad">Edad</label>
                                        </div>
                                  </div>
                                  <div class="form-group col-md-4">
                                        <div class="form-line">
-                                         <input type="text" class="form-control"  name="numcedula" required value="{{old('numcedula')}}" id="numcedula">
+                                         <input type="text" class="form-control"  name="numcedula"  value="{{old('numcedula')}}" id="numcedula">
                                          <span class="bar"></span>
                                          <label for="numcedula">Numero de Cedula</label>
                                        </div>
@@ -84,9 +85,17 @@
                                    <div class=" col-md-6 m-t-20">
                                      <div class="form-group m-b-40">
                                               <select class="form-control p-0" name="genero" id="Genero">
-                                                  <option></option>
-                                                  <option value="Masculino">Masculino</option>
-                                                  <option value="Femenino">Femenino</option>
+                                                  <option disable="true"></option>
+
+                                                  @if (old('genero') == "Masculino")
+                                                        <option value="Masculino" selected>Masculino</option>
+                                                  @elseif(old('genero') == "Femenino")
+                                                      <option value="Femenino">Femenino</option>
+                                                  @else
+                                                    <option value="Masculino">Masculino</option>
+                                                    <option value="Femenino">Femenino</option>
+                                                  @endif
+                                                  
                                               </select><span class="bar"></span>
                                               <label for="input6">Genero</label>
                                       </div>
@@ -116,7 +125,7 @@
 
                           </div>
                           <div class="form-group col-md-4 m-t-10 ">
-                              <input type="tel" minlength="8" maxlength="8" class="form-control" id="telefonocelular" name="tcelular">
+                              <input type="text" minlength="8" maxlength="8" class="form-control" id="telefonocelular" name="tcelular">
                               <span class="bar"></span>
                               <label for="telefonocelular">Telefono Celular</label>
                           </div>
@@ -161,6 +170,7 @@
                                   </div>
 
                               </div>
+                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#responsive-modalH" class="model_img img-responsive"> Crear Hospital</button>
                           </div>
                           <div class="col-md-6" id="hosp" style="display:none;">
 
@@ -194,41 +204,9 @@
                                 <option value="0" disable="true" selected="true">=== Seleccione sus Categoria ===</option>
                               </select>
                             </div>
-                            <button data-toggle="modal" data-target="#responsive-modal" class="model_img img-responsive"> Crear Categoria</button>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#responsive-modal" class="model_img img-responsive"> Crear Categoria</button>
                           </div>
-                          {{-- modal --}}
-                          <div id="responsive-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                                    <div class="modal-dialog">
-                                        <div class="modal-content">
-                                            <div class="modal-header">
-                                                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                                                <h4 class="modal-title">Crear Categoria</h4>
-                                            </div>
-                                            <div class="modal-body">
-                                                <form class="floating-labels" action="{{url('/cate')}}" method="POST" role="form">
-                                                  @csrf
-                                                    <div class="form-group">
-
-                                                       <select class="form-control p-0" name="c_deporte" id="select-deporte-categoira">
-                                                        <option value="0" disable="true" selected="true">=== Seleccione un deporte ===</option>
-                                                        @foreach ($deporte as $key => $value)
-                                                          <option value="{{$value->id_deporte}}">{{ $value->nombre }}</option>
-                                                        @endforeach
-                                                      </select>
-                                                    </div>
-                                                    <div class="form-group">
-                                                      <input type="text" name="categoria_nombre" class="form-control" id="categoria_nombre">
-                                                        <label for="categoria_nombre" class="control-label">Nombre de la Categoria</label>
-                                                    </div>
-                                                </form>
-                                            </div>
-                                            <div class="modal-footer">
-                                                <button type="reset" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                                                <button  class="btn btn-danger waves-effect waves-light" id="guardar_categoria">Guardar</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                          
                         </div>
                       </fieldset>
                     </div>
@@ -307,12 +285,79 @@
           </div>
          </div>
         </form>
+        
+        
       </div>
     </div>
   </div>
 @endsection
+{{-- modal Categoria --}}
+<div id="responsive-modal" class="modal fade" tabindex="-1" role="dialog"  style="display: none;">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Crear Categoria</h4>
+                </div>
+                <form class="floating-labels" id="form_Categoria" action="{{route('category.store')}}" method="POST" role="form">
+                  {{csrf_field()}}
+                <div class="modal-body">
+                            
+                              
+                      <div class="form-group">
+
+                         <select class="form-control p-0" name="c_deporte" id="select-deporte-categoira">
+                          <option value="0" disable="true" selected="true">=== Seleccione un deporte ===</option>
+                          @foreach ($deporte as $key => $value)
+                            <option value="{{$value->id_deporte}}">{{ $value->nombre }}</option>
+                          @endforeach
+                        </select>
+              </div>
+              <div class="form-group">
+                <input type="text" name="categoria_nombre" class="form-control" id="categoria_nombre">
+                  <label for="categoria_nombre" class="control-label">Nombre de la Categoria</label>
+              </div>
+          
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
+                   <button type="submit"  class="btn btn-danger waves-effect waves-light " id="guardar_categoria">Guardar</button>
+              </div>
+              </form>
+          </div>
+      </div>
+        </div>
+
+        {{-- modal hospital--}}
+<div id="responsive-modalH" class="modal fade" tabindex="-1" role="dialog" style="display: none;">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                            <h4 class="modal-title">Crear Hospital</h4>
+                        </div>
+                        <form class="floating-labels" action="{{route('hospital.store')}}" method="POST" id="form_hospital" role="form">
+                          {{csrf_field()}}
+                        <div class="modal-body">
+                        <div class="form-group">
+                          <input type="text" name="Hospital" class="form-control" id="hospitalnombre">
+                            <label for="hospitalnombre" class="control-label">Nombre del Hospital</label>
+                        </div>
+                    
+                        </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
+                    <button type="submit"  class="btn btn-danger waves-effect waves-light " id="guardar_hospital">Guardar</button>
+                </div>
+              </form>
+          </div>
+      </div>
+        </div>
 @section('scripts')
   <script src="../assets/plugins/dropify/dist/js/dropify.min.js"></script>
+ {{--  <script src="../assets/plugins/toast-master/js/jquery.toast.js"></script>
+  <script src="js/toastr.js"></script> --}}
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
   {{-- previzualizar imagen --}}
   <script>
      $(document).ready(function() {
@@ -422,41 +467,52 @@
 
      }
      </script>
-     <script>
-         jQuery(document).ready(function(){
-            jQuery('#guardar_categoria').click(function(e){
-               e.preventDefault();
-               $.ajaxSetup({
-                  headers: {
-                      'X-CSRF-TOKEN': $('meta[name="_token"]').attr('content')
-                  }
-              });
-               jQuery.ajax({
-                  url: "{{ url('api/cate') }}",
-                  method: 'post',
-                  data: {
-                     nombre_categoria: jQuery('#categoria_nombre').val(),
-                     iddeporte: jQuery('#select-deporte-categoira').val(),
-                    
-                  },
-                  success: function(result){
-                    if(result.errors)
-                    {
-                      jQuery('.alert-danger').html('');
-
-                      jQuery.each(result.errors, function(key, value){
-                        jQuery('.alert-danger').show();
-                        jQuery('.alert-danger').append('<li>'+value+'</li>');
-                      });
-                    }
-                    else
-                    {
-                      jQuery('.alert-danger').hide();
-                      $('#open').hide();
-                      $('#myModal').modal('hide');
-                    }
-                  }});
-               });
-            });
-      </script>
+     {{-- form Hospital --}}
+     <script type="text/javascript">
+        $(document).ready(function(){
+        //cuando hagamos submit al formulario con id id_del_formulario
+        //se procesara este script javascript
+         $("#form_hospital").submit(function(e){
+           e.preventDefault();
+            $.ajax({
+              url: $(this).attr("action"),//action del formulario, ej:
+              //http://localhost/mi_proyecto/mi_controlador/mi_funcion
+              type: $(this).attr("method"),//el método post o get del formulario
+              data: $(this).serialize(),//obtenemos todos los datos del formulario
+              error: function(){
+             console.log("");
+              },
+              success:function(data){
+                console.log("guardado Correctamente");
+                $("#responsive-modalH").modal('hide');
+                toastr.success("Hospital Guardado Correctamente");
+              }
+           });
+          });
+        }); 
+     </script>
+     {{-- fomr categoria --}}
+     <script type="text/javascript">
+        $(document).ready(function(){
+        //cuando hagamos submit al formulario con id id_del_formulario
+        //se procesara este script javascript
+         $("#form_Categoria").submit(function(e){
+           e.preventDefault();
+            $.ajax({
+              url: $(this).attr("action"),//action del formulario, ej:
+              //http://localhost/mi_proyecto/mi_controlador/mi_funcion
+              type: $(this).attr("method"),//el método post o get del formulario
+              data: $(this).serialize(),//obtenemos todos los datos del formulario
+              error: function(){
+             console.log("");
+              },
+              success:function(data){
+                console.log("guardado Correctamente");
+                $("#responsive-modal").modal('hide');
+                toastr.success("Categoria Guardado Correctamente");
+              }
+           });
+          });
+        }); 
+     </script>
 @endsection

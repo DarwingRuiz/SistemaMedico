@@ -65,7 +65,7 @@ return [
     |
     */
 
-    'timezone' => 'UTC',
+    'timezone' => 'America/Managua',
 
     /*
     |--------------------------------------------------------------------------
@@ -78,7 +78,7 @@ return [
     |
     */
 
-    'locale' => 'en',
+    'locale' => 'es',
 
     /*
     |--------------------------------------------------------------------------
@@ -159,6 +159,7 @@ return [
         // SistemaMedico\Providers\BroadcastServiceProvider::class,
         SistemaMedico\Providers\EventServiceProvider::class,
         SistemaMedico\Providers\RouteServiceProvider::class,
+        Brian2694\Toastr\ToastrServiceProvider::class,
 
     ],
 
@@ -208,6 +209,7 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+        'Toastr'  => Brian2694\Toastr\Facades\Toastr::class,
 
     ],
 

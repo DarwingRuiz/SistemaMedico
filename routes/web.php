@@ -16,7 +16,8 @@ Route::get('/', function () {
 });
 Route::resource('atleta', 'AtletaController');
 Route::resource('CuestionarioMedico','CuestionarioMedicoController');
-Route::resource('/cate','CategoriaController');
+Route::resource('category','CategoryController');
+Route::resource('hospital','HospitalController');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

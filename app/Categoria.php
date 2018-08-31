@@ -9,6 +9,7 @@ class Categoria extends Model
     protected $table = 'categorias';
     // protected $primaryKey='id_categoria';
     protected $fillable = ['categoria','iddeporte'];
+     public $timestamps = false;
 
     public function atleta(){
       return $this->belongsToMany('\SistemaMedico\Atleta','Atleta_Categoria_Deporte')

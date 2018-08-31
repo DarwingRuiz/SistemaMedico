@@ -12,7 +12,8 @@ use Response;
 use DB;
 use SistemaMedico\Categoria;
 use SistemaMedico\Deporte;
-use SistemaMedico\Cuestionariomedicamentos; 
+use SistemaMedico\Cuestionariomedicamentos;
+Use SistemaMedico\Http\Requests\AtletaFormRequest;
 //use Laracasts\Flash\Flash;
 
 //use SistemaMedico\Http\Requests;
@@ -67,9 +68,8 @@ class AtletaController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(AtletaFormRequest $request)
     {
-        //
         $atleta=new Atleta;
         $mytime = Carbon::now('America/Managua');
         if (Input::hasFile('foto'))
@@ -118,7 +118,7 @@ class AtletaController extends Controller
         $atleta->diremergencia=$request->get('diremergencia');
         $atleta->save();
         
-        $atleta->categoria()->attach($request->get('categoria'),['deporte_id' => $request->get('deporte')]);
+        $atleta->categoria()->attach($request->get('categoria'));
         return redirect('/atleta');
     }
 

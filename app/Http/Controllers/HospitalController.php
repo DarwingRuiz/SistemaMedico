@@ -3,9 +3,10 @@
 namespace SistemaMedico\Http\Controllers;
 
 use Illuminate\Http\Request;
-use SistemaMedico\Categoria;
-
-class CategoriaCopntroller extends Controller
+use SistemaMedico\Hospital;
+use Brian2694\Toastr\Facades\Toastr;
+use Redirect;
+class HospitalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -35,11 +36,14 @@ class CategoriaCopntroller extends Controller
      */
     public function store(Request $request)
     {
-      $categoria=new Categoria();  
-      $categoria->categoria=$request->get('categoria_nombre');
-      $categoria->iddeporte=$request->get('c_deporte');
-      $categoria->save();
-      return Redirect('atleta/create#tab3');
+            if($request->ajax())
+            {  
+              $hospital=new Hospital();  
+              $hospital->nombre=$request->get('Hospital');
+              $hospital->save(); 
+              //Toastr::Success('Hospital Guardado Correctamente','Success');
+              return response()->json(['message' => 'Insertado correctamente']);
+            }
     }
 
     /**
