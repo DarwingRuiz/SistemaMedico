@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.admin')
 
 @section('content')
 <div class="container">
@@ -7,14 +7,23 @@
             <div class="card">
                 <div class="card-header">Dashboard</div>
 
-                <div class="card-body">
+                <d  iv class="card-body">
                     @if (session('status'))
                         <div class="alert alert-success" role="alert">
                             {{ session('status') }}
                         </div>
                     @endif
 
-                    You are logged in!
+                   
+                   <br>
+                   @can('atleta.index')
+                    <a href="/atleta">Listado de atletas</a> 
+                   @endcan
+                   <br>
+                   @can('atleta.create')
+                    <a href="/atleta/create">Registro de atlertas</a>     
+                   @endcan
+                   
                 </div>
             </div>
         </div>

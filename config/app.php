@@ -160,6 +160,7 @@ return [
         SistemaMedico\Providers\EventServiceProvider::class,
         SistemaMedico\Providers\RouteServiceProvider::class,
         Brian2694\Toastr\ToastrServiceProvider::class,
+        Spatie\Permission\PermissionServiceProvider::class,
 
     ],
 

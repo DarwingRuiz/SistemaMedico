@@ -104,10 +104,19 @@
                                      <label>¿Esta embarazada?</label>
                                      <br>
                                       <div class="form-group">
-                                         <input type="radio" id="radio_1" value="no" name="embarazo" >
-                                         <label for="radio_1">No</label>
-                                         <input type="radio" id="radio_2" value="si" name="embarazo">
-                                         <label for="radio_2">Si</label>
+                                        @if (old('embarazo')=="No")
+                                          <input type="radio" id="radio_1" value="No" name="embarazo" checked>
+                                          <label for="radio_1">No</label>
+                                        @elseif (old('embarazo')=="Si")
+                                          <input type="radio" id="radio_2" value="Si" name="embarazo" checked>
+                                          <label for="radio_2">Si</label>
+                                          
+                                        @else
+                                          <input type="radio" id="radio_1" value="No" name="embarazo" >
+                                          <label for="radio_1">No</label>
+                                          <input type="radio" id="radio_2" value="Si" name="embarazo" >
+                                          <label for="radio_2">Si</label>
+                                        @endif  
                                      </div>
                                     </div>
                                </div>
@@ -119,23 +128,23 @@
                       <fieldset>
                         <div class="row col-md-12 ">
                           <div class="form-group col-md-4 m-t-10 ">
-                              <input type="email" id="correoelec" class="form-control" name="correoe" >
+                              <input type="email" id="correoelec" class="form-control" name="correoe" value="{{old('correoe')}}" >
                               <span class="bar"></span>
                               <label for="correoelec">Correo Electronico</label>
 
                           </div>
                           <div class="form-group col-md-4 m-t-10 ">
-                              <input type="text" minlength="8" maxlength="8" class="form-control" id="telefonocelular" name="tcelular">
+                              <input type="text" minlength="8" maxlength="8" class="form-control" id="telefonocelular" name="tcelular" value="{{old('tcelular')}}">
                               <span class="bar"></span>
                               <label for="telefonocelular">Telefono Celular</label>
                           </div>
                           <div class="form-group col-md-4 m-t-10 ">
-                                <input type="text" minlength="8" maxlength="8" class="form-control" name="tconvencional" id="telconven">
+                                <input type="text" minlength="8" maxlength="8" class="form-control" name="tconvencional" id="telconven" value="{{old('tconvencional')}}">
                               <span class="bar"></span>
                               <label for="telconven">Telefono Convencional</label>
                           </div>
                           <div class="form-group col-md-4 m-t-10 ">
-                              <input type="text" class="form-control" id="direccion" name="direccion">
+                              <input type="text" class="form-control" id="direccion" name="direccion" value="{{old('direccion')}}">
                               <span class="bar"></span>
                               <label for="direccion">Direccion</label>
 
@@ -163,10 +172,19 @@
                               <div class="form-group">
                                   <label>¿Tiene Seguro?</label><br>
                                   <div>
+                                    @if (old('seguro')=="No")
+                                    <input type="radio" id="radio16" value="No" name="seguro" checked >
+                                      <label for="radio16">No</label>
+                                    @elseif (old('seguro')=="Si")
+                                    <input type="radio" id="radio17" value="Si" name="seguro" checked >
+                                    <label for="radio17">Si </label>
+                                    @else
                                       <input type="radio" id="radio16" value="No" name="seguro" >
                                       <label for="radio16">No</label>
                                       <input type="radio" id="radio17" value="Si" name="seguro"  >
                                       <label for="radio17">Si </label>
+                                    @endif
+                                     
                                   </div>
 
                               </div>
@@ -215,35 +233,36 @@
                         <div class="row col-md-12">
                           <div class="col-md-6">
                             <div class="form-group">
-                                  <input type="text" class="form-control" name="nombremadre" id="nombmadre">
+                                <input type="text" class="form-control" name="nombremadre" id="nombmadre" value="{{old('nombremadre')}}">
                                 <span class="bar"></span>
                                 <label for="nombmadre">Nombre de la madre</label>
                             </div>
                           </div>
+
                           <div class="col-md-6">
                             <div class="form-group">
-                                  <input type="text" class="form-control" name="telmadre" id="telmadre">
+                                <input type="text" minlength="8" maxlength="8" class="form-control" name="telmadre" id="telmadre" value="{{old('telmadre')}}">
                                 <span class="bar"></span>
                                 <label for="telmadre">Telefono de la madre</label>
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                                  <input type="text" class="form-control" name="nombrepadre" id="nombrepadre">
+                                <input type="text"  class="form-control" name="nombrepadre" id="nombrepadre" value="{{old('nombrepadre')}}">
                                 <span class="bar"></span>
                                 <label for="nombrepadre">Nombre del padre</label>
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                                  <input type="text" class="form-control" name="telpadre" id="telpadre">
+                                <input type="text" minlength="8" maxlength="8" class="form-control" name="telpadre" id="telpadre" value="{{old('telpadre')}}">
                                 <span class="bar"></span>
                                 <label for="telpadre">Telefono del padre</label>
                             </div>
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                                <input type="text" class="form-control" name="emergencia" id="emergencia">
+                                <input type="text" class="form-control" name="emergencia" id="emergencia" value="{{old('emergencia')}}">
                                 <span class="bar"></span>
                                 <label for="emergencia">En emergencia llamar a: </label>
                                 <span class="help-block"><small>(Nombre)</small></span>
@@ -251,7 +270,7 @@
                           </div>
                           <div class="col-md-6">
                             <div class="form-group">
-                               <input type="text" class="form-control" name="diremergencia" id="diremergencia">
+                               <input type="text" class="form-control" name="diremergencia" id="diremergencia" value="{{old('emergencia')}}">
                                 <span class="bar"></span>
                                 <label for="diremergencia">Direccion: </label>
 
@@ -509,7 +528,26 @@
               success:function(data){
                 console.log("guardado Correctamente");
                 $("#responsive-modal").modal('hide');
-                toastr.success("Categoria Guardado Correctamente");
+                
+
+                toastr.options = {
+                  "closeButton": false,
+                  "debug": false,
+                  "newestOnTop": false,
+                  "progressBar": true,
+                  "positionClass":"toast-top-right",
+                  "preventDuplicates": true,
+                  "onclick": null,
+                  "showDuration": "300",
+                  "hideDuration": "1000",
+                  "timeOut": "5000",
+                  "extendedTimeOut": "1000",
+                  "showEasing": "swing",
+                  "hideEasing": "swing",
+                  "showMethod": "show",
+                  "hideMethod": "slideUp"
+                };
+                toastr["success"]("Categoria Agregada Correctamente");
               }
            });
           });

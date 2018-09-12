@@ -26,8 +26,6 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $provinces = Deporte::all();
-
-        return view('Atleta.Vista_prueba',compact('provinces'));
+      return view('home');
     }
 }

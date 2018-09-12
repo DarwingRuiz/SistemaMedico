@@ -12,8 +12,9 @@
 */
 
 Route::get('/', function () {
-    return 'Por favor no joda aqui';
+    return redirect('/login');
 });
+
 Route::resource('atleta', 'AtletaController');
 Route::resource('CuestionarioMedico','CuestionarioMedicoController');
 Route::resource('category','CategoryController');

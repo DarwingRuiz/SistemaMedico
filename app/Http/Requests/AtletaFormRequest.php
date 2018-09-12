@@ -25,10 +25,10 @@ class AtletaFormRequest extends FormRequest
     {
         return [
             'foto'=>'mimes:jpeg,bmp,png|required',
-            'pnombre'=>'required|regex:/^[a-zA-Z]+$/u',
-            'snombre'=>'max:100|regex:/^[a-zA-Z]+$/u',
-            'papellido'=>'required|regex:/^[a-zA-Z]+$/u',
-            'sapellido'=>'max:100|regex:/^[a-zA-Z]+$/u',
+            'pnombre'=>'required',
+            'snombre'=>'max:100',
+            'papellido'=>'required',
+            'sapellido'=>'max:100',
             'genero'=>'required',
             'numcedula'=>'required|max:14',
             'correoe'=>'email',
@@ -36,11 +36,7 @@ class AtletaFormRequest extends FormRequest
             'tcelular'=>'required|numeric',
             'seguro'=>'required',
             'municipio'=>'required',
-            'nombremadre'=>'regex:/^[a-zA-Z]+$/u',
-            'telmadre'=>'min:8|max:8',
-            'nombrepadre'=>'regex:/^[a-zA-Z]+$/u',
-            'telpadre'=>'min:8|max:8',
-            'emergencia'=>'regex:/^[a-zA-Z]+$/u',
+            
         ];
     }
 }

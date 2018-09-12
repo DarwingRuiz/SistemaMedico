@@ -22,6 +22,14 @@ Use SistemaMedico\Http\Requests\AtletaFormRequest;
 
 class AtletaController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('permission:atleta.index')->only('index');
+        $this->middleware('permission:atleta.edit')->only(['create','store']);
+        $this->middleware('permission:atleta.show')->only('show');
+        $this->middleware('permission:atleta.create')->only(['edit','update']);
+        $this->middleware('permission:atleta.destroy')->only('destroy');
+    }
     /**
      * Display a listing of the resource.
      *
