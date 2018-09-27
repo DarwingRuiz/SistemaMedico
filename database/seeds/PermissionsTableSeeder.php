@@ -16,30 +16,50 @@ class PermissionsTableSeeder extends Seeder
     {
         
         //Permission list
-        Permission::create(['name' => 'atleta.index']);
-        Permission::create(['name' => 'atleta.edit']);
-        Permission::create(['name' => 'atleta.show']);
-        Permission::create(['name' => 'atleta.create']);
-        Permission::create(['name' => 'atleta.destroy']);
+        // crud de atleta
+        Permission::create(['name' => 'Listar_atleta']);
+        Permission::create(['name' => 'Editar atleta']);
+        Permission::create(['name' => 'Mostrar atleta']);
+        Permission::create(['name' => 'Crear atleta']);
+        Permission::create(['name' => 'Eliminar atleta']);
+        // crud de roles
+        Permission::create(['name' => 'Listar roles']);
+        Permission::create(['name' => 'Editar roles']);
+        Permission::create(['name' => 'Mostrar roles']);
+        Permission::create(['name' => 'Crear roles']);
+        Permission::create(['name' => 'Eliminar roles']);
+        // crud de usuarios
+        Permission::create(['name' => 'Listar usuario']);
+        Permission::create(['name' => 'Editar usuario']);
+        Permission::create(['name' => 'Mostrar usuario']);
+        Permission::create(['name' => 'Crear usuario']);
+        Permission::create(['name' => 'Eliminar usuario']);
+        // crud de historial medico
+        Permission::create(['name' => 'Listar historial medico']);
+        Permission::create(['name' => 'Editar historial medico']);
+        Permission::create(['name' => 'Mostrar historial medico']);
+        Permission::create(['name' => 'Crear historial medico']);
+        Permission::create(['name' => 'Eliminar historial medico']);
+
 
         //Admin
         $admin = Role::create(['name' => 'Admin']);
 
-        $admin->givePermissionTo([
-            'atleta.index',
-            'atleta.edit',
-            'atleta.show',
-            'atleta.create',
-            'atleta.destroy'
-        ]);
+        // $admin->givePermissionTo([
+        //     'Listar_atleta',
+        //     'Editar atleta',
+        //     'Mostrar atleta',
+        //     'Crear atleta',
+        //     'Eliminar atleta'
+        // ]);
         //$admin->givePermissionTo('atleta.index');
-        //$admin->givePermissionTo(Permission::all());
+        $admin->givePermissionTo(Permission::all());
        
         //Guest
         $guest = Role::create(['name' => 'Guest']);
 
         $guest->givePermissionTo([
-            'atleta.index',
+            'Listar_atleta',
         ]);
 
         //User Admin

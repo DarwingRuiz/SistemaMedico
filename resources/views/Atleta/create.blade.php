@@ -1,108 +1,121 @@
 @extends('layouts.admin')
 @section('head')
-  <link rel="stylesheet" href="../assets/plugins/dropify/dist/css/dropify.min.css">
+   <link rel="stylesheet" href="../Recursos/plugins/dropify/dist/css/dropify.min.css"> 
       {{-- <link href="../assets/plugins/toast-master/css/jquery.toast.css" rel="stylesheet"> --}}
-      <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">
+   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"> 
+   <!-- Bootstrap Select Css -->
+    <link href="../Recursos/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
 @endsection
 @section('content')
-  <div class="row">
-    <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-      @if (count($errors)>0)
-                    <div class="alert alert-danger">
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{$error}}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-                @endif
-      <div class="card">
-          <div class="card-body p-b-0">
-           <h4 class="card-title">Registro de atletas</h4>
-                <form class="floating-labels m-t-40" role="form" action="{{url('/atleta')}}" method="post" autocomplete="off" enctype="multipart/form-data" novalidate="true">
-                    {{csrf_field()}}
-                <!-- Nav tabs -->
-                <ul class="nav nav-tabs customtab" role="tablist">
-                     <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Datos Generales</span></a> </li>
-                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab2" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Direccion y Correo</span></a> </li>
-                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab3" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Deporte y Diciplina</span></a> </li>
-                    <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab4" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Datos Familiares</span></a> </li>
-                </ul>
-                <!-- Tab panes -->
-                <div class="tab-content">
-                    <div class="tab-pane active" id="tab1" role="tabpanel">
-                        <div class="p-20 ">
+  <div class="row clearfix">
+      <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+        @if (count($errors)>0)
+                      <div class="alert alert-danger">
+                          <ul>
+                              @foreach ($errors->all() as $error)
+                                  <li>{{$error}}</li>
+                              @endforeach
+                          </ul>
+                      </div>
+                  @endif
+        <div class="card">
+          <div class="header">
+              <h2>REGISTRO DE ATLETAS</h2>
+          </div>
+          <div class="body">
+            <form role="form" action="{{url('/atleta')}}" method="post" autocomplete="off" enctype="multipart/form-data" novalidate="true">
+                {{csrf_field()}}
+                    {{--Nav tabs  --}}
+                    <ul class="nav nav-tabs customtab" role="tablist">
+                        <li class="active"><a href="#tab1" data-toggle="tab">Datos Generales</a></li>
+                          <li><a href="#tab2" data-toggle="tab">Dirrecion Y Correo</a></li>
+                          <li><a href="#tab3" data-toggle="tab">Deporte y Categoria</a></li>
+                          <li><a href="#tab4" data-toggle="tab">Datos</a></li>
+                    </ul>
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div class="tab-pane active" id="tab1" role="tabpanel">
                           <fieldset>
-                             <div class="row">
-                               <div class="col-md-4 row ">
-                                 <div class="form-group col-md-12">
+                            <div class="row clearfix">
+                              {{--  foto  --}}
+                              <div class="col-md-4 row ">
+                                <div class="form-group col-md-12">
                                   <div class="col-md-12 m-b-30">
-                                     <label for="input-file-now">Seleccione una fotografia</label>
+                                    <label>Seleccione una fotografia</label>
                                   </div>
-                                   <input type="file" name="foto" id="input-file-now" class="dropify" />
+                                  <input type="file" name="foto" id="input-file-now" class="dropify" />
                                   </div>
-                               </div>
-                                 {{--datos nombre--}}
-                               <div class="col-md-8 row  ">
-                                 <div class="form-group col-md-3">
-                                     <input type="text" id="pnombre" style="text-transform: capitalize;" class="form-control" name="pnombre" value="{{old('pnombre')}}" >
-                                     <span class="bar"></span>
-                                     <label for="pnombre">Primer Nombre</label>
-
-                                 </div>
-                                 <div class="form-group col-md-3 ">
-                                     <input type="text" id="snombre" style="text-transform: capitalize;" class="form-control" name="snombre" value="{{old('snombre')}}" >
-                                     <span class="bar"></span>
-                                     <label for="snombre">Segundo Nombre</label>
-
-                                 </div>
-                                 <div class="form-group col-md-3">
-                                   <input type="text" id="papellido" style="text-transform: capitalize;" class="form-control" name="papellido" value="{{old('papellido')}}" >
-                                   <span class="bar"></span>
-                                   <label for="papellido">Primer Apellido</label>
-
-                                 </div>
-                                 <div class="form-group col-md-3 ">
-                                   <input type="text" id="sapellido" class="form-control" style="text-transform: capitalize;" name="sapellido" value="{{old('sapellido')}}" >
-                                   <span class="bar"></span>
-                                   <label for="sapellido">Segundo Apellido</label>
-                                 </div>
-                                 <div class="form-group col-md-4">
-                                       <div class="form-line">
-                                         <input type="text" 
-                                         class="form-control" name="edad"  value="{{old('edad')}}" id="edad" >
-                                         <span class="bar"></span>
-                                         <label for="edad">Edad</label>
-                                       </div>
-                                 </div>
-                                 <div class="form-group col-md-4">
-                                       <div class="form-line">
-                                         <input type="text" class="form-control"  name="numcedula"  value="{{old('numcedula')}}" id="numcedula">
-                                         <span class="bar"></span>
-                                         <label for="numcedula">Numero de Cedula</label>
-                                       </div>
-                                   </div>
-                                   <div class=" col-md-6 m-t-20">
-                                     <div class="form-group m-b-40">
-                                              <select class="form-control p-0" name="genero" id="Genero">
-                                                  <option disable="true"></option>
-
-                                                  @if (old('genero') == "Masculino")
-                                                        <option value="Masculino" selected>Masculino</option>
-                                                  @elseif(old('genero') == "Femenino")
-                                                      <option value="Femenino">Femenino</option>
-                                                  @else
-                                                    <option value="Masculino">Masculino</option>
-                                                    <option value="Femenino">Femenino</option>
-                                                  @endif
-                                                  
-                                              </select><span class="bar"></span>
-                                              <label for="input6">Genero</label>
+                              </div>
+                                {{--datos iniciales--}}
+                              <div class="row-clearfix col-md-8">
+                                <div class="col-md-3">
+                                  <div class="form-group form-float ">
+                                      <div class="form-line">
+                                          <input type="text" id="pnombre" style="text-transform: capitalize;" class="form-control" name="pnombre" value="{{old('pnombre')}}">
+                                          <label class="form-label">Primer Nombre</label>
                                       </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-3">
+                                  <div class="form-group form-float">
+                                    <div class="form-line">
+                                      <input type="text" id="snombre" style="text-transform: capitalize;" class="form-control" name="snombre" value="{{old('snombre')}}" >
+                                      <label class="form-label">Segundo Nombre</label>
+                                    </div> 
+                                    </div>
+                                </div>
+                                <div class="col-md-3">
+                                  <div class="form-group form-float">
+                                    <div class="form-line">
+                                      <input type="text" id="papellido" style="text-transform: capitalize;" class="form-control" name="papellido" value="{{old('papellido')}}" >
+                                      <label class="form-label">Primer Apellido</label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-3">
+                                  <div class="form-group form-float ">
+                                    <div class="form-line">
+                                      <input type="text" id="sapellido" class="form-control" style="text-transform: capitalize;" name="sapellido" value="{{old('sapellido')}}" >
+                                      <label class="form-label">Segundo Apellido</label>
+                                    </div>
                                    </div>
-                                   <div class="col-md-6 m-t-5" id="dvembarazo" style="display:none;">
-                                     <label>¿Esta embarazada?</label>
-                                     <br>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="form-group form-float">
+                                    <div class="form-line">
+                                      <input type="text" class="form-control" name="edad"  value="{{old('edad')}}" id="edad" >
+                                      <label class="form-label">Edad</label>
+                                    </div>
+                                  </div>
+                                </div>
+                                <div class="col-md-4">
+                                  <div class="form-group form-float">
+                                      <div class="form-line">
+                                        <input type="text" class="form-control" minlength="14" maxlength="14"  name="numcedula"  value="{{old('numcedula')}}" id="numcedula">
+                                        <label class="form-label">Numero de Cedula</label>
+                                      </div>
+                                  </div>
+                                </div>
+                                <div class=" col-md-6">
+                                  <label>Genero</label>
+                                   <div class="form-group">
+                                      <select class="form-control" name="genero" id="Genero">
+                                        <option disable="true">Seleccione un Genero</option>
+                                        @if (old('genero') == "Masculino")
+                                              <option value="Masculino" selected>Masculino</option>
+                                        @elseif(old('genero') == "Femenino")
+                                            <option value="Femenino">Femenino</option>
+                                        @else
+                                          <option value="Masculino">Masculino</option>
+                                          <option value="Femenino">Femenino</option>
+                                        @endif
+                                        
+                                    </select>
+                                   </div>
+                                </div>
+                                  <div class="col-md-6 m-t-5" id="dvembarazo" style="display:none;">
+                                    <label>¿Esta embarazada?</label>
+                                    <br>
                                       <div class="form-group">
                                         @if (old('embarazo')=="No")
                                           <input type="radio" id="radio_1" value="No" name="embarazo" checked>
@@ -117,195 +130,209 @@
                                           <input type="radio" id="radio_2" value="Si" name="embarazo" >
                                           <label for="radio_2">Si</label>
                                         @endif  
-                                     </div>
                                     </div>
-                               </div>
-                             </div>
-                           </fieldset>
+                                    </div>
+                              </div>
+                            </div>
+                          </fieldset>
                         </div>
-                    </div>
-                    <div class="tab-pane p-20" id="tab2" role="tabpanel">
-                      <fieldset>
-                        <div class="row col-md-12 ">
-                          <div class="form-group col-md-4 m-t-10 ">
-                              <input type="email" id="correoelec" class="form-control" name="correoe" value="{{old('correoe')}}" >
-                              <span class="bar"></span>
-                              <label for="correoelec">Correo Electronico</label>
-
-                          </div>
-                          <div class="form-group col-md-4 m-t-10 ">
-                              <input type="text" minlength="8" maxlength="8" class="form-control" id="telefonocelular" name="tcelular" value="{{old('tcelular')}}">
-                              <span class="bar"></span>
-                              <label for="telefonocelular">Telefono Celular</label>
-                          </div>
-                          <div class="form-group col-md-4 m-t-10 ">
-                                <input type="text" minlength="8" maxlength="8" class="form-control" name="tconvencional" id="telconven" value="{{old('tconvencional')}}">
-                              <span class="bar"></span>
-                              <label for="telconven">Telefono Convencional</label>
-                          </div>
-                          <div class="form-group col-md-4 m-t-10 ">
-                              <input type="text" class="form-control" id="direccion" name="direccion" value="{{old('direccion')}}">
-                              <span class="bar"></span>
-                              <label for="direccion">Direccion</label>
-
-                          </div>
-                          <div class="form-group col-md-4 m-t-10 ">
-                              {{-- <input type="text" class="form-control" id="departamento" name="departamento">
-                              <span class="bar"></span>
-                              <label for="departamento">Departamento</label> --}}
-                               <select class="form-control p-0" name="departamento" id="select-departamento">
-                                <option value="0" disable="true" selected="true">==Seleccione un Departamento==</option>
-                                @foreach ($departamento as $key => $value)
-                                  <option value="{{$value->ID}}">{{ $value->Nombre }}</option>
-                                @endforeach
-                              </select>
-                          </div>
-                          <div class="form-group col-md-4 m-t-10 ">
-                             {{--  <input type="text" class="form-control" name="municipio" id="municipio">
-                              <span class="bar"></span>
-                              <label for="municipio">Municipio</label> --}}
-                              <select class="form-control p-0" name="municipio" id="select-municipio">
-                                <option value="0" disable="true" selected="true">=== Seleccione un municipio ===</option>
-                              </select>
-                          </div>
-                          <div class="col-md-2">
-                              <div class="form-group">
-                                  <label>¿Tiene Seguro?</label><br>
-                                  <div>
-                                    @if (old('seguro')=="No")
-                                    <input type="radio" id="radio16" value="No" name="seguro" checked >
-                                      <label for="radio16">No</label>
-                                    @elseif (old('seguro')=="Si")
-                                    <input type="radio" id="radio17" value="Si" name="seguro" checked >
-                                    <label for="radio17">Si </label>
-                                    @else
-                                      <input type="radio" id="radio16" value="No" name="seguro" >
-                                      <label for="radio16">No</label>
-                                      <input type="radio" id="radio17" value="Si" name="seguro"  >
-                                      <label for="radio17">Si </label>
-                                    @endif
-                                     
+                        <div class="tab-pane p-20" id="tab2" role="tabpanel">
+                          <fieldset>
+                            <div class="row col-md-12 ">
+                              <div class="col-md-4">
+                                <div class="form-group form-float ">
+                                  <div class="form-line">
+                                    <input type="email" id="correoelec" class="form-control" name="correoe" value="{{old('correoe')}}" >
+                                    <label class="form-label">Correo Electronico</label>
                                   </div>
+                                </div>
+                              </div>
+                             <div class="col-md-4">
+                               <div class="form-group form-float">
+                                  <div class="form-line">
+                                    <input type="text" minlength="8" maxlength="8" class="form-control" id="telefonocelular" name="tcelular" value="{{old('tcelular')}}">
+                                    <label class="form-label">Telefono Celular</label>
+                                  </div>
+                              </div>
+                             </div>
+                             <div class="col-md-4">
+                                <div class="form-group form-float">
+                                  <div class="form-line">
+                                    <input type="text" minlength="8" maxlength="8" class="form-control" name="tconvencional" id="telconven" value="{{old('tconvencional')}}">
+                                    <label class="form-label">Telefono Convencional</label>
+                                  </div>
+                                 </div>
+                             </div>
+                             <div class="col-md-4">
+                                <div class="form-group form-float">
+                                  <div class="form-line">
+                                    <input type="text" class="form-control" id="direccion" name="direccion" value="{{old('direccion')}}">
+                                    <label class="form-label">Direccion</label>
+                                  </div>
+                                 </div>
+                             </div>
+                             <div class="col-md-4">
+                               <div class="form-group col-md-4 m-t-10 ">
+                                  <select class="form-control " name="departamento" id="select-departamento">
+                                    <option value="0" disable="true" selected="true">==Seleccione un Departamento==</option>
+                                    @foreach ($departamento as $key => $value)
+                                      <option value="{{$value->ID}}">{{ $value->Nombre }}</option>
+                                    @endforeach
+                                  </select>
+                              </div>
+                             </div>
+                              
+                              <div class="col-md-4">
+                                <div class="form-group">
+                                  <select class="form-control p-0" name="municipio" id="select-municipio">
+                                    <option value="0" disable="true" selected="true">=== Seleccione un municipio ===</option>
+                                  </select>
+                              </div>
+                              </div>
+                              
+                              <div class="col-md-12">
+                                  <div class="form-group">
+                                      <label>¿Tiene Seguro?</label><br>
+                                      <div>
+                                        @if (old('seguro')=="No")
+                                        <input type="radio" id="radio16" value="No" name="seguro" checked >
+                                          <label for="radio16">No</label>
+                                        @elseif (old('seguro')=="Si")
+                                        <input type="radio" id="radio17" value="Si" name="seguro" checked >
+                                        <label for="radio17">Si </label>
+                                        @else
+                                          <input type="radio" id="radio16" value="No" name="seguro" >
+                                          <label for="radio16">No</label>
+                                          <input type="radio" id="radio17" value="Si" name="seguro"  >
+                                          <label for="radio17">Si </label>
+                                        @endif
+                                        
+                                      </div>
+
+                                  </div>
+                                  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#responsive-modalH" class="model_img img-responsive"> Crear Hospital</button>
+                              </div>
+                              <div class="col-md-6" id="hosp" style="display:none;">
+
+                                  <select  name="hospitalafiliado" class="form-control p-0">
+
+                                      @foreach($hospital as $hos)
+                                          <option value="{{$hos->id}}">{{$hos->Nombre}}</option>
+                                      @endforeach
+                                  </select>
+                              </div>
+                            </div>
+                          </fieldset>
+                          </div>
+                       
+                        <div class="tab-pane  p-20" id="tab3" role="tabpanel">
+                          <fieldset>
+                            <div class="row col-md-12">
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <select class="form-control p-0" name="deporte" id="select-deporte">
+                                    <option value="0" disable="true" selected="true">=== Seleccione un deporte ===</option>
+                                    @foreach ($deporte as $key => $value)
+                                      <option value="{{$value->id_deporte}}">{{ $value->nombre }}</option>
+                                    @endforeach
+                                  </select>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group">
+                                  <select class="form-control p-0" name="categoria" id="select-categoria">
+                                    <option value="0" disable="true" selected="true">=== Seleccione sus Categoria ===</option>
+                                  </select>
+                                </div>
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#responsive-modal" class="model_img img-responsive"> Crear Categoria</button>
+                              </div>
+                              
+                            </div>
+                          </fieldset>
+                        </div>
+                        <div class="tab-pane p-20" id="tab4" role="tabpanel">
+                          <fieldset>
+                            <div class="row col-md-12">
+                              <div class="col-md-6">
+                                <div class="form-group form-float">
+                                  <div class="form-line">
+                                    <input type="text" class="form-control" name="nombremadre" id="nombmadre" value="{{old('nombremadre')}}">
+                                    <label class="form-label">Nombre de la madre</label>
+                                  </div>
+                                </div>
+                              </div>
+
+                              <div class="col-md-6">
+                                <div class="form-group-form-float">
+                                  <div class="form-line">
+                                    <input type="text" minlength="8" maxlength="8" class="form-control" name="telmadre" id="telmadre" value="{{old('telmadre')}}">
+                                    <label class="form-label">Telefono de la madre</label>
+                                  </div>
+                                    
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group form-float">
+                                  <div class="form-line">
+                                    <input type="text"  class="form-control" name="nombrepadre" id="nombrepadre" value="{{old('nombrepadre')}}">
+                                    <label class="form-label">Nombre del padre</label>
+                                  </div>
+                                   
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group form-float">
+                                  <div class="form-line">
+                                    <input type="text" minlength="8" maxlength="8" class="form-control" name="telpadre" id="telpadre" value="{{old('telpadre')}}">
+                                    <label class="form-label">Telefono del padre</label>
+                                  </div>
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group form-float">
+                                  <div class="form-line">
+                                    <input type="text" class="form-control" name="emergencia" id="emergencia" value="{{old('emergencia')}}">
+                                    <label class="form-label">En emergencia llamar a: </label>
+                                  </div>
+                                  <span class="help-block"><small>(Nombre)</small></span>
+                                  {{--  <div class="help-info">Min. 3, Max. 10 characters</div>  --}}
+                                </div>
+                              </div>
+                              <div class="col-md-6">
+                                <div class="form-group form-float">
+                                  <div class="form-line">
+                                    <input type="text" class="form-control" name="diremergencia" id="diremergencia" value="{{old('emergencia')}}">
+                                    <label class="form-label">Direccion: </label>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>{{-- fin del row --}}
+                            <div class="row col-md-12">
+                              <div class="col-md-4">
 
                               </div>
-                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#responsive-modalH" class="model_img img-responsive"> Crear Hospital</button>
-                          </div>
-                          <div class="col-md-6" id="hosp" style="display:none;">
+                              <div class="col-md-4">
+                                <div class="btn-group" role="group">
+                                    <button type="reset" class="btn btn-danger waves-effect">
+                                      <i class="material-icons">close</i>
+                                      <span>Cancelar</span>
+                                    </button>
+                                    <button type="submit" class="btn bg-green waves-effect">
+                                      <i class="material-icons">save</i>
+                                      <span>Guardar</span>
+                                    </button>
+                                </div>
+                              </div>
+                              
 
-                              <select  name="hospitalafiliado" class="form-control p-0">
-
-                                  @foreach($hospital as $hos)
-                                      <option value="{{$hos->id}}">{{$hos->Nombre}}</option>
-                                  @endforeach
-                              </select>
-                          </div>
-                        </div>
-                      </fieldset>
-                      </div>
-                    {{-- <div class="tab-pane p-20" id="tab3" role="tabpanel">3</div> --}}
-                    <div class="tab-pane  p-20" id="tab3" role="tabpanel">
-                      <fieldset>
-                        <div class="row col-md-12">
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <select class="form-control p-0" name="deporte" id="select-deporte">
-                                <option value="0" disable="true" selected="true">=== Seleccione un deporte ===</option>
-                                @foreach ($deporte as $key => $value)
-                                  <option value="{{$value->id_deporte}}">{{ $value->nombre }}</option>
-                                @endforeach
-                              </select>
                             </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                              <select class="form-control p-0" name="categoria" id="select-categoria">
-                                <option value="0" disable="true" selected="true">=== Seleccione sus Categoria ===</option>
-                              </select>
-                            </div>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#responsive-modal" class="model_img img-responsive"> Crear Categoria</button>
-                          </div>
-                          
+                            
+                          </fieldset>
                         </div>
-                      </fieldset>
                     </div>
-                    <div class="tab-pane p-20" id="tab4" role="tabpanel">
-                      <fieldset>
-                        <div class="row col-md-12">
-                          <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="nombremadre" id="nombmadre" value="{{old('nombremadre')}}">
-                                <span class="bar"></span>
-                                <label for="nombmadre">Nombre de la madre</label>
-                            </div>
-                          </div>
-
-                          <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" minlength="8" maxlength="8" class="form-control" name="telmadre" id="telmadre" value="{{old('telmadre')}}">
-                                <span class="bar"></span>
-                                <label for="telmadre">Telefono de la madre</label>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text"  class="form-control" name="nombrepadre" id="nombrepadre" value="{{old('nombrepadre')}}">
-                                <span class="bar"></span>
-                                <label for="nombrepadre">Nombre del padre</label>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" minlength="8" maxlength="8" class="form-control" name="telpadre" id="telpadre" value="{{old('telpadre')}}">
-                                <span class="bar"></span>
-                                <label for="telpadre">Telefono del padre</label>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                                <input type="text" class="form-control" name="emergencia" id="emergencia" value="{{old('emergencia')}}">
-                                <span class="bar"></span>
-                                <label for="emergencia">En emergencia llamar a: </label>
-                                <span class="help-block"><small>(Nombre)</small></span>
-                            </div>
-                          </div>
-                          <div class="col-md-6">
-                            <div class="form-group">
-                               <input type="text" class="form-control" name="diremergencia" id="diremergencia" value="{{old('emergencia')}}">
-                                <span class="bar"></span>
-                                <label for="diremergencia">Direccion: </label>
-
-                            </div>
-                          </div>
-                        </div>{{-- fin del row --}}
-                        <div class="row col-md-12">
-                          <div class="col-md-4">
-
-                          </div>
-                          <div class="col-md-4">
-                            <div class="btn-group" role="group">
-                                <button type="reset"  class="btn btn-danger btn-rounded"><i class="fa fa-times"></i> Cancelar</button>
-                                <button type="submit"  class="btn btn-primary btn-rounded"><i class="fa fa-save"></i> Guardar</button>
-                            </div>
-                          </div>
-                          <div class="col-md-4">
-
-                          </div>
-
-                        </div>
-                         
-                      </fieldset>
-
-                       {{-- <div class="row col-md-12">
-                         <div class="col-md-6">
-
-                         </div>
-                       </div> --}}
-                    </div>
-          </div>
-         </div>
-        </form>
-        
-        
+           
+            </form>
+          </div> {{--fin del div del body    --}}
       </div>
     </div>
   </div>
@@ -373,12 +400,15 @@
       </div>
         </div>
 @section('scripts')
-  <script src="../assets/plugins/dropify/dist/js/dropify.min.js"></script>
+   <script src="../Recursos/plugins/dropify/dist/js/dropify.min.js"></script> 
  {{--  <script src="../assets/plugins/toast-master/js/jquery.toast.js"></script>
   <script src="js/toastr.js"></script> --}}
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> 
+   
+    <!-- Select Plugin Js -->
+    {{--  <script src="../Recursos/plugins/bootstrap-select/js/bootstrap-select.js"></script>  --}}
   {{-- previzualizar imagen --}}
-  <script>
+   <script>
      $(document).ready(function() {
          // Basic
          $('.dropify').dropify();
@@ -419,7 +449,7 @@
              }
          })
      });
-     </script>
+     </script> 
   {{-- visible/invisible div genero --}}
   <script type="text/javascript">
      $(function(){

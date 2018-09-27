@@ -6,21 +6,23 @@
 <div class="row">
     <div class="col-12">
         <div class="card">
-            <div class="card-body">
-                  <h4 class="card-title" style="text-transform: uppercase;">CUESTIONARIO MEDICO DE {{$nombre}}</h4>
-                    <form class="floating-labels m-t-40" action="{{url('/CuestionarioMedico')}}" method="post" autocomplete="off" enctype="multipart/form-data" >
+            <div class="header">
+                  <h2 style="text-transform: uppercase;">CUESTIONARIO MEDICO DE {{$nombre}} ssss</h2>
+            </div>
+            <div class="body">
+                    <form action="{{url('/CuestionarioMedico')}}" method="post" autocomplete="off" enctype="multipart/form-data" >
                         {{csrf_field()}}
                         <div style="display:none;">
                             <input type="text"  value="{{$id}}" class="form-control" name="txt_atleta" >
                         </div>
                         <!-- Nav tabs -->
                           <ul class="nav nav-tabs customtab" role="tablist">
-                               <li class="nav-item"> <a class="nav-link active" data-toggle="tab" href="#tab1" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Alergias</span></a> </li>
-                              <li class="nav-item"> <a class="nav-link " data-toggle="tab" href="#tab2" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Preguntas</span></a> </li>
-                              <li class="nav-item"> <a class="nav-link " data-toggle="tab" href="#tab3" role="tab"><span class="hidden-sm-up"><i class="ti-email"></i></span> <span class="hidden-xs-down">Carrera Deportiva</span></a></li>
-                              <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab4" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Info.laboral/economica</span></a> </li>
+                               <li class="active"> <a data-toggle="tab" href="#tab1" role="tab">Alergias</a> </li>
+                              <li > <a  data-toggle="tab" href="#tab2" role="tab">Preguntas</a> </li>
+                              <li > <a  data-toggle="tab" href="#tab3" role="tab">Carrera Deportiva</a></li>
+                              <li > <a data-toggle="tab" href="#tab4" role="tab">Info.laboral/economica</a> </li>
                               {{-- <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab5" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">His.Fammiliar</span></a> </li> --}}
-                              <li class="nav-item"> <a class="nav-link" data-toggle="tab" href="#tab6" role="tab"><span class="hidden-sm-up"><i class="ti-user"></i></span> <span class="hidden-xs-down">Informacion Extra </span></a></li>
+                              <li > <a data-toggle="tab" href="#tab6" role="tab">Informacion Extra </a></li>
                           </ul>
                           <!-- Tab panes -->
                         <div class="tab-content">
@@ -35,62 +37,60 @@
 
 
                                      <div class="col-md-12 ">
-                                          <div class="col-md-4">
+                                          <div class="col-md-12">
                                                   <input type="checkbox" id="btnrelajantes" value="Relajante Musculares" name="btnrelajantes" onchange="javascript:mostrarcontenido(this.id,txtrelajante)"  />
                                                   <label for="btnrelajantes">Relajante Muscular</label>
                                           </div>
                                           <div class="col-md-8" id="txtrelajante" style="display:none;">
-                                              <div class="form-group">
+                                              <div class="form-group form-float">
                                                   <div class="form-line">
                                                       <input type="text" id="txtMEd"  class="form-control" name="txt_medicamentos" >
-                                                      <span class="bar"></span>
-                                                      <label for="txtMEd">Que Relajantes Musculares</label>
+                                                      <label class="form-label">Que Relajantes Musculares</label>
                                                   </div>
                                               </div>
                                           </div>
                                       </div>
                                       <div class="col-md-12">
-                                          <div class="col-md-2">
+                                          <div class="col-md-12">
                                               <input type="checkbox" id="btnantiinflamatorio" name="antiflamatorio" value="Antiinflamatorios" onchange="javascript:mostrarcontenido(this.id,txtantiinflamatorios)" />
                                               <label for="btnantiinflamatorio">Antiinflamatorios</label>
                                           </div>
                                           <div class="col-md-8" id="txtantiinflamatorios" style="display:none;">
-                                              <div class="form-group ">
-                                                  
+                                              <div class="form-group form-float">
+                                                  <div class="form-line">
                                                       <input type="text" id="txtanti" class="form-control" name="txt_antiinflamatorios" >
-                                                      <span class="bar"></span>
-                                                      <label for="txtanti"> Que Medicamentos Antiinflamatorios</label>
+                                                      <label class="form-label"> Que Medicamentos Antiinflamatorios</label>
+                                                    </div>
                                                   
                                               </div>
                                           </div>
                                       </div>
                                       <div class="col-md-12">
-                                          <div class="col-md-2">
+                                          <div class="col-md-12">
                                               <input type="checkbox" id="btnanalgesico" name="analgesico" value="Analgesicos"  onchange="javascript:mostrarcontenido(this.id,txtanalgesico)"/>
                                               <label for="btnanalgesico">Analgesico</label>
                                           </div>
                                           <div class="col-md-8" id="txtanalgesico" style="display:none;">
-                                              <div class="form-group ">
-                                                  
+                                             <div class="form-group form-float">
+                                                  <div class="form-line">
                                                       <input type="text" id="txtanalg" class="form-control" name="txt_analgesicos" >
-                                                      <span class="bar"></span>
-                                                      <label for="txtanalg">Que Medicamentos Analgesicos</label>
+                                                      <label class="form-label">Que Medicamentos Analgesicos</label>
+                                                    </div>
                                                   
                                               </div>
                                           </div>
                                       </div>
                                       <div class="col-md-12">
-                                          <div class="col-md-2">
+                                          <div class="col-md-12">
                                               <input type="checkbox" id="btnotros" name="btn_otros" value="Otros Medicamentos" onchange="javascript:mostrarcontenido(this.id,txtotros)" />
                                               <label for="btnotros">Otros</label>
                                           </div>
                                           <div class="col-md-8" id="txtotros" style="display:none;">
-                                              <div class="form-group">
-                                                  
+                                              <div class="form-group form-float">
+                                                  <div class="form-line">
                                                       <input type="text" id="txtots" class="form-control " name="txt_medicamentos_otros" >
-                                                      <span class="bar"></span>
-                                                      <label for="txtots">Otros Medicamentos</label>
-                                                  
+                                                      <label class="forfm-label">Otros Medicamentos</label>
+                                                    </div>
                                               </div>
                                           </div>
                                       </div>
@@ -113,11 +113,11 @@
                                                   <label for="btnmedalergico">Medicamento</label>
                                               </div>
                                               <div class="col-md-8" id="txtmedalergico" style="display:none;">
-                                                  <div class="form-group ">
-                                                      
+                                                  <div class="form-group form-float">
+                                                    <div class="form-line">
                                                           <input type="text" class="form-control" id="txtmedicaale" name="txt_medicamentos_alergicos" >
-                                                          <span class="bar"></span>
-                                                          <label for="txtmedicaale">A que Medicamentos es alergico</label>
+                                                          <label class="form-label">A que Medicamentos es alergico</label>
+                                                    </div>
                                                       
                                                   </div>
                                               </div>
@@ -128,11 +128,11 @@
                                                   <label for="btnpolen">Polen</label>
                                               </div>
                                               <div class="col-md-8" id="txtpolen" style="display:none;">
-                                                  <div class="form-group ">
-                                                     
+                                                  <div class="form-group form-float">
+                                                    <div class="form-line">  
                                                           <input type="text" id="polentxt" class="form-control" name="txt_alergia_polen" >
-                                                          <span class="bar"></span>
-                                                          <label for="polentxt">Que flores te causan alergias</label>
+                                                          <label class="form-label"0>Que flores te causan alergias</label>
+                                                    </div>
                                                      
                                                   </div>
                                               </div>
@@ -143,27 +143,25 @@
                                                   <label for="btncomida">Comida</label>
                                               </div>
                                               <div class="col-md-8" id="txtcomida" style="display:none;">
-                                                  <div class="form-group ">
-                                                      
+                                                  <div class="form-group form-float">
+                                                    <div class="form-line">
                                                           <input type="text" id="txtalergiacomida" class="form-control" name="txtalergiacomida" >
-                                                          <span class="bar"></span>
-                                                          <label for="txtalergiacomida">Aque comida eres alergico</label>
-                                                      
+                                                          <label class="form-label">Aque comida eres alergico</label>
+                                                    </div>
                                                   </div>
                                               </div>
                                           </div>
                                           <div class="col-md-12">
                                               <div class="col-md-2">
                                                   <input type="checkbox" id="btnpiquetesdeinsectos"  value="Piquetes de insectos" name="piquetesdeinsectos" onchange="javascript:mostrarcontenido(this.id,txtpiquetes)"   />
-                                                  <label for="btnpiquetesdeinsectos">Piquetes de insectos</label>
+                                                  <label class="form-label">Piquetes de insectos</label>
                                               </div>
                                               <div class="col-md-8" id="txtpiquetes" style="display:none;">
-                                                  <div class="form-group ">
-                                                      
+                                                 <div class="form-group form-float">
+                                                     <div class="form-line">
                                                           <input type="text" id="txtpiquete" class="form-control" name="txtpiquete" >
-                                                          <span class="bar"></span>
-                                                          <label for="txtpiquete">A que piquetes eres alergico</label>
-                                                      
+                                                          <label class="form-label">A que piquetes eres alergico</label>
+                                                     </div>
                                                   </div>
                                               </div>
                                           </div>
@@ -173,11 +171,11 @@
                                                   <label for="btnotrosalergias">Otros</label>
                                               </div>
                                               <div class="col-md-8" id="txtotrasalergias" style="display:none;">
-                                                  <div class="form-group ">
-                                                      
+                                                 <div class="form-group form-float">
+                                                        <div class="form-line">
                                                           <input type="text" id="txt_otra_alergia" class="form-control" name="txt_otra_alergia" >
-                                                          <span class="bar"></span>
-                                                          <label for="txt_otra_alergia">A que otras cosas eres alergico</label>
+                                                          <label class="form-label">A que otras cosas eres alergico</label>
+                                                        </div>
                                                       
                                                   </div>
                                               </div>
@@ -187,12 +185,12 @@
                                 </div>
                             </div>
                             {{-- tab 2 --}}
-                            <div class="tab-pane p-20" id="tab2" role="tabpanel">
+                            <div class="tab-pane" id="tab2" role="tabpanel">
                                 <fieldset>
                                     <ul class="nav nav-tabs customtab" role="tablist">
-                                        <li class="nav-item"><a href="#sub1" class="nav-link active" data-toggle="tab" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Historial Medico</span></a></li>
-                                        <li class="nav-item"><a href="#sub2" class="nav-link" data-toggle="tab" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Historial Familiar</span></a></li>
-                                        <li class="nav-item"><a href="#sub3" class="nav-link" data-toggle="tab" role="tab"><span class="hidden-sm-up"><i class="ti-home"></i></span> <span class="hidden-xs-down">Aparato Locomotor</span></a></li>
+                                        <li class="active"><a href="#sub1" data-toggle="tab" role="tab">Historial Medico</a></li>
+                                        <li ><a href="#sub2" data-toggle="tab" role="tab">Historial Familiar</a></li>
+                                        <li ><a href="#sub3" data-toggle="tab" role="tab">Aparato Locomotor</a></li>
                                     </ul>
                                     {{-- sub tab content --}}
                                     <div class="tab-content">
@@ -633,7 +631,7 @@
                                 </fieldset>
                             </div>
                               {{-- tab 3 --}}
-                            <div class="tab-pane p-20" id="tab3" role="tabpanel">
+                            <div class="tab-pane" id="tab3" role="tabpanel">
                                 <fieldset>
                                     <h4 class="card-title">Carrera Deportiva</h4>
                                     <div class="row col-md-4">
@@ -900,7 +898,7 @@
                            
                             </div>
                             {{-- tab 4 --}}
-                            <div class="tab-pane p-20" id="tab4" role="tabpanel">
+                            <div class="tab-pane" id="tab4" role="tabpanel">
 
                               <fieldset>
                                 <h4 class="card-title">Situacion Laboral</h4>
@@ -960,7 +958,7 @@
                                                 <input type="checkbox" id="otmf" class="filled-in" name="economica[]" value="Otros Familiares" onchange="javascript:mostrarcontenido(this.id,otros_familiares)"/>
                                                 <label for="otmf">Otros Miembros de la familia</label>
                                                 <div class="col-md-12" id="otros_familiares" style="display:none;">
-                                                    <div class="form-group ">
+                                                    <div class="form-group form-float">
                                                         <div class="form-line">
                                                             <input type="text"  class="form-control" name="txt_otrosmiembros" >
                                                             <label class="form-label">Que Familiares</label>
@@ -975,7 +973,7 @@
                                                 <input type="checkbox" id="Otros/Cuales" class="filled-in" name="economica[]" value="Otros" onchange="javascript:mostrarcontenido(this.id,otros_persom)"/>
                                                 <label for="Otros/Cuales">Otros/Cuales:</label>
                                                 <div class="col-md-12" id="otros_persom" style="display:none;">
-                                                    <div class="form-group ">
+                                                    <div class="form-group from-float ">
                                                         <div class="form-line">
                                                             <input type="text"  class="form-control" name="txt_otrospersonas" >
                                                             <label class="form-label">Que personas</label>
@@ -1000,7 +998,7 @@
                                                 <input type="checkbox" id="Otros_apoyos" class="filled-in" name="economica[]" value="Otros apoyos" onchange="javascript:mostrarcontenido(this.id,otrosApoyos)"/>
                                                 <label for="Otros_apoyos">Otros apoyos</label>
                                                 <div class="col-md-12" id="otrosApoyos" style="display:none;">
-                                                    <div class="form-group ">
+                                                    <div class="form-group form-float ">
                                                         <div class="form-line">
                                                             <input type="text"  class="form-control" name="txt_otrosapoyos" >
                                                             <label class="form-label">especificar</label>
@@ -1120,7 +1118,7 @@
                                                            <input type="checkbox" id="Hermanos" class="filled-in" name="vive[]" value="Hermanos" onchange="javascript:mostrarcontenido(this.id,hermano)"/>
                                                            <label for="Hermanos">Hermanos</label>
                                                            <div class="col-md-12" id="hermano" style="display:none;">
-                                                               <div class="form-group ">
+                                                               <div class="form-group from-float">
                                                                    <div class="form-line">
                                                                        <input type="text"  class="form-control" name="txt_Chermanos" >
                                                                        <label class="form-label">Cuantos Hermanos</label>
@@ -1141,7 +1139,7 @@
                                                            <input type="checkbox" id="Hijos" class="filled-in" name="vive[]" value="Hijos" onchange="javascript:mostrarcontenido(this.id,hijo)"/>
                                                            <label for="Hijos">Hijos</label>
                                                            <div class="col-md-12" id="hijo" style="display:none;">
-                                                               <div class="form-group ">
+                                                               <div class="form-group form-float">
                                                                    <div class="form-line">
                                                                        <input type="text"  class="form-control" name="txt_cHijos" >
                                                                        <label class="form-label">Cuantos hijos</label>
@@ -1158,7 +1156,7 @@
                                                            <input type="checkbox" id="otrossfamiliares" class="filled-in" name="vive[]" value="Otros Familiares" onchange="javascript:mostrarcontenido(this.id,otrosfamiliare)"/>
                                                            <label for="otrossfamiliares">Otros Familiares</label>
                                                            <div class="col-md-12" id="otrosfamiliare" style="display:none;">
-                                                               <div class="form-group ">
+                                                               <div class="form-group form-float">
                                                                    <div class="form-line">
                                                                        <input type="text"  class="form-control" name="txt_Qfamiliar" >
                                                                        <label class="form-label">Que familiaress</label>
@@ -1170,7 +1168,7 @@
                                                            <input type="checkbox" id="Otros_info" class="filled-in" name="vive[]" value="Otros" onchange="javascript:mostrarcontenido(this.id,otros_a)"/>
                                                            <label for="Otros_info">Otros</label>
                                                            <div class="col-md-12" id="otros_a" style="display:none;">
-                                                               <div class="form-group ">
+                                                               <div class="form-group form-float">
                                                                    <div class="form-line">
                                                                        <input type="text"  class="form-control" name="txt_Qotros" >
                                                                        <label class="form-label">Que Otros</label>
@@ -1222,7 +1220,7 @@
                                                            <input type="checkbox" id="menosde4" class="filled-in" name="numvive" value="4 o menos" onchange="javascript:mostrarcontenido(this.id,menosdecuatro)"/>
                                                            <label for="menosde4">4 o menos</label>
                                                            <div class="col-md-12" id="menosdecuatro" style="display:none;">
-                                                               <div class="form-group ">
+                                                               <div class="form-group form-float">
                                                                    <div class="form-line">
                                                                        <input type="text"  class="form-control" name="txtmenosde4" >
                                                                        <label class="form-label">especificar</label>
@@ -1311,7 +1309,7 @@
                                                                <input id="ot" value="Otros" class="filled-in" name="barrio" type="checkbox" onchange="javascript:mostrarcontenido(this.id,otrosbarrios)"/>
                                                                <label for="ot"> Otros</label><br>
                                                                <div class="col-md-12" id="otrosbarrios" style="display:none;">
-                                                                   <div class="form-group ">
+                                                                   <div class="form-group form-float">
                                                                        <div class="form-line">
                                                                            <input type="text" id="otb" class="form-control" name="txtotrosbarrios" >
                                                                            <span class="bar"></span>
@@ -1384,14 +1382,14 @@
                                                                <input type="radio" id="rdsi_toma" value="Si" name="toma"/>
                                                                <label for="rdsi_toma"> Si</label>
                                                                <div class="col-md-12" id="si_toma" style="display:none;">
-                                                                   <div class="form-group ">
+                                                                   <div class="form-group form-float">
                                                                        <label> Cantidad semanal</label>
                                                                        <div class="form-line">
                                                                            <input type="text"  class="form-control" name="cerveza" >
                                                                            <label class="form-label">cervezas</label>
                                                                        </div>
                                                                    </div>
-                                                                   <div class="form-group ">
+                                                                   <div class="form-group form-float">
                                                                        <div class="form-line">
                                                                            <input type="text"  class="form-control" name="licor" >
                                                                            <label class="form-label">licor</label>
@@ -1724,7 +1722,7 @@
     </script>
 
 @endsection
-@section('menu')
+{{-- @section('menu')
     <!-- Menu -->
     <div class="menu">
         <ul class="list">
@@ -1796,15 +1794,14 @@
         </ul>
     </div>
     <!-- #Menu -->
-@endsection
+@endsection --}}
 @section('contenido')
     <div class="row clearfix">
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
-                <div class="header">
-                    <h2>CUESTIONARIO MEDICO DE {{$nombre}}</h2>
-
-                </div>
+                {{--  <div class="header">
+                    <h2>CUESTIONARIO MEDICO DE {{$nombre}}sdasdsadsadas s</h2>
+                </div>  --}}
                 <div class="body">
                     <form role="form" action="{{url('/CuestionarioMedico')}}" method="post" autocomplete="off" enctype="multipart/form-data" >
                         {{csrf_field()}}
@@ -1840,7 +1837,7 @@
                                                       <label for="btnrelajantes">Relajante Muscular</label>
                                                   </div>
                                                   <div class="col-md-8" id="txtrelajante" style="display:none;">
-                                                      <div class="form-group ">
+                                                      <div class="form-group form-float">
                                                           <div class="form-line">
                                                               <input type="text"  class="form-control" name="txt_medicamentos" >
                                                               <span class="bar"></span>
@@ -1855,7 +1852,7 @@
                                                       <label for="btnantiinflamatorio">Antiinflamatorios</label>
                                                   </div>
                                                   <div class="col-md-8" id="txtantiinflamatorios" style="display:none;">
-                                                      <div class="form-group ">
+                                                      <div class="form-group form-float">
                                                           <div class="form-line">
                                                               <input type="text" class="form-control" name="txt_antiinflamatorios" >
                                                               <label class="form-label"> Que Medicamentos Antiinflamatorios</label>
@@ -1869,7 +1866,7 @@
                                                       <label for="btnanalgesico">Analgesico</label>
                                                   </div>
                                                   <div class="col-md-8" id="txtanalgesico" style="display:none;">
-                                                      <div class="form-group ">
+                                                      <div class="form-group form-float">
                                                           <div class="form-line">
                                                               <input type="text" class="form-control" name="txt_analgesicos" >
                                                               <label class="form-label">Que Medicamentos Analgesicos</label>
@@ -1883,7 +1880,7 @@
                                                       <label for="btnotros">Otros</label>
                                                   </div>
                                                   <div class="col-md-8" id="txtotros" style="display:none;">
-                                                      <div class="form-group ">
+                                                      <div class="form-group form-float">
                                                           <div class="form-line">
                                                               <input type="text" class="form-control" name="txt_medicamentos_otros" >
                                                               <label class="form-label">Otros Medicamentos</label>
@@ -1910,7 +1907,7 @@
                                                           <label for="btnmedalergico">Medicamento</label>
                                                       </div>
                                                       <div class="col-md-8" id="txtmedalergico" style="display:none;">
-                                                          <div class="form-group ">
+                                                          <div class="form-group form-float">
                                                               <div class="form-line">
                                                                   <input type="text" class="form-control" name="txt_medicamentos_alergicos" >
                                                                   <label class="form-label">A que Medicamentos es alergico</label>
@@ -1924,7 +1921,7 @@
                                                           <label for="btnpolen">Polen</label>
                                                       </div>
                                                       <div class="col-md-8" id="txtpolen" style="display:none;">
-                                                          <div class="form-group ">
+                                                          <div class="form-group form-float">
                                                               <div class="form-line">
                                                                   <input type="text" class="form-control" name="txt_alergia_polen" >
                                                                   <label class="form-label">Que flores te causan alergias</label>
@@ -1938,7 +1935,7 @@
                                                           <label for="btncomida">Comida</label>
                                                       </div>
                                                       <div class="col-md-8" id="txtcomida" style="display:none;">
-                                                          <div class="form-group ">
+                                                          <div class="form-group form-float">
                                                               <div class="form-line">
                                                                   <input type="text" class="form-control" name="txtalergiacomida" >
                                                                   <label class="form-label">Aque comida eres alergico</label>
@@ -1952,7 +1949,7 @@
                                                           <label for="btnpiquetesdeinsectos">Piquetes de insectos</label>
                                                       </div>
                                                       <div class="col-md-8" id="txtpiquetes" style="display:none;">
-                                                          <div class="form-group ">
+                                                          <div class="form-group form-float">
                                                               <div class="form-line">
                                                                   <input type="text" class="form-control" name="txtpiquete" >
                                                                   <label class="form-label">A que piquetes eres alergico</label>
@@ -1966,7 +1963,7 @@
                                                           <label for="btnotrosalergias">Otros</label>
                                                       </div>
                                                       <div class="col-md-8" id="txtotrasalergias" style="display:none;">
-                                                          <div class="form-group ">
+                                                          <div class="form-group form-float">
                                                               <div class="form-line">
                                                                   <input type="text" class="form-control" name="txt_otra_alergia" >
                                                                   <label class="form-label">A que otras cosas eres alergico</label>
@@ -2402,7 +2399,7 @@
                                                         <label class="form-label">Cirugias(especifique que tipo de cirugias y cuando fue realizada)</label>
                                                     </div>
                                                     <div class="col-md-12">
-                                                        <div class="form-group ">
+                                                        <div class="form-group form-float">
                                                             <div class="form-line">
                                                                 <input type="text" class="form-control" name="cirugias" >
                                                                 <label class="form-label">cirugias</label>
@@ -2416,7 +2413,7 @@
                                                         <label class="form-label">Hospitalizaciones(Especifique si ha sido hospitalizado,las fechas y las causas)</label>
                                                     </div>
                                                     <div class="col-md-12">
-                                                        <div class="form-group ">
+                                                        <div class="form-group form-float">
                                                             <div class="form-line">
                                                                 <input type="text" class="form-control" name="hospitalizaciones" >
                                                                 <label class="form-label">Hospitalizaciones</label>
@@ -2564,7 +2561,7 @@
                                                                 <input id="masde10dias" value="Mas de 10 dias" name="entrenamiento" type="radio"  />
                                                                 <label for="masde10dias"> Mas de 10 dias</label>
                                                                 <div class="col-md-12">
-                                                                    <div class="form-group ">
+                                                                    <div class="form-group form-float">
                                                                         <div class="form-line">
                                                                             <input type="text" class="form-control" name="sesiones" >
                                                                             <label class="form-label">Núm de sesiones /semana</label>
@@ -2657,7 +2654,7 @@
                                                                 <label for="btn_medianamente">Medianamente</label><br>
                                                                 <div id="medipor" style="display:none;">
                                                                     <div class="col-md-12">
-                                                                        <div class="form-group ">
+                                                                        <div class="form-group form-float">
                                                                             <div class="form-line">
                                                                                 <input type="text" class="form-control" name="mediporque" >
                                                                                 <label class="form-label">porque</label>
@@ -2669,7 +2666,7 @@
                                                                 <label for="btn_actividades_No">No</label>
                                                                 <div id="no_porque" style="display:none;">
                                                                     <div class="col-md-12">
-                                                                        <div class="form-group ">
+                                                                        <div class="form-group form-float">
                                                                             <div class="form-line">
                                                                                 <input type="text" class="form-control" name="no_porque" >
                                                                                 <label class="form-label">porque</label>
@@ -2690,7 +2687,7 @@
                                                 <div class="col-md-12">
 
                                                     <div class="col-md-6">
-                                                        <div class="form-group ">
+                                                        <div class="form-group form-float">
                                                             <div class="form-line">
                                                                 <input type="text" class="form-control" name="sitio" >
                                                                 <label class="form-label">los sitios donde entrena</label>
@@ -2702,7 +2699,7 @@
                                                         <label for="btn_inadecuado">inadecuado</label>
                                                     </div>
                                                     <div class="col-md-4" id="txt_inadecuado" style="display:none;">
-                                                        <div class="form-group ">
+                                                        <div class="form-group form-float">
                                                             <div class="form-line">
                                                                 <input type="text" class="form-control" name="inadec" >
                                                                 <label class="form-label">por que es inadecuado</label>
@@ -2788,7 +2785,7 @@
                                                             <input type="checkbox" id="otmf" class="filled-in" name="economica[]" value="Otros Familiares" onchange="javascript:mostrarcontenido(this.id,otros_familiares)"/>
                                                             <label for="otmf">Otros Miembros de la familia</label>
                                                             <div class="col-md-12" id="otros_familiares" style="display:none;">
-                                                                <div class="form-group ">
+                                                                <div class="form-group form-float">
                                                                     <div class="form-line">
                                                                         <input type="text"  class="form-control" name="txt_otrosmiembros" >
                                                                         <label class="form-label">Que Familiares</label>
@@ -2803,7 +2800,7 @@
                                                             <input type="checkbox" id="Otros/Cuales" class="filled-in" name="economica[]" value="Otros" onchange="javascript:mostrarcontenido(this.id,otros_persom)"/>
                                                             <label for="Otros/Cuales">Otros/Cuales:</label>
                                                             <div class="col-md-12" id="otros_persom" style="display:none;">
-                                                                <div class="form-group ">
+                                                                <div class="form-group form-float">
                                                                     <div class="form-line">
                                                                         <input type="text"  class="form-control" name="txt_otrospersonas" >
                                                                         <label class="form-label">Que personas</label>
@@ -2828,7 +2825,7 @@
                                                             <input type="checkbox" id="Otros_apoyos" class="filled-in" name="economica[]" value="Otros apoyos" onchange="javascript:mostrarcontenido(this.id,otrosApoyos)"/>
                                                             <label for="Otros_apoyos">Otros apoyos</label>
                                                             <div class="col-md-12" id="otrosApoyos" style="display:none;">
-                                                                <div class="form-group ">
+                                                                <div class="form-group form-float">
                                                                     <div class="form-line">
                                                                         <input type="text"  class="form-control" name="txt_otrosapoyos" >
                                                                         <label class="form-label">especificar</label>

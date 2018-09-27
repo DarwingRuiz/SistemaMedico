@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\View\View;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -14,11 +16,18 @@
 Route::get('/', function () {
     return redirect('/login');
 });
+// Route::get('examenfisico', function () {
+//     return View('ExamenFisico.vista');
+// });
 
 Route::resource('atleta', 'AtletaController');
+Route::resource('roles', 'RolesController');
 Route::resource('CuestionarioMedico','CuestionarioMedicoController');
 Route::resource('category','CategoryController');
 Route::resource('hospital','HospitalController');
+Route::get('examenfisico', 'ExamenFisicoController@create');
+Route::post('examenfisico', 'ExamenFisicoController@store');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');

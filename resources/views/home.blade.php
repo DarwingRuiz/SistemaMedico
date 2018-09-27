@@ -16,11 +16,11 @@
 
                    
                    <br>
-                   @can('atleta.index')
+                   @can('Listar_atleta')
                     <a href="/atleta">Listado de atletas</a> 
                    @endcan
                    <br>
-                   @can('atleta.create')
+                   @can('Crear atleta')
                     <a href="/atleta/create">Registro de atlertas</a>     
                    @endcan
                    

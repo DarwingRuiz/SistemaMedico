@@ -1,17 +1,17 @@
 @extends('layouts.admin')
 @section('head')
- <link href="../assets/plugins/Magnific-Popup-master/dist/magnific-popup.css" rel="stylesheet">
+ //<link href="../assets/plugins/Magnific-Popup-master/dist/magnific-popup.css" rel="stylesheet">
 @endsection
 @section('content')
   <div class="row el-element-overlay">
     <div class="col-md-12">
-      <h4>LISTADO DE ATLETAS</h4>
+      <h4 style="color:black;">LISTADO DE ATLETAS</h4>
       <!-- <button class="btn btn-primary">Nuevo Atleta</button> -->
     </div>
     
     @foreach ($atleta as $at)
       <div class="col-lg-3 col-md-6">
-          <div class="card">
+          <div class="cardnigga">
               <div class="el-card-item">
                   <div class="el-card-avatar el-overlay-1"> <img  src="{{asset('imagenes/perfiles/'.$at->Foto)}}" alt="{{ $at->pnombre}}" />
                       <div class="el-overlay scrl-dwn">
@@ -43,7 +43,13 @@
                       @endif
                      @endforeach --}}
                       <a href="{{ action('CuestionarioMedicoController@create',["id"=>$at->id_atleta,"nombre"=>$at->nombrecompleto]) }}"><button class="btn waves-effect waves-light btn-rounded btn-xs btn-success">cuestionario med</button></a>
-                      <a href="#"><button class="btn waves-effect waves-light btn-rounded btn-xs btn-success">examen fisico</button></a>
+                      <a href="{{ action('ExamenFisicoController@create',["id"=>$at->id_atleta,"nombre"=>$at->nombrecompleto]) }}"><button class="btn waves-effect waves-light btn-rounded btn-xs btn-success">examen fisico</button></a>
+                      
+                         {{--  <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
+                            <button type="button" class="btn bg-pink waves-effect">LEFT</button>
+                            <button type="button" class="btn bg-pink waves-effect">MIDDLE</button>
+                            <button type="button" class="btn bg-pink waves-effect">RIGHT</button>
+                        </div>  --}}
                     </div>
                       
                    </div>

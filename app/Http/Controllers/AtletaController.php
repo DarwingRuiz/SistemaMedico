@@ -24,11 +24,11 @@ class AtletaController extends Controller
 {
     public function __construct()
     {
-        $this->middleware('permission:atleta.index')->only('index');
-        $this->middleware('permission:atleta.edit')->only(['create','store']);
-        $this->middleware('permission:atleta.show')->only('show');
-        $this->middleware('permission:atleta.create')->only(['edit','update']);
-        $this->middleware('permission:atleta.destroy')->only('destroy');
+        $this->middleware('permission:Listar_atleta')->only('index');
+        $this->middleware('permission:Editar atleta')->only(['create','store']);
+        $this->middleware('permission:Mostrar atleta')->only('show');
+        $this->middleware('permission:Crear atleta')->only(['edit','update']);
+        $this->middleware('permission:Eliminar atleta')->only('destroy');
     }
     /**
      * Display a listing of the resource.
