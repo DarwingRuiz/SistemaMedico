@@ -4,6 +4,7 @@ namespace SistemaMedico\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Input;
+use SistemaMedico\Atleta;
 
 class ExamenFisicoController extends Controller
 {
@@ -26,8 +27,10 @@ class ExamenFisicoController extends Controller
     {
         $inputs = Input::all();
         $id = $inputs['id'];
-        $nombre = $inputs['nombre'];
-        return view('ExamenFisico.create', compact('id', 'nombre'));
+        $atleta=Atleta::where('id_atleta','=', $id)->get();
+        // dd($atleta);
+        // $nombre = $inputs['nombre'];
+        return view('ExamenFisico.create', compact('atleta'));
     }
 
     /**

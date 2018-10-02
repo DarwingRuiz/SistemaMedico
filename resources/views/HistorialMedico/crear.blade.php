@@ -7,7 +7,7 @@
     <div class="col-12">
         <div class="card">
             <div class="header">
-                  <h2 style="text-transform: uppercase;">CUESTIONARIO MEDICO DE {{$nombre}} ssss</h2>
+                  <h2 style="text-transform: uppercase;">CUESTIONARIO MEDICO DE {{$nombre}}</h2>
             </div>
             <div class="body">
                     <form action="{{url('/CuestionarioMedico')}}" method="post" autocomplete="off" enctype="multipart/form-data" >
@@ -744,11 +744,12 @@
                                                                 <input id="masde10dias" value="Mas de 10 dias" name="entrenamiento" type="radio"  />
                                                                 <label for="masde10dias"> Mas de 10 dias</label>
                                                                 <div class="col-md-12">
-                                                                    <div class="form-group ">
-                                                                        
+                                                                    <div class="form-group form-float ">
+                                                                        <div class="form-line">
                                                                             <input type="text" id="num" class="form-control" name="sesiones" >
-                                                                            <span class="bar"></span>
-                                                                            <label for="num" style="font-size: small;">Núm de sesiones /semana</label>
+                                                                            <label class="form-label" style="font-size: x-small;">Núm de sesiones /semana</label>
+                                                                        </div>
+                                                                            
                                                                         
                                                                     </div>
                                                                 </div>
@@ -837,26 +838,24 @@
                                                                 <label for="btn_medianamente">Medianamente</label><br>
                                                                 <div id="medipor" style="display:none;">
                                                                     <div class="col-md-12">
-                                                                        <div class="form-group ">
-                                                                            
-                                                                            <input type="text" id="pxq" class="form-control" name="mediporque" >
-                                                                            <span class="bar"></span>
-                                                                            <label for="pxq">porque</label>
-                                                                            
-                                                                        </div>
+                                                                        <div class="form-group from-label">
+                                                                            <div class="form-line">
+                                                                                 <input type="text" id="pxq" class="form-control" name="mediporque" >
+                                                                                 <label class="form-label">porque</label>
+                                                                            </div>
+                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <input id="btn_actividades_No" value="No" name="acti" type="radio"  />
                                                                 <label for="btn_actividades_No">No</label>
                                                                 <div id="no_porque" style="display:none;">
                                                                     <div class="col-md-12">
-                                                                        <div class="form-group ">
-                                                                            
-                                                                            <input type="text" id="asd" class="form-control" name="no_porque" >
-                                                                            <span class="bar"></span>
-                                                                            <label for="asd">porque</label>
-                                                                            
-                                                                        </div>
+                                                                        <div class="form-group from-label">
+                                                                            <div class="form-line">
+                                                                                  <input type="text" id="asd" class="form-control" name="no_porque" >
+                                                                                 <label class="form-label">porque</label>
+                                                                            </div>
+                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -1088,7 +1087,7 @@
                             <div class="tab-pane  p-20" id="tab6" role="tabpanel">
                              <div class="row col-md-12">
                                        <fieldset>
-                                          <h4 class="card-title">Informacion Familiar</h4>
+                                          <h4 class="card-inside-title">Informacion Familiar</h4>
                                            
                                                <div class="row col-sm-12">
                                                    <div class="col-md-12">
@@ -1182,8 +1181,9 @@
                                                <div class="row col-md-12">
                                                    <div class="col-md-4">
                                                        <div class="col-md-12 m-b-20">
-                                                        <div class="form-group">
-                                                           <label>¿Tiene Hijos?</label>
+                                                            <div class="form-group">
+                                                                <label>¿Tiene Hijos?</label>
+                                                            </div>
                                                        </div>
                                                    </div>
                                                    <div class="col-md-12">
@@ -1244,7 +1244,7 @@
                                                    </div>
 
                                                </div>
-                                           <h4 class="card-title">Educacion y formacion</h4>
+                                           <h4 class="card-inside-title">Educacion y formacion</h4>
                                            <div class="row clearfix">
                                                <div class="col-md-4">
                                                    <div class="col-md-12 m-b-20">
@@ -1279,17 +1279,14 @@
                                                            <label for="especializacion"> Especializacion/Maestria</label><br>
                                                        </div>
                                                        <div class="col-md-12">
-                                                           <div class="form-group ">
-                                                               
+                                                           <div class="form-group from-label">
                                                                    <input type="text"  class="form-control" name="txt_donde_Estudia" id="dndes" >
-                                                                   <span class="bar"></span>
-                                                                   <label for="dndes">Donde Estudia</label>
-                                                               
+                                                                   <label class="form-label">Donde Estudia</label>
                                                            </div>
                                                        </div>
                                                    </div>
                                                </div>
-                                               <h4 class="card-title m-b-20">Lugar de habitacion</h4>
+                                               <h4 class="card-inside-title m-b-20">Lugar de habitacion</h4>
                                                <div class="row col-md-12">
                                                    
                                                    <div class="col-md-4">
@@ -1338,9 +1335,8 @@
                                                        </div>
                                                    </div>
                                                </div>
-
-                                           </div>
-                                           <h4 class="card-title">Habitos</h2>
+                                           </ div>
+                                           <h4 class="card-inside-title">Habitos</h2>
                                            <div class="row col-md-12">
                                                <div class="col-md-4">
                                                    <div class="col-md-12 m-b-20">
@@ -1355,12 +1351,11 @@
                                                                 <div class="col-md-12 m-b-40">
                                                                    <label style="font-size: small;"> Cuantos Cigarrillos al dia</label></div>
                                                                    <div class="col-sm-12"></div>
-                                                                   <div class="form-group ">
-                                                                       
-                                                                           <input type="text" id="fumon"  class="form-control" name="si_fuma" >
-                                                                           <span class="bar"></span>
-                                                                           <label for="fumon">especificar</label>
-                                                                       
+                                                                   <div class="form-group form-float">
+                                                                       <div class="form-line">
+                                                                            <input type="text" id="fumon"  class="form-control" name="si_fuma" >
+                                                                           <label class="form-label">especificar</label>
+                                                                       </div>
                                                                    </div>
                                                                    
                                                                </div>
@@ -2560,6 +2555,14 @@
                                                                 <label for="entre5y10dias"> Entre 5 y 10 dias</label>
                                                                 <input id="masde10dias" value="Mas de 10 dias" name="entrenamiento" type="radio"  />
                                                                 <label for="masde10dias"> Mas de 10 dias</label>
+                                                                <div class="col-md-3">
+                                                                    <div class="form-group form-float ">
+                                                                        <div class="form-line">
+                                                                            <input type="text" id="pnombre" style="text-transform: capitalize;" class="form-control" name="pnombre" value="{{old('pnombre')}}">
+                                                                            <label class="form-label">Primer Nombre</label>
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
                                                                 <div class="col-md-12">
                                                                     <div class="form-group form-float">
                                                                         <div class="form-line">
