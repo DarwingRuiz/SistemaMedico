@@ -126,7 +126,7 @@ class AtletaController extends Controller
         $atleta->diremergencia=$request->get('diremergencia');
         $atleta->save();
         
-        $atleta->categoria()->attach($request->get('categoria'));
+        $atleta->categoria()->sync($request->get('categoria'));
         return redirect('/atleta');
     }
 

@@ -263,7 +263,7 @@
                               </div>
 
                               <div class="col-md-6">
-                                <div class="form-group-form-float">
+                                <div class="form-group form-float">
                                   <div class="form-line">
                                     <input type="text" minlength="8" maxlength="8" class="form-control" name="telmadre" id="telmadre" value="{{old('telmadre')}}">
                                     <label class="form-label">Telefono de la madre</label>
@@ -490,7 +490,7 @@
          $.get('/api/categoria/'+Id_deporte+'/categoria',function (data) {
            var html_select= '<option value="" disable>==Seleccione una Categoria==</option>';
            for (var i = 0; i < data.length; ++i) {
-             html_select += '<option value="'+data[i].id_categoria+'">'+data[i].categoria+'</option>';
+             html_select += '<option value="'+data[i].id+'">'+data[i].categoria+'</option>';
             }
             $('#select-categoria').html(html_select);
          });
