@@ -36,7 +36,7 @@ th {
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="header">
-                    <h2 style="text-transform: uppercase;">REGISTRO DE {{$atleta[0]->pnombre}} </h2>
+                    <h2 style="text-transform: uppercase;">REGISTRO DE {{$atleta[0]->nombrecompleto}} </h2>
                 </div>
                 <div class="body">
                     <form role="form" action="{{url('/examenfisico')}}" method="post" autocomplete="off" enctype="multipart/form-data" >
@@ -80,74 +80,74 @@ th {
                                                                     <tr>
                                                                         <td>1</td>
                                                                         <td>Cuello</td>
-                                                                        <td><input type="checkbox" id="1" class="chk-col-green">
+                                                                        <td><input type="checkbox" id="1" name="Si_Cuello" class="chk-col-green">
                                                                             <label for="1">Si</label>
                                                                         </td>
-                                                                        <td><input ></td>
+                                                                        <td><input type="text" name="HA_Cuello" class="form-control" ></td>
                                                                     </tr>
                                                                 <tr>
                                                                     <td>2</td>
                                                                     <td>Espalda</td>
-                                                                    <td><input type="checkbox" id="2" class="chk-col-green">
+                                                                    <td><input type="checkbox" id="2" name="Si_Espalda"  class="chk-col-green">
                                                                         <label for="2">Si</label></td>
-                                                                        <td><input></td>
+                                                                        <td><input type="text" name="HA_espalda" class="form-control"></td>
                                                                     </tr>
 
                                                                 <tr>
                                                                     <td>3</td>
                                                                     <td>Hombro/Brazo</td>
-                                                                    <td><input type="checkbox" id="3" class="chk-col-green">
+                                                                    <td><input type="checkbox" id="3" name="Si_Hombro" class="chk-col-green">
                                                                             <label for="3">Si</label>
                                                                         </td>
-                                                                        <td><input></td>
+                                                                        <td><input type="text" name="HA_hombro" class="form-control"></td>
                                                                     </tr>
                                                                 
                                                                 <tr>
                                                                     <td>4</td>
                                                                     <td>Codo/Antebrazo  </td>
-                                                                    <td><input type="checkbox" id="4" class="chk-col-green">
+                                                                    <td><input type="checkbox" id="4" name="Si_Codo" class="chk-col-green">
                                                                             <label for="4">Si</label></td>
-                                                                            <td><input></td>
+                                                                            <td><input type="text" name="HA_codo" class="form-control"></td>
                                                                     </tr>
                                                                 
                                                                 <tr>
                                                                     <td>5</td>
                                                                     <td>Muñeca/Mano/Dedos</td>
-                                                                    <td><input type="checkbox" id="5" class="chk-col-green">
+                                                                    <td><input type="checkbox" id="5" name="Si_Muñeca" class="chk-col-green">
                                                                             <label for="5">Si</label></td>
-                                                                        <td><input></td>
+                                                                        <td><input type="text" name="HA_muñeca" class="form-control"></td>
                                                                     </tr>
                                                                 
                                                                 <tr>
                                                                     <td>6</td>
                                                                     <td>Cadera/Muslo</td>
-                                                                    <td><input type="checkbox" id="6" class="chk-col-green">
+                                                                    <td><input type="checkbox" id="6" name="Si_Cadera" class="chk-col-green">
                                                                                 <label for="6">Si</label></td>
-                                                                        <td><input></td>
+                                                                        <td><input type="text" name="HA_cadera" class="form-control"></td>
                                                                     </tr>
                                                                 
                                                                 <tr>
                                                                     <td>7</td>
                                                                     <td>Rodilla</td>
-                                                                    <td><input type="checkbox" id="7" class="chk-col-green">
+                                                                    <td><input type="checkbox" id="7" name="Si_Rodilla" class="chk-col-green">
                                                                             <label for="7">Si</label></td>
-                                                                        <td><input></td>
+                                                                        <td><input type="text" name="HA_rodilla" class="form-control"></td>
                                                                 </tr>
                                                                 
                                                                 <tr>
                                                                     <td>8</td>
                                                                     <td>Pierna/Tobillo</td>
-                                                                    <td><input type="checkbox" id="8" class="chk-col-green">
+                                                                    <td><input type="checkbox" id="8" name="Si_Pierna" class="chk-col-green">
                                                                             <label for="8">Si</label></td>
-                                                                        <td><input></td>
+                                                                        <td><input type="text" name="HA_pierna" class="form-control"></td>
                                                                 </tr>
                                                                 
                                                                 <tr>
                                                                     <td>9</td>
                                                                     <td>Pie/Dedos</td>
-                                                                    <td><input type="checkbox" id="9" class="chk-col-green">
+                                                                    <td><input type="checkbox" id="9" name="Si_dedos" class="chk-col-green">
                                                                             <label for="9">Si</label></td>
-                                                                        <td><input></td>
+                                                                        <td><input type="text" name="HA_dedos" class="form-control"></td>
                                                                 </tr>
                                                            
                                                            </table>
@@ -173,6 +173,7 @@ th {
                                     <div class="col-md-12">
                                       <div class="btn-group" role="group">
                                           <button type="button" class="btn bg-indigo waves-effect btnNext">SIGUIENTE</button>
+                                          <button type="submit" class="btn bg-green waves-effect btnNext">Guardar</button>
                                       </div>
                                     </div>
                                   </div>

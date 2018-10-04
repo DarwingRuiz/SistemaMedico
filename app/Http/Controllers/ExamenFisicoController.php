@@ -27,7 +27,7 @@ class ExamenFisicoController extends Controller
     {
         $inputs = Input::all();
         $id = $inputs['id'];
-        $atleta=Atleta::where('id_atleta','=', $id)->get();
+        $atleta=Atleta::where('id','=', $id)->get();
         // dd($atleta);
         // $nombre = $inputs['nombre'];
         return view('ExamenFisico.create', compact('atleta'));

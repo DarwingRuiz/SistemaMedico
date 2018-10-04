@@ -42,8 +42,8 @@
                         <a href="#"><button class="btn waves-effect waves-light btn-rounded btn-xs btn-danger">cuestionario med</button></a>
                       @endif
                      @endforeach --}}
-                      <a href="{{ action('CuestionarioMedicoController@create',["id"=>$at->id_atleta,"nombre"=>$at->nombrecompleto]) }}"><button class="btn waves-effect waves-light btn-rounded btn-xs btn-success">cuestionario med</button></a>
-                      <a href="{{ action('ExamenFisicoController@create',["id"=>$at->id_atleta,"nombre"=>$at->nombrecompleto]) }}"><button class="btn waves-effect waves-light btn-rounded btn-xs btn-success">examen fisico</button></a>
+                      <a href="{{ action('CuestionarioMedicoController@create',["id"=>$at->id,"nombre"=>$at->nombrecompleto]) }}"><button class="btn waves-effect waves-light btn-rounded btn-xs btn-success">cuestionario med</button></a>
+                      <a href="{{ action('ExamenFisicoController@create',["id"=>$at->id ,"nombre"=>$at->nombrecompleto]) }}"><button class="btn waves-effect waves-light btn-rounded btn-xs btn-success">examen fisico</button></a>
                       
                          {{--  <div class="btn-group btn-group-sm" role="group" aria-label="Small button group">
                             <button type="button" class="btn bg-pink waves-effect">LEFT</button>

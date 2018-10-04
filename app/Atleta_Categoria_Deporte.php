@@ -3,12 +3,11 @@
 namespace SistemaMedico;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Pivot;
 
-class Atleta_Categoria_Deporte extends Model
+class Atleta_Categoria_Deporte extends Pivot
 {
-    protected $table='atleta_deporte_categoria';
+//  public $table='atleta_deporte_categoria';
     protected $primaryKey='id';
     public $timestamps=false;
-
-
 }

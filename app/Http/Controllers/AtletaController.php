@@ -38,8 +38,8 @@ class AtletaController extends Controller
     public function index()
     {
         $atleta=DB::table('datosatleta as atle')
-                ->join('atleta_categoria_deporte as acp','acp.atleta_id','=','atle.id_atleta')
-                ->join('categorias as cat','cat.id_categoria','=','acp.categoria_id')
+                ->join('atleta_categoria as acp','acp.atleta_id','=','atle.id')
+                ->join('categorias as cat','cat.id','=','acp.categoria_id')
                 ->join('deporte as dep','dep.id_deporte','=','cat.iddeporte')
                 ->select('atle.*','cat.categoria as categoria','dep.nombre as deporte')
                // ->where('atle.id_atleta','=','acp.id_atleta')
