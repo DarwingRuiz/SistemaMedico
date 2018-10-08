@@ -37,6 +37,9 @@ th {
             <div class="card">
                 <div class="header">
                     <h2 style="text-transform: uppercase;">REGISTRO DE {{$atleta[0]->nombrecompleto}} </h2>
+                    <div style="display:none;">
+                            <input type="text"  value="{{$atleta[0]->nombrecompleto}}" class="form-control" name="txt_atleta" >
+                        </div>
                 </div>
                 <div class="body">
                     <form role="form" action="{{url('/examenfisico')}}" method="post" autocomplete="off" enctype="multipart/form-data" >
