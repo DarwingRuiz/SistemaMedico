@@ -42,7 +42,7 @@ th {
                         </div>
                 </div>
                 <div class="body">
-                    <form role="form" action="{{url('/examenfisico')}}" method="post" autocomplete="off" enctype="multipart/form-data" >
+                    <form role="form" action="{{url('examenfisico')}}" method="post" autocomplete="off" enctype="multipart/form-data" >
                         <div style="display:none;">
                             {{--  <input type="text"  value="{{$atleta_id}}" class="form-control" name="txt_atleta" >  --}}
                         </div>

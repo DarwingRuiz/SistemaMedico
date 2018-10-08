@@ -43,124 +43,160 @@ class ExamenFisicoController extends Controller
     public function store(Request $request)
     {
         // cuello
-        $examen = new ExamenFisico();
-        $examen->idatleta=$request->get('txt_atleta');
-        $examen->idexfisi="1";
+       
         if (Input::get('Si_Cuello')) {
+            $examen = new ExamenFisico();
+            $examen->idatleta=$request->get('txt_atleta');
+            $examen->idexfisi="1";
             $examen->normal="Si";
             $examen->Hallazgos_Anormales="";
             $examen->save();
         }
         else {
+            $examen = new ExamenFisico();
+            $examen->idatleta=$request->get('txt_atleta');
+            $examen->idexfisi="1";
             $examen->normal = "No";
             $examen->Hallazgos_Anormales = "HA_Cuello";
             $examen->save();
         }
         // espalda
-        $examen = new ExamenFisico();
-        $examen->idatleta = $request->get('txt_atleta');
-        $examen->idexfisi = "2";
         if (Input::get('Si_Espalda')) {
+            $examen = new ExamenFisico();
+            $examen->idatleta = $request->get('txt_atleta');
+            $examen->idexfisi = "2";
             $examen->normal = "Si";
             $examen->Hallazgos_Anormales = "";
             $examen->save();
         } else {
+            $examen = new ExamenFisico();
+            $examen->idatleta = $request->get('txt_atleta');
+            $examen->idexfisi = "2";
             $examen->normal = "No";
             $examen->Hallazgos_Anormales = "HA_espalda";
             $examen->save();
         }
         // Hombro
-        $examen = new ExamenFisico();
-        $examen->idatleta = $request->get('txt_atleta');
-        $examen->idexfisi = "3";
         if (Input::get('Si_Hombro')) {
+
+            $examen = new ExamenFisico();
+            $examen->idatleta = $request->get('txt_atleta');
+            $examen->idexfisi = "3";
             $examen->normal = "Si";
             $examen->Hallazgos_Anormales = "";
             $examen->save();
         } else {
+            $examen = new ExamenFisico();
+            $examen->idatleta = $request->get('txt_atleta');
+            $examen->idexfisi = "3";
             $examen->normal = "No";
             $examen->Hallazgos_Anormales = "HA_hombro";
             $examen->save();
         }
         // codo
-        $examen = new ExamenFisico();
-        $examen->idatleta = $request->get('txt_atleta');
-        $examen->idexfisi = "4";
         if (Input::get('Si_Codo')) {
+            $examen = new ExamenFisico();
+            $examen->idatleta = $request->get('txt_atleta');
+            $examen->idexfisi = "4";
             $examen->normal = "Si";
             $examen->Hallazgos_Anormales = "";
             $examen->save();
         } else {
+            $examen = new ExamenFisico();
+            $examen->idatleta = $request->get('txt_atleta');
+            $examen->idexfisi = "4";
             $examen->normal = "No";
             $examen->Hallazgos_Anormales = "HA_codo";
             $examen->save();
         }
         // muñeca
-        $examen = new ExamenFisico();
-        $examen->idatleta = $request->get('txt_atleta');
-        $examen->idexfisi = "5";
         if (Input::get('Si_Muñeca')) {
+            $examen = new ExamenFisico();
+            $examen->idatleta = $request->get('txt_atleta');
+            $examen->idexfisi = "5";
             $examen->normal = "Si";
             $examen->Hallazgos_Anormales = "";
             $examen->save();
         } else {
+            $examen = new ExamenFisico();
+            $examen->idatleta = $request->get('txt_atleta');
+            $examen->idexfisi = "5";
             $examen->normal = "No";
             $examen->Hallazgos_Anormales = "HA_muñeca";
             $examen->save();
         }
         // cadera
-        $examen = new ExamenFisico();
-        $examen->idatleta = $request->get('txt_atleta');
-        $examen->idexfisi = "6";
         if (Input::get('Si_Cadera')) {
+            $examen = new ExamenFisico();
+            $examen->idatleta = $request->get('txt_atleta');
+            $examen->idexfisi = "6";
             $examen->normal = "Si";
             $examen->Hallazgos_Anormales = "";
             $examen->save();
         } else {
+            $examen = new ExamenFisico();
+            $examen->idatleta = $request->get('txt_atleta');
+            $examen->idexfisi = "6";
             $examen->normal = "No";
             $examen->Hallazgos_Anormales = "HA_cadera";
             $examen->save();
         }
         // rodilla
-        $examen = new ExamenFisico();
-        $examen->idatleta = $request->get('txt_atleta');
-        $examen->idexfisi = "7";
         if (Input::get('Si_Rodilla')) {
+            $examen = new ExamenFisico();
+            $examen->idatleta = $request->get('txt_atleta');
+            $examen->idexfisi = "7";
             $examen->normal = "Si";
             $examen->Hallazgos_Anormales = "";
             $examen->save();
         } else {
+            $examen = new ExamenFisico();
+            $examen->idatleta = $request->get('txt_atleta');
+            $examen->idexfisi = "7";
             $examen->normal = "No";
             $examen->Hallazgos_Anormales = "HA_rodilla";
             $examen->save();
         }
         // pienra
-        $examen = new ExamenFisico();
-        $examen->idatleta = $request->get('txt_atleta');
-        $examen->idexfisi = "8";
         if (Input::get('Si_Pierna')) {
+            $examen = new ExamenFisico();
+            $examen->idatleta = $request->get('txt_atleta');
+            $examen->idexfisi = "8";
             $examen->normal = "Si";
             $examen->Hallazgos_Anormales = "";
             $examen->save();
         } else {
+            $examen = new ExamenFisico();
+            $examen->idatleta = $request->get('txt_atleta');
+            $examen->idexfisi = "8";
             $examen->normal = "No";
             $examen->Hallazgos_Anormales = "HA_pierna";
             $examen->save();
         }
         // dedos
-        $examen = new ExamenFisico();
-        $examen->idatleta = $request->get('txt_atleta');
-        $examen->idexfisi = "9";
         if (Input::get('Si_dedos')) {
+            $examen = new ExamenFisico();
+            $examen->idatleta = $request->get('txt_atleta');
+            $examen->idexfisi = "9";
             $examen->normal = "Si";
             $examen->Hallazgos_Anormales = "";
             $examen->save();
         } else {
+            $examen = new ExamenFisico();
+            $examen->idatleta = $request->get('txt_atleta');
+            $examen->idexfisi = "9";
             $examen->normal = "No";
             $examen->Hallazgos_Anormales = "HA_dedos3";
             $examen->save();
         }
-        //$examen->
+        //Anexo
+        $anexo=new Anexo();
+        $anexo->idatleta = $request->get('txt_atleta');
+        $anexo->OtrosHallazgo=$request->get('otroshallazgos');
+        $anexo->Recomendaciones=$request->get('Recomendaciones');
+        $anexo->Observaciones="";
+        $anexo->save();
+        return redirect('/atleta');
     }
 
     /**

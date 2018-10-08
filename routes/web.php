@@ -25,8 +25,8 @@ Route::resource('roles', 'RolesController');
 Route::resource('CuestionarioMedico','CuestionarioMedicoController');
 Route::resource('category','CategoryController');
 Route::resource('hospital','HospitalController');
-Route::get('examenfisico', 'ExamenFisicoController@create');
-Route::post('examenfisico', 'ExamenFisicoController@store');
+Route::resource('examenfisico', 'ExamenFisicoController');
+//Route::post('examenfisico', 'ExamenFisicoController@store');
 
 Auth::routes();
 
