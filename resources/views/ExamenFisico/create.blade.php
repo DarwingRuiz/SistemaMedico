@@ -174,7 +174,7 @@ th {
                                     <div class="col-md-12">
                                       <div class="btn-group" role="group">
                                           <button type="button" class="btn bg-indigo waves-effect btnNext">SIGUIENTE</button>
-                                          <button type="submit" class="btn bg-green waves-effect btnNext">Guardar</button>
+                                          
                                       </div>
                                     </div>
                                   </div>
@@ -185,11 +185,11 @@ th {
                                 <!--                                                                 -->
                                             <div class="row clearfix">
                                                 <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-                                                        <div class="header">
-                                                            <h4 style="position: relative;vertical-align:middle;text-align: center;">
+                                                        {{-- <div class="header">
+                                                            <h4 style="position: relative;vertical-align:middle;text-align: center; color:#333;">
                                                                 CONDICIONES CLINICAS ACTUALES
                                                             </h4>
-                                                        </div>
+                                                        </div> --}}
                                                         <!--#INICIO TABLA CONDICIONES CLINICAS ACTUALES#-->
                                                         <div class="body table-responsive">
                                                 
@@ -201,49 +201,49 @@ th {
                                                             <th >Respiratorio</th>                                       
                                                            <tr>
                                                                 <td>
-                                                                <input type="checkbox" id="$11" class="chk-col-green">
+                                                                <input type="checkbox" name="PD" id="$11" class="chk-col-green">
                                                                 <label for="$11">Practica Deportiva</label><br>
-                                                                <input type="checkbox" id="$12" class="chk-col-green">
+                                                                <input type="checkbox" name="EF" id="$12" class="chk-col-green">
                                                                 <label for="$12">Economia Familiar</label><br>
-                                                                <input type="checkbox" id="$13" class="chk-col-green">
+                                                                <input type="checkbox" name="" id="$13" class="chk-col-green">
                                                                 <label for="$13">Educacion</label><br>
-                                                                <input type="checkbox" id="$14" class="chk-col-green">
+                                                                <input type="checkbox" name="Da" id="$14" class="chk-col-green">
                                                                 <label for="$14">Dolor articular</label><br>
-                                                                <input type="checkbox" id="$15" class="chk-col-green">
+                                                                <input type="checkbox" name="Ra" id="$15" class="chk-col-green">
                                                                 <label for="$15">Rigidez en articulaciones</label><br>
-                                                                <input type="checkbox" id="$16" class="chk-col-green">
+                                                                <input type="checkbox" name="Fracturas" id="$16" class="chk-col-green">
                                                                 <label for="$16">Fracturas</label><br>
-                                                                <input type="checkbox" id="$17" class="chk-col-green">
+                                                                <input type="checkbox" name="DM" id="$17" class="chk-col-green">
                                                                 <label for="$17">Debilidad Muscular</label><br>
-                                                                <input type="checkbox" id="$18" class="chk-col-green">
+                                                                <input type="checkbox" name="HA" id="$18" class="chk-col-green">
                                                                 <label for="$18">Hinchazon articular</label>
                                                                 </td>
                                                                 <td>
-                                                                <input type="checkbox" id="$21" class="chk-col-green">
+                                                                <input type="checkbox" name="Paralisis" id="$21" class="chk-col-green">
                                                                 <label for="$21">Paralisis</label><br>
-                                                                <input type="checkbox" id="$22" class="chk-col-green">
+                                                                <input type="checkbox" name="Temblores" id="$22" class="chk-col-green">
                                                                 <label for="$22">Temblores</label><br>
-                                                                <input type="checkbox" id="$23" class="chk-col-green">
+                                                                <input type="checkbox" name="Ac" id="$23" class="chk-col-green">
                                                                 <label for="$23">Alteraciones de la conciencia</label>
                                                                 </td>
                                                                 <td>
-                                                                <input type="checkbox" id="$31" class="chk-col-green">
+                                                                <input type="checkbox" name="PP" id="$31" class="chk-col-green">
                                                                 <label for="$31">Perdida de peso</label><br>
-                                                                <input type="checkbox" id="$32" class="chk-col-green">
+                                                                <input type="checkbox" name="AP" id="$32" class="chk-col-green">
                                                                 <label for="$32">Aumento de peso</label><br>
-                                                                <input type="checkbox" id="$33" class="chk-col-green">
+                                                                <input type="checkbox" name="Fiebre" id="$33" class="chk-col-green">
                                                                 <label for="$33">Fiebre</label><br>
-                                                                <input type="checkbox" id="$34" class="chk-col-green">
+                                                                <input type="checkbox" name="Escalofrios" id="$34" class="chk-col-green">
                                                                 <label for="$34">Escalofrios</label>
                                                                 </td>
                                                                 <td>
-                                                                <input type="checkbox" id="$41" class="chk-col-green">
+                                                                <input type="checkbox" name="Sibilancia" id="$41" class="chk-col-green">
                                                                 <label for="$41">Sibilancia</label><br>
-                                                                <input type="checkbox" id="$42" class="chk-col-green">
+                                                                <input type="checkbox" name="Tos" id="$42" class="chk-col-green">
                                                                 <label for="$42">Tos</label><br>
-                                                                <input type="checkbox" id="$43" class="chk-col-green">
+                                                                <input type="checkbox" name="DAR" id="$43" class="chk-col-green">
                                                                 <label for="$43">Dolor al respirar</label><br>
-                                                                <input type="checkbox" id="$44" class="chk-col-green">
+                                                                <input type="checkbox" name="TCS" id="$44" class="chk-col-green">
                                                                 <label for="$44">Toser coagulos de sangre</label>
                                                                 </td>
                                                                 </tr>
@@ -254,39 +254,39 @@ th {
                                                             <th align="center">Oidos,Nariz,Garganta</th>                                       
                                                            <tr>
                                                                 <td>
-                                                                <input type="checkbox" id="$121" class="chk-col-green">
+                                                                <input type="checkbox" name="EP" id="$121" class="chk-col-green">
                                                                 <label for="$121">Erupciones/Purito</label><br>
-                                                                <input type="checkbox" id="$122" class="chk-col-green">
+                                                                <input type="checkbox" name="Ulseras" id="$122" class="chk-col-green">
                                                                 <label for="$122">Ulceras/Llagas</label><br>
-                                                                <input type="checkbox" id="$123" class="chk-col-green">
+                                                                <input type="checkbox" name="hongos" id="$123" class="chk-col-green">
                                                                 <label for="$123">Hongos en los pies</label><br>
                                                                 </td>
                                                                 <td>
-                                                                <input type="checkbox" id="$221" class="chk-col-green">
+                                                                <input type="checkbox" name="Dolores/cabeza" id="$221" class="chk-col-green">
                                                                 <label for="$221">Dolores de Cabeza</label><br>
-                                                                <input type="checkbox" id="$222" class="chk-col-green">
+                                                                <input type="checkbox" name="Convulsiones" id="$222" class="chk-col-green">
                                                                 <label for="$222">Convulsiones</label><br>
-                                                                <input type="checkbox" id="$223" class="chk-col-green">
+                                                                <input type="checkbox" name="PConciencia" id="$223" class="chk-col-green">
                                                                 <label for="$223">Perdida de la conciencia</label>
                                                                 </td>
                                                                 <td>
-                                                                <input type="checkbox" id="$321" class="chk-col-green">
+                                                                <input type="checkbox" name="cambiosVision" id="$321" class="chk-col-green">
                                                                 <label for="$321">Cambios en la vision</label><br>
-                                                                <input type="checkbox" id="$322" class="chk-col-green">
+                                                                <input type="checkbox" name="fotofobia" id="$322" class="chk-col-green">
                                                                 <label for="$322">Fotofobia</label><br>
-                                                                <input type="checkbox" id="$323" class="chk-col-green">
+                                                                <input type="checkbox" name="Dolor/enrojecimiento" id="$323" class="chk-col-green">
                                                                 <label for="$323">Dolor/enrojecimiento</label><br>
-                                                                <input type="checkbox" id="$324" class="chk-col-green">
+                                                                <input type="checkbox" name="lagrimeoe" id="$324" class="chk-col-green">
                                                                 <label for="$324">Lagrimeo excesivo</label>
                                                                 </td>
                                                                 <td>
-                                                                <input type="checkbox" id="$421" class="chk-col-green">
+                                                                <input type="checkbox" name="Perdidaaudicion" id="$421" class="chk-col-green">
                                                                 <label for="$421">Perdida audicion</label><br>
-                                                                <input type="checkbox" id="$422" class="chk-col-green">
+                                                                <input type="checkbox" name="Vertigo" id="$422" class="chk-col-green">
                                                                 <label for="$422">Vertigo</label><br>
-                                                                <input type="checkbox" id="$423" class="chk-col-green">
+                                                                <input type="checkbox" name="sangradoN" id="$423" class="chk-col-green">
                                                                 <label for="$423">Sangrado de nariz</label><br>
-                                                                <input type="checkbox" id="$424" class="chk-col-green">
+                                                                <input type="checkbox" name="Ronquidos" id="$424" class="chk-col-green">
                                                                 <label for="$424">Ronquidos</label>
                                                                 </td>
                                                                 </tr>
@@ -297,27 +297,27 @@ th {
                                                             <th align="center">Otros</th>                                       
                                                            <tr>
                                                                 <td>
-                                                                <input type="checkbox" id="$131" class="chk-col-green">
+                                                                <input type="checkbox" name="PCVe" id="$131" class="chk-col-green">
                                                                 <label for="$131">Perdida control de vejiga</label><br>
-                                                                <input type="checkbox" id="$132" class="chk-col-green">
+                                                                <input type="checkbox" name="MiccionF" id="$132" class="chk-col-green">
                                                                 <label for="$132">Miccion frecuente</label>
                                                                 </td>
                                                                 <td>
-                                                                <input type="checkbox" id="$231" class="chk-col-green">
+                                                                <input type="checkbox" name="Dolor" id="$231" class="chk-col-green">
                                                                 <label for="$231">Dolor en el pecho</label><br>
-                                                                <input type="checkbox" id="$232" class="chk-col-green">
+                                                                <input type="checkbox" name="Palpitaciones" id="$232" class="chk-col-green">
                                                                 <label for="$232">Palpitaciones</label><br>
-                                                                <input type="checkbox" id="$233" class="chk-col-green">
+                                                                <input type="checkbox" name="FaltaAliento" id="$233" class="chk-col-green">
                                                                 <label for="$233">Falta de aliento</label>
                                                                 </td>
                                                                 <td>
-                                                                <input type="checkbox" id="$331" class="chk-col-green">
+                                                                <input type="checkbox" name="Dificultaddeglutir" id="$331" class="chk-col-green">
                                                                 <label for="$331">Dificultad para deglutir</label><br>
-                                                                <input type="checkbox" id="$332" class="chk-col-green">
+                                                                <input type="checkbox" name="ardorEstomacal" id="$332" class="chk-col-green">
                                                                 <label for="$332">Ardor estomacal</label><br>
-                                                                <input type="checkbox" id="$333" class="chk-col-green">
+                                                                <input type="checkbox" name="Nauseas/Vomito" id="$333" class="chk-col-green">
                                                                 <label for="$333">Nauseas/Vomito</label><br>
-                                                                <input type="checkbox" id="$334" class="chk-col-green">
+                                                                <input type="checkbox" name="Sangradointestinal" id="$334" class="chk-col-green">
                                                                 <label for="$334">Sangrado intestinal</label>
                                                                 </td>
                                                                 <td>
@@ -341,6 +341,7 @@ th {
                                     <div class="col-md-12">
                                       <div class="btn-group" role="group">
                                           <button type="button" class="btn bg-indigo waves-effect btnNext">SIGUIENTE</button>
+                                          <button type="submit" class="btn bg-green waves-effect btnNext">Guardar</button>
                                       </div>
                                     </div>
                                 </div>
