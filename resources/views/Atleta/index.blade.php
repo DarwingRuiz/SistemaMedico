@@ -61,8 +61,8 @@
 
 @endsection
 @section('scripts')
-  <script src="../assets/plugins/Magnific-Popup-master/dist/jquery.magnific-popup.min.js"></script>
-  <script src="../assets/plugins/Magnific-Popup-master/dist/jquery.magnific-popup-init.js"></script>
+  {{--  <script src="../assets/plugins/Magnific-Popup-master/dist/jquery.magnific-popup.min.js"></script>
+  <script src="../assets/plugins/Magnific-Popup-master/dist/jquery.magnific-popup-init.js"></script>  --}}
 @endsection
 {{-- menu viejo --}}
 {{-- @section('menu')
