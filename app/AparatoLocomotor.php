@@ -6,11 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class AparatoLocomotor extends Model
 {
-    protected $table='aparato_ locomotor';
+    protected $table='aparato_locomotor';
     protected $primaryKey='id';
     public $timestamps = false;
     protected $fillable=[
-        'pregunta',
+        'preguntas',
         'respuesta',
         'idatleta',
         'detalles',

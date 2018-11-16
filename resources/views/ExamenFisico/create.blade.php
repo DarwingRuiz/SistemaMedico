@@ -421,33 +421,33 @@ th {
                                                             <tr>
                                                             <td>1</td>
                                                             <td>Peso corporal (kg)</td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
+                                                            <td><input type="text" name="PCtoma1"></td>
+                                                            <td><input type="text" name="PCtoma2"></td>
+                                                            <td><input  type="text" name="PCtoma3"></td>
+                                                            <td><input  type="text" name="PCpromed"></td>
                                                             <tr>
                                                             <td>2</td>
                                                             <td>Talla (cm)</td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
+                                                            <td><input type="text" name="Ttoma1"></td>
+                                                            <td><input type="text" name="Ttoma2"></td>
+                                                            <td><input type="text" name="Ttoma3"></td>
+                                                            <td><input type="text" name="Tpromed"></td>
                                                             </tr>
                                                             <tr>
                                                             <td>3</td>
                                                             <td>Talla sentado (cm)</td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
+                                                            <td><input type="text" name="Tstoma1"></td>
+                                                            <td><input type="text" name="Tstoma2"></td>
+                                                            <td><input type="text" name="Tstoma3"></td>
+                                                            <td><input type="text" name="Tspromed"></td>
                                                             </tr>
                                                             <tr>
                                                             <td>4</td>
                                                             <td>Envergadura (mm)</td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
+                                                            <td><input type="text" name="Etoma1"></td>
+                                                            <td><input type="text" name="Etoma2"></td>
+                                                            <td><input type="text" name="Etoma3"></td>
+                                                            <td><input type="text" name="Epromed"></td>
                                                             </tr>
                                                             <tr>
                                                             <th colspan="6">Pliegues cutaneos (mm)</th>

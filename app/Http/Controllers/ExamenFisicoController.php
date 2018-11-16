@@ -199,7 +199,8 @@ class ExamenFisicoController extends Controller
             // $anexo->Observaciones="";
             // $anexo->save();
 
-        
+        //condiciones clinicas
+        //practica deportiva
         if (Input::get('PD')) {
             $ccap = new Ccap();
             $ccap->idatleta = $request->get('txt_atleta');
@@ -208,8 +209,11 @@ class ExamenFisicoController extends Controller
             $ccap->valor="Si";
             $ccap->save();
         }
+        //ficha antropometrica
+        
+        //
         return redirect('/atleta');
-    }
+    } 
 
     /**
      * Display the specified resource.

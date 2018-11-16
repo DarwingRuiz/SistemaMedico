@@ -10,7 +10,7 @@ class HistoralFamiliar extends Model
     protected $primaryKey='id';
     public $timestamps = false;
     protected $fillable=[
-        'pregunta',
+        'preguntas',
         'respuesta',
         'idatleta',
     ];

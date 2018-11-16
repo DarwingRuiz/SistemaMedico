@@ -76,8 +76,10 @@ class CuestionarioMedicoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(HistorialMedicoFormRequest $request)
+    public function store(Request $request)
     {
+        // dd($request->get("txt_otrosapoyos1"));
+        // dd($request->get('txtotra_alergia'));
         /**
          *todo lo que tiene que ver con alergias
          *a medicamentos
@@ -158,7 +160,7 @@ class CuestionarioMedicoController extends Controller
             {
                 $alergias=new Alergias();
                 $alergias->alergia=$request->get('otrosalergias');
-                $alergias->descripcion=$request->get('txt_otra_alergia');
+                $alergias->descripcion=$request->get('txtotra_alergia');
                 $alergias->idatleta=$request->get('txt_atleta');
                 $alergias->save();
             }
@@ -166,7 +168,7 @@ class CuestionarioMedicoController extends Controller
         else
         {
             /*
-            *que guarde que no tiene alerdias
+            *que guarde que no tiene alergias
              * */
             $alergias=new Alergias();
             $alergias->alergia="no tiene alergias";
@@ -176,7 +178,8 @@ class CuestionarioMedicoController extends Controller
 
         }
         /**
-        todo lo que tiene que ver con el historial medico
+         * **
+        *todo lo que tiene que ver con el historial medico
          *pregunta 1
          */
 
@@ -277,7 +280,13 @@ class CuestionarioMedicoController extends Controller
             $historial=new HistorialMedico();
             $historial->pregunta="I.d) otro";
             $historial->respuesta=$request->get('otroenfer');
-            $historial->detalles= " ";
+            if ($request->get('otroenfer')=='Si') {
+                 $historial->detalles= $request->get('txt_especificacion_otros');
+            }
+            else if ($request->get('otroenfer')=='No') {
+               $historial->detalles= " ";
+            }
+           
             $historial->idatleta=$request->get('txt_atleta');
             $historial->save();
         }
@@ -317,31 +326,31 @@ class CuestionarioMedicoController extends Controller
          * pregunta 1
          * */
         $historialFamiliar=new HistoralFamiliar();
-        $historialFamiliar->pregunta="¿Has tenido algun familiar que haya fallecido a causa de problemas de corazon, o bien que haya fallecido de forma inexplicable antes de los 50 años?";
+        $historialFamiliar->preguntas="¿Has tenido algun familiar que haya fallecido a causa de problemas de corazon, o bien que haya fallecido de forma inexplicable antes de los 50 años?";
         $historialFamiliar->respuesta=$request->get('pregunta_fam_1');
         $historialFamiliar->idatleta=$request->get('txt_atleta');
         $historialFamiliar->save();
         /*pregunta 2*/
         $historialFamiliar=new HistoralFamiliar();
-        $historialFamiliar->pregunta="¿Alguien de tu familia tiene problemas del corazon, un marcapaso o un desfibrilador en su corazon?";
+        $historialFamiliar->preguntas="¿Alguien de tu familia tiene problemas del corazon, un marcapaso o un desfibrilador en su corazon?";
         $historialFamiliar->respuesta=$request->get('pregunta_fam_2');
         $historialFamiliar->idatleta=$request->get('txt_atleta');
         $historialFamiliar->save();
         /*pregunta 3*/
         $historialFamiliar=new HistoralFamiliar();
-        $historialFamiliar->pregunta="¿Ha sufridoalgun familiar un desmayo inexplicable o convulsiones?";
+        $historialFamiliar->preguntas="¿Ha sufridoalgun familiar un desmayo inexplicable o convulsiones?";
         $historialFamiliar->respuesta=$request->get('pregunta_fam_3');
         $historialFamiliar->idatleta=$request->get('txt_atleta');
         $historialFamiliar->save();
         /*pregunta 4*/
         $historialFamiliar=new HistoralFamiliar();
-        $historialFamiliar->pregunta="¿alguien de su familia padece de Diabetes?";
+        $historialFamiliar->preguntas="¿alguien de su familia padece de Diabetes?";
         $historialFamiliar->respuesta=$request->get('pregunta_fam_4');
         $historialFamiliar->idatleta=$request->get('txt_atleta');
         $historialFamiliar->save();
         /*pregunta 5*/
         $historialFamiliar=new HistoralFamiliar();
-        $historialFamiliar->pregunta="¿alguien de su familia padece de asma?";
+        $historialFamiliar->preguntas="¿alguien de su familia padece de asma?";
         $historialFamiliar->respuesta=$request->get('pregunta_fam_5');
         $historialFamiliar->idatleta=$request->get('txt_atleta');
         $historialFamiliar->save();
@@ -351,56 +360,56 @@ class CuestionarioMedicoController extends Controller
         /*
          * pregunta 1*/
         $aparato=new AparatoLocomotor();
-        $aparato->pregunta="¿Alguna vez ha perdido un entrenamiento o evento por haber sufrido lesion en el hueso, tendon o musculo?";
+        $aparato->preguntas="¿Alguna vez ha perdido un entrenamiento o evento por haber sufrido lesion en el hueso, tendon o musculo?";
         $aparato->respuesta=$request->get('pregunta_locomotor_1');
         $aparato->detalles= " ";
         $aparato->idatleta=$request->get('txt_atleta');
         $aparato->save();
         /*pregunta 2*/
         $aparato=new AparatoLocomotor();
-        $aparato->pregunta="¿Te has fracturado alguna vez un hueso o dislocado una articulacion?";
+        $aparato->preguntas="¿Te has fracturado alguna vez un hueso o dislocado una articulacion?";
         $aparato->respuesta=$request->get('pregunta_locomotor_2');
         $aparato->detalles= " ";
         $aparato->idatleta=$request->get('txt_atleta');
         $aparato->save();
         /*pregunta 3*/
         $aparato=new AparatoLocomotor();
-        $aparato->pregunta="¿Has sufrido alguna lesion que haya requerido radiografias,tomografias, o resonancia magnetica, soporte ortopedico,como yeso o tablilla?";
+        $aparato->preguntas="¿Has sufrido alguna lesion que haya requerido radiografias,tomografias, o resonancia magnetica, soporte ortopedico,como yeso o tablilla?";
         $aparato->respuesta=$request->get('pregunta_locomotor_3');
         $aparato->detalles= " ";
         $aparato->idatleta=$request->get('txt_atleta');
         $aparato->save();
         /*pregunta 4*/
         $aparato=new AparatoLocomotor();
-        $aparato->pregunta="¿Usas regularmente una tablilla/soporte ortopedico u otro dispositivo de asistencia?";
+        $aparato->preguntas="¿Usas regularmente una tablilla/soporte ortopedico u otro dispositivo de asistencia?";
         $aparato->respuesta=$request->get('pregunta_locomotor_4');
         $aparato->detalles= " ";
         $aparato->idatleta=$request->get('txt_atleta');
         $aparato->save();
         /*pregunta 5*/
         $aparato=new AparatoLocomotor();
-        $aparato->pregunta="¿Tienes calambres frecuentes en los musculos cuando haces ejercicios?";
+        $aparato->preguntas="¿Tienes calambres frecuentes en los musculos cuando haces ejercicios?";
         $aparato->respuesta=$request->get('pregunta_locomotor_5');
         $aparato->detalles= " ";
         $aparato->idatleta=$request->get('txt_atleta');
         $aparato->save();
         /*pregunta 6*/
         $aparato=new AparatoLocomotor();
-        $aparato->pregunta="¿Has tenido Hinchazon en alguna de tus articulaciones?";
+        $aparato->preguntas="¿Has tenido Hinchazon en alguna de tus articulaciones?";
         $aparato->respuesta=$request->get('pregunta_locomotor_6');
         $aparato->detalles= " ";
         $aparato->idatleta=$request->get('txt_atleta');
         $aparato->save();
         /*pregunta 7*/
         $aparato=new AparatoLocomotor();
-        $aparato->pregunta="Cirugias(especifique que tipo de cirugias y cuando fue realizada)";
+        $aparato->preguntas="Cirugias(especifique que tipo de cirugias y cuando fue realizada)";
         $aparato->respuesta=" ";
         $aparato->detalles=$request->get('cirugias');
         $aparato->idatleta=$request->get('txt_atleta');
         $aparato->save();
         /*pregunta 8*/
         $aparato=new AparatoLocomotor();
-        $aparato->pregunta="Hospitalizaciones(Especifique si ha sido hospitalizado,las fechas y las causas)";
+        $aparato->preguntas="Hospitalizaciones(Especifique si ha sido hospitalizado,las fechas y las causas)";
         $aparato->respuesta=" ";
         $aparato->detalles=$request->get('hospitalizaciones');
         $aparato->idatleta=$request->get('txt_atleta');
@@ -557,7 +566,7 @@ class CuestionarioMedicoController extends Controller
                 elseif ($var[$i]=="Otros apoyos")
                 {
                     $ap->respuesta="Otros apoyos";
-                    $ap->detalles=$request->get("txt_otrosapoyos");
+                    $ap->detalles=$request->get("txt_otrosapoyos1");
                     $ap->idatleta= $request->get('txt_atleta');
                     $ap->save();
                 }
@@ -744,6 +753,8 @@ class CuestionarioMedicoController extends Controller
         }
         $inf8->idatleta= $request->get('txt_atleta');
         $inf8->save();
+
+        return redirect('/atleta');
     }
 
 
