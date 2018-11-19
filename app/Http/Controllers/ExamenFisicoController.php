@@ -200,6 +200,7 @@ class ExamenFisicoController extends Controller
             // $anexo->save();
 
         //condiciones clinicas
+        //musculo esqueletico
         //practica deportiva
         if (Input::get('PD')) {
             $ccap = new Ccap();
@@ -209,6 +210,64 @@ class ExamenFisicoController extends Controller
             $ccap->valor="Si";
             $ccap->save();
         }
+        if (Input::get('EF')) {
+            $ccap = new Ccap();
+            $ccap->idatleta = $request->get('txt_atleta');
+            $ccap->idcca = "1";
+            $ccap->nombre = "Economia Familiar";
+            $ccap->valor = "Si";
+            $ccap->save();
+        }
+        if (Input::get('Educa')) {
+            $ccap = new Ccap();
+            $ccap->idatleta = $request->get('txt_atleta');
+            $ccap->idcca = "1";
+            $ccap->nombre = "Educacion";
+            $ccap->valor = "Si";
+            $ccap->save();
+        }
+        if (Input::get('Da')) {
+            $ccap = new Ccap();
+            $ccap->idatleta = $request->get('txt_atleta');
+            $ccap->idcca = "1";
+            $ccap->nombre = "Dolor Articular";
+            $ccap->valor = "Si";
+            $ccap->save();
+        }
+        if (Input::get('Ra')) {
+            $ccap = new Ccap();
+            $ccap->idatleta = $request->get('txt_atleta');
+            $ccap->idcca = "1";
+            $ccap->nombre = "Rigidez en articulaciones";
+            $ccap->valor = "Si";
+            $ccap->save();
+        }
+        if (Input::get('Fracturas')) {
+            $ccap = new Ccap();
+            $ccap->idatleta = $request->get('txt_atleta');
+            $ccap->idcca = "1";
+            $ccap->nombre = "Fracturas";
+            $ccap->valor = "Si";
+            $ccap->save();
+        }
+        
+        if (Input::get('DM')) {
+            $ccap = new Ccap();
+            $ccap->idatleta = $request->get('txt_atleta');
+            $ccap->idcca = "1";
+            $ccap->nombre = "Debilidad Muscular";
+            $ccap->valor = "Si";
+            $ccap->save();
+        }
+        if (Input::get('HA')) {
+            $ccap = new Ccap();
+            $ccap->idatleta = $request->get('txt_atleta');
+            $ccap->idcca = "1";
+            $ccap->nombre = "Hinchazon <articular></articular>";
+            $ccap->valor = "Si";
+            $ccap->save();
+        }
+        
         //ficha antropometrica
         
         //

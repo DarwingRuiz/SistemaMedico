@@ -205,7 +205,7 @@ th {
                                                                 <label for="$11">Practica Deportiva</label><br>
                                                                 <input type="checkbox" name="EF" id="$12" class="chk-col-green">
                                                                 <label for="$12">Economia Familiar</label><br>
-                                                                <input type="checkbox" name="" id="$13" class="chk-col-green">
+                                                                <input type="checkbox" name="Educa" id="$13" class="chk-col-green">
                                                                 <label for="$13">Educacion</label><br>
                                                                 <input type="checkbox" name="Da" id="$14" class="chk-col-green">
                                                                 <label for="$14">Dolor articular</label><br>
