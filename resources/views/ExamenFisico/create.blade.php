@@ -262,7 +262,7 @@ th {
                                                                 <label for="$123">Hongos en los pies</label><br>
                                                                 </td>
                                                                 <td>
-                                                                <input type="checkbox" name="Dolores/cabeza" id="$221" class="chk-col-green">
+                                                                <input type="checkbox" name="Dc" id="$221" class="chk-col-green">
                                                                 <label for="$221">Dolores de Cabeza</label><br>
                                                                 <input type="checkbox" name="Convulsiones" id="$222" class="chk-col-green">
                                                                 <label for="$222">Convulsiones</label><br>
@@ -274,13 +274,13 @@ th {
                                                                 <label for="$321">Cambios en la vision</label><br>
                                                                 <input type="checkbox" name="fotofobia" id="$322" class="chk-col-green">
                                                                 <label for="$322">Fotofobia</label><br>
-                                                                <input type="checkbox" name="Dolor/enrojecimiento" id="$323" class="chk-col-green">
+                                                                <input type="checkbox" name="DE" id="$323" class="chk-col-green">
                                                                 <label for="$323">Dolor/enrojecimiento</label><br>
                                                                 <input type="checkbox" name="lagrimeoe" id="$324" class="chk-col-green">
                                                                 <label for="$324">Lagrimeo excesivo</label>
                                                                 </td>
                                                                 <td>
-                                                                <input type="checkbox" name="Perdidaaudicion" id="$421" class="chk-col-green">
+                                                                <input type="checkbox" name="PA" id="$421" class="chk-col-green">
                                                                 <label for="$421">Perdida audicion</label><br>
                                                                 <input type="checkbox" name="Vertigo" id="$422" class="chk-col-green">
                                                                 <label for="$422">Vertigo</label><br>
@@ -303,7 +303,7 @@ th {
                                                                 <label for="$132">Miccion frecuente</label>
                                                                 </td>
                                                                 <td>
-                                                                <input type="checkbox" name="Dolor" id="$231" class="chk-col-green">
+                                                                <input type="checkbox" name="DolorP" id="$231" class="chk-col-green">
                                                                 <label for="$231">Dolor en el pecho</label><br>
                                                                 <input type="checkbox" name="Palpitaciones" id="$232" class="chk-col-green">
                                                                 <label for="$232">Palpitaciones</label><br>
@@ -315,13 +315,13 @@ th {
                                                                 <label for="$331">Dificultad para deglutir</label><br>
                                                                 <input type="checkbox" name="ardorEstomacal" id="$332" class="chk-col-green">
                                                                 <label for="$332">Ardor estomacal</label><br>
-                                                                <input type="checkbox" name="Nauseas/Vomito" id="$333" class="chk-col-green">
+                                                                <input type="checkbox" name="NV" id="$333" class="chk-col-green">
                                                                 <label for="$333">Nauseas/Vomito</label><br>
                                                                 <input type="checkbox" name="Sangradointestinal" id="$334" class="chk-col-green">
                                                                 <label for="$334">Sangrado intestinal</label>
                                                                 </td>
                                                                 <td>
-                                                                <textarea name="otros" width="200px" placeholder="Detallar"></textarea>
+                                                                <textarea name="otrosCCA" width="200px" placeholder="Detallar"></textarea>
                                                                 </td>
                                                                 </tr>
                                                            </table>                                 
@@ -332,10 +332,10 @@ th {
                                           </fieldset>
                                           <div class="header">
                                           <!--Observaciones-->
-                                          <h4>
+                                          <h4 class="card-inside-title">
                                           Observaciones
                                           </h4>
-                                          <textarea name="observaciones" rows="6" cols="40" placeholder="Detalles..."></textarea>
+                                          <textarea name="observacioneCCA" rows="6" cols="40" placeholder="Detalles..."></textarea>
                                           </div>                                    
                                     </div>
                                     <div class="col-md-12">
