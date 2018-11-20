@@ -19,7 +19,7 @@ class ExamenFisicoController extends Controller
      */
     public function index()
     {
-        return "akldsadj";
+        return view('ExamenFisico.vistaculera');
     }
 
     /**

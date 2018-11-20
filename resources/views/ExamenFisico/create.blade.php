@@ -1,5 +1,7 @@
 @extends('layouts.admin')
 @section('head')
+<script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
+<link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
      <style> 
 input {
     /*width: 400px;
@@ -28,7 +30,7 @@ th {
     background-color: #dddddd;
 }
 </style>
-    
+ 
 @endsection
 @section('content')
      <!--Contenido-->
@@ -58,7 +60,7 @@ th {
                           <div class="col-md-12">
                             <div class="tab-content">
                             <!--                    PRIMER TAB  														-->
-                                <div class="tab-pane active" id="tab1">
+                                <div class="tab-pane " id="tab1">
                                       <div class="col-md-12">
                                           <fieldset>
                             <!--			 TABLA BORDEADA		 														-->
@@ -346,7 +348,7 @@ th {
                                     </div>
                                 </div>
                                 <!--                TERCER  TAB                                                          -->
-                                <div class="tab-pane" id="tab3">
+                                <div class="tab-pane active" id="tab3">
                                       <div class="col-md-12">
                                           <fieldset>
                                             <div class="row clearfix">
@@ -385,7 +387,8 @@ th {
                                                                 <div class="col-sm-6">
                                                                     <div class="form-group form-float">
                                                                         <div class="form-line">
-                                                                            <input type="text" name="fechaEvaluacion" class="form-control" />
+                                                                            {{-- <input type="text" name="fechaEvaluacion" class="form-control" /> --}}
+                                                                            <input type="text" name="fecha" disabled="true" class="form-control" value="<?php echo date("d-m-Y");?>">
                                                                             <label class="form-label">Fecha de evaluacion</label>
                                                                         </div>
                                                                     </div>
@@ -407,7 +410,37 @@ th {
                                                                         </div>
                                                                     </div>
                                                                 </div>
+                                                                <div class="col-sm-6">
+                                                                    {{-- <label class="form-label">Fecha de nacimiento </label> --}}
+                                                                 <div class="form-group">
+                                                                        <div class="form-line">
+                                                                             <input id="datepicker" width="276" />
+                                                                            
+                                                                        </div>
+                                                                    </div>
+                                                                
+                                                                    </div>
+                                                                    <div class="col-sm-6">
+                                                                        @if ($atleta[0]->genero=="Masculino")
+                                                                            <div class="form-group form-float">
+                                                                                <div class="form-line">
+                                                                                    <input type="text" disabled class="form-control" name="menstruacion"/>
+                                                                                    <label class="form-label">Mentruacion </label>
+                                                                                </div>
+                                                                            </div>   
+                                                                        @else
+                                                                           <div class="form-group form-float">
+                                                                                <div class="form-line">
+                                                                                    <input type="text" class="form-control" name="menstruacion"/>
+                                                                                    <label class="form-label">Mentruacion </label>
+                                                                                </div>
+                                                                            </div>   
+                                                                        @endif
+                                                                
+                                                                    </div>
                                                             </div>
+                                                            
+                                                            
                                                         {{--  <!--INICIO TABLA FICHA ANTROPOMETRICA -->  --}}
                                                         <div class="body table-responsive">
                                                          <table id="mainTable" class="table table-bordered">
@@ -674,5 +707,11 @@ th {
         <!--Final Contenido-->
 @endsection 
 @section('scripts')
-    
+<script>
+    $('#datepicker').datepicker();
+</script>
+  {{-- <script src="/Recursos/plugins/momentjs/moment.js"></script>
+  <script src="/Recursos/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script> --}}
+  <!-- Autosize Plugin Js -->
+    {{-- <script src="../Recursos/plugins/autosize/autosize.js"></script> --}}
 @endsection
