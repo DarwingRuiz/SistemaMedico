@@ -8,6 +8,7 @@ use SistemaMedico\Atleta;
 use SistemaMedico\ExamenFisico;
 use SistemaMedico\Anexos;
 use SistemaMedico\Ccap;
+use SistemaMedico\FichaAntropometica;
 
 class ExamenFisicoController extends Controller
 {
@@ -566,7 +567,8 @@ class ExamenFisicoController extends Controller
     //         $anexo->save();
     //     }
         //ficha antropometrica
-        
+        $FA=new FichaAntropometica();
+        $FA->idatleta = $request->get('txt_atleta'); 
         //
         return redirect('/atleta');
     } 
