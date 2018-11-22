@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('head')
-<script src="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/js/gijgo.min.js" type="text/javascript"></script>
-<link href="https://cdn.jsdelivr.net/npm/gijgo@1.9.10/css/gijgo.min.css" rel="stylesheet" type="text/css" />
+ <!-- Bootstrap Material Datetime Picker Css -->
+    <link href="../Recursos//plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
      <style> 
 input {
     /*width: 400px;
@@ -340,12 +340,7 @@ th {
                                           <textarea name="observacioneCCA" rows="6" cols="40" placeholder="Detalles..."></textarea>
                                           </div>                                    
                                     </div>
-                                    <div class="col-md-12">
-                                      <div class="btn-group" role="group">
-                                          <button type="button" class="btn bg-indigo waves-effect btnNext">SIGUIENTE</button>
-                                          <button type="submit" class="btn bg-green waves-effect btnNext">Guardar</button>
-                                      </div>
-                                    </div>
+                                    
                                 </div>
                                 <!--                TERCER  TAB                                                          -->
                                 <div class="tab-pane active" id="tab3">
@@ -363,7 +358,7 @@ th {
                                                             <div class="col-sm-6">
                                                                 <div class="form-group">
                                                                     <div class="form-line">
-                                                                        <label >{{$atleta[0]->nombrecompleto}}</label>
+                                                                        <input disable="true" class="form-control" type="text" name="nombre" value="{{$atleta[0]->nombrecompleto}}" />
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -372,7 +367,7 @@ th {
                                                                         <div class="form-line">
                                                                             {{--  <input type="text" class="form-control" />  --}}
                                                                             {{--  <label class="form-label">Sexo(Varon:1-Mujer:2)</label>  --}}
-                                                                            <label >{{$atleta[0]->genero}}</label>
+                                                                            <input class="form-control" type="text" disable="true" name="genero" value="{{$atleta[0]->genero}}"/>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -388,7 +383,7 @@ th {
                                                                     <div class="form-group form-float">
                                                                         <div class="form-line">
                                                                             {{-- <input type="text" name="fechaEvaluacion" class="form-control" /> --}}
-                                                                            <input type="text" name="fecha" disabled="true" class="form-control" value="<?php echo date("d-m-Y");?>">
+                                                                            <input type="text" name="fechaE" disabled="true" class="form-control" value="<?php echo date("d-m-Y");?>">
                                                                             <label class="form-label">Fecha de evaluacion</label>
                                                                         </div>
                                                                     </div>
@@ -397,7 +392,7 @@ th {
                                                                 <div class="col-sm-6">
                                                                     <div class="form-group form-float">
                                                                         <div class="form-line">
-                                                                            <input type="text" class="form-control" name="Antropometrista" />
+                                                                            <input type="text" name="Antropometrista" class="form-control" name="Antropometrista" />
                                                                             <label class="form-label">Antropometrista/Evaluador</label>
                                                                         </div>
                                                                     </div>
@@ -405,17 +400,16 @@ th {
                                                                 <div class="col-sm-6">
                                                                     <div class="form-group form-float">
                                                                         <div class="form-line">
-                                                                            <input type="text" class="form-control" name="Anotador"/>
+                                                                            <input type="text" name="anotador" class="form-control" name="Anotador"/>
                                                                             <label class="form-label">Anotador </label>
                                                                         </div>
                                                                     </div>
                                                                 </div>
                                                                 <div class="col-sm-6">
                                                                     {{-- <label class="form-label">Fecha de nacimiento </label> --}}
-                                                                 <div class="form-group">
+                                                                  <div class="form-group">
                                                                         <div class="form-line">
-                                                                             <input id="datepicker" width="276" />
-                                                                            
+                                                                            <input type="text" name="fechaNac" class="datepicker form-control" placeholder="Por favor seleccione una fecha">
                                                                         </div>
                                                                     </div>
                                                                 
@@ -488,71 +482,71 @@ th {
                                                             <tr>
                                                             <td>5</td>
                                                             <td>Subescapular</td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
+                                                            <td><input type="text" name="SCtoma1"></td>
+                                                            <td><input type="text" name="SCtoma2"></td>
+                                                            <td><input type="text" name="SCtoma3"></td>
+                                                            <td><input type="text" name="SCpromed"></td>
                                                             <tr>
                                                             <td>6</td>
                                                             <td>Tricipital</td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
+                                                            <td><input type="text" name="TTtoma1"></td>
+                                                            <td><input type="text" name="TTtoma2"></td>
+                                                            <td><input type="text" name="TTtoma3"></td>
+                                                            <td><input type="text" name="TTpromed"></td>
                                                             </tr>
                                                             <tr>
                                                             <td>7</td>
                                                             <td>Bicipital</td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
+                                                            <td><input type="text" name="BCtoma1"></td>
+                                                            <td><input type="text" name="BCtoma2"></td>
+                                                            <td><input type="text" name="BCtoma3"></td>
+                                                            <td><input type="text" name="BCpromed"></td>
                                                             </tr>
                                                             <tr>
                                                             <td>8</td>
                                                             <td>Supracrestal o cresta iliaca</td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
+                                                            <td><input type="text" name="CItoma1"></td>
+                                                            <td><input type="text" name="CItoma2"></td>
+                                                            <td><input type="text" name="CItoma3"></td>
+                                                            <td><input type="text" name="CIpromed"></td>
                                                             </tr>
                                                             <tr>
                                                             <td>9</td>
                                                             <td>Supracrestal o suprailiaco</td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
+                                                            <td><input type="text" name="SCotoma1"></td>
+                                                            <td><input type="text" name="SCotoma2"></td>
+                                                            <td><input type="text" name="SCotoma3"></td>
+                                                            <td><input type="text" name="SCopromed"></td>
                                                             <tr>
                                                             <td>10</td>
                                                             <td>Abdominal</td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
+                                                            <td><input type="text" name="ABtoma1"></td>
+                                                            <td><input type="text" name="ABtoma2"></td>
+                                                            <td><input type="text" name="ABtoma3"></td>
+                                                            <td><input type="text" name="ABpromed"></td>
                                                             </tr>
                                                             <tr>
                                                             <td>11</td>
                                                             <td>Muslo anterior</td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
+                                                            <td><input type="text" name="MAtoma1"></td>
+                                                            <td><input type="text" name="MAtoma2"></td>
+                                                            <td><input type="text" name="MAtoma3"></td>
+                                                            <td><input type="text" name="MApromed"></td>
                                                             </tr>
                                                             <tr>
                                                             <td>12</td>
                                                             <td>Pierna medial</td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
+                                                            <td><input type="text" name="PMtoma1"></td>
+                                                            <td><input type="text" name="PMtoma2"></td>
+                                                            <td><input type="text" name="PMtoma3"></td>
+                                                            <td><input type="text" name="PMpromed"></td>
                                                             </tr>
                                                             <tr>
-                                                            <td colspan="2"><input placeholder="Otros:"></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
+                                                            <td colspan="2"><input name="otros1" placeholder="Otros:"></td>
+                                                            <td><input type="text" name="otros1toma1"></td>
+                                                            <td><input type="text" name="otros1toma2"></td>
+                                                            <td><input type="text" name="otros1toma3"></td>
+                                                            <td><input type="text" name="otros1promed"></td>
                                                             </tr>
                                                             <tr>
                                                             <th colspan="6">Perimetros (cm)</th>
@@ -560,56 +554,56 @@ th {
                                                             <tr>
                                                             <td>13</td>
                                                             <td>Brazo relajado</td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
+                                                            <td><input type="text" name="BRtoma1"></td>
+                                                            <td><input type="text" name="BRtoma2"></td>
+                                                            <td><input type="text" name="BRtoma3"></td>
+                                                            <td><input type="text" name="BRpromed"></td>
                                                             </tr>
                                                             <tr>
                                                             <td>14</td>
                                                             <td>Brazo flexionado y contaido</td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
+                                                            <td><input type="text" name="BFCtoma1"></td>
+                                                            <td><input type="text" name="BFCtoma2"></td>
+                                                            <td><input type="text" name="BFCtoma3"></td>
+                                                            <td><input type="text" name="BFCpromed"></td>
                                                             </tr>
                                                             <tr>
                                                             <td>15</td>
                                                             <td>Muslo medial</td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
+                                                            <td><input type="text" name="MMtoma1"></td>
+                                                            <td><input type="text" name="MMtoma2"></td>
+                                                            <td><input type="text" name="MMtoma3"></td>
+                                                            <td><input type="text" name="MMpromed"></td>
                                                             <tr>
                                                             <td>16</td>
                                                             <td>Pantorilla</td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
+                                                            <td><input type="text" name="PANtoma1"></td>
+                                                            <td><input type="text" name="PANtoma2"></td>
+                                                            <td><input type="text" name="PANtoma3"></td>
+                                                            <td><input type="text" name="PANpromed"></td>
                                                             </tr>
                                                             <tr>
                                                             <td>17</td>
                                                             <td>Cintura</td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
+                                                            <td><input type="text" name="CINtoma1"></td>
+                                                            <td><input type="text" name="CINtoma2"></td>
+                                                            <td><input type="text" name="CINtoma3"></td>
+                                                            <td><input type="text" name="CINpromed"></td>
                                                             </tr>
                                                             <tr>
                                                             <td>18</td>
                                                             <td>Cadera</td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
+                                                            <td><input type="text" name="CADtoma1"></td>
+                                                            <td><input type="text" name="CADtoma2"></td>
+                                                            <td><input type="text" name="CADtoma3"></td>
+                                                            <td><input type="text" name="CADpromed"></td>
                                                             </tr>
                                                             <tr>
-                                                            <td colspan="2"><input placeholder="Otros:"></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
+                                                            <td colspan="2"><input name="otros2" placeholder="Otros:"></td>
+                                                            <td><input type="text" name="otros2toma1"></td>
+                                                            <td><input type="text" name="otros2toma2"></td>
+                                                            <td><input type="text" name="otros2toma3"></td>
+                                                            <td><input type="text" name="otros2promed"></td>
                                                             </tr>
                                                             <tr>
                                                             <th colspan="6">Diametros (cm)</th>
@@ -617,33 +611,33 @@ th {
                                                             <tr>
                                                             <td>13</td>
                                                             <td>Humero</td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
+                                                            <td><input type="text" name="Humerotoma1"></td>
+                                                            <td><input type="text" name="Humerotoma2"></td>
+                                                            <td><input type="text" name="Humerotoma3"></td>
+                                                            <td><input type="text" name="Humeropromed"></td>
                                                             </tr>
                                                             <tr>
                                                             <td>14</td>
                                                             <td>Muñeca</td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
+                                                            <td><input type="text" name="Muñecatoma1"></td>
+                                                            <td><input type="text" name="Muñecatoma2"></td>
+                                                            <td><input type="text" name="Muñecatoma3"></td>
+                                                            <td><input type="text" name="Muñecapromed"></td>
                                                             </tr>
                                                             <tr>
                                                             <td>15</td>
                                                             <td>Femur</td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
+                                                            <td><input type="text" name="femurtoma1"></td>
+                                                            <td><input type="text" name="femurtoma2"></td>
+                                                            <td><input type="text" name="femurtoma3"></td>
+                                                            <td><input type="text" name="femurpromed"></td>
                                                             <tr>
                                                             <tr>
-                                                            <td colspan="2"><input placeholder="Otros:"></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
-                                                            <td><input></td>
+                                                            <td colspan="2"><input name="otros3" placeholder="Otros:"></td>
+                                                            <td><input type="text" name="otros3toma1"></td>
+                                                            <td><input type="text" name="otros3toma2"></td>
+                                                            <td><input type="text" name="otros3toma3"></td>
+                                                            <td><input type="text" name="otros3promed"></td>
                                                             </tr>
                                                             </tr>
                                                            </table>
@@ -658,7 +652,8 @@ th {
                                       </div>
                                     <div class="col-md-12">
                                       <div class="btn-group" role="group">
-                                          <button type="button" class="btn bg-indigo waves-effect btnNext">SIGUIENTE</button>
+                                        <button type="button" class="btn bg-indigo waves-effect btnNext">SIGUIENTE</button>
+                                          <button type="submit" class="btn bg-green waves-effect btnNext">Guardar</button>
                                       </div>
                                     </div>
                                 </div>
@@ -707,11 +702,8 @@ th {
         <!--Final Contenido-->
 @endsection 
 @section('scripts')
-<script>
-    $('#datepicker').datepicker();
-</script>
-  {{-- <script src="/Recursos/plugins/momentjs/moment.js"></script>
-  <script src="/Recursos/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script> --}}
+    <script src="../Recursos/plugins/momentjs/moment.js"></script>
+    <script src="../Recursos/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
   <!-- Autosize Plugin Js -->
-    {{-- <script src="../Recursos/plugins/autosize/autosize.js"></script> --}}
+    <script src="../Recursos/plugins/autosize/autosize.js"></script>
 @endsection

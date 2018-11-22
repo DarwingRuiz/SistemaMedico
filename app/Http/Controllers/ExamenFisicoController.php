@@ -566,10 +566,25 @@ class ExamenFisicoController extends Controller
     //         $anexo->Observaciones = $request->get('observacioneCCA');
     //         $anexo->save();
     //     }
-        //ficha antropometrica
-        $FA=new FichaAntropometica();
-        $FA->idatleta = $request->get('txt_atleta'); 
-        //
+        // ficha antropometrica
+        // $FA=new FichaAntropometica();
+        // $FA->idatleta = $request->get('txt_atleta'); 
+        // $FA->NombreyApellido=$request->get("nombre");
+        // $FA->sexo = $request->get("genero");
+        // $FA->EvaluacionN = $request->get("numEvaluacion");
+        // $FA->FechadeEvaluacion = $request->get("fechaE");
+        // $FA->FechadeNacimiento = $request->get("fechaNac");
+        // $FA->Mestruacion ="";
+        // $FA->Antropometrista = $request->get("Antropometrista");
+        // $FA->Anotador = $request->get("anotador");
+        // $FA->idfat ="1";
+        // $FA->TOMA1 = "2";
+        // $FA->TOMA2 = "4";
+        // $FA->TOMA3 ="5";
+        // $FA->PromedioOMediana = "6";
+        // $FA->save();
+        
+        dd($request->get("fechaE"));
         return redirect('/atleta');
     } 
 

@@ -250,8 +250,7 @@
     </section>
 
     <!-- Jquery Core Js -->
-    {{-- <script src="/Recursos/plugins/jquery/jquery.min.js"></script> --}}
-     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="/Recursos/plugins/jquery/jquery.min.js"></script>
 
     <!-- Bootstrap Core Js -->
     <script src="/Recursos/plugins/bootstrap/js/bootstrap.js"></script>
@@ -287,7 +286,7 @@
 
     <!-- Custom Js -->
     <script src="/Recursos/js/admin.js"></script>
-    <script src="../Recursos/js/pages/forms/basic-form-elements.js"></script>
+    <script src="/Recursos/js/pages/forms/basic-form-elements.js"></script>
     @yield('scripts')
 
     <!-- Demo Js -->

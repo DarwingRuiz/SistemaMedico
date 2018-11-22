@@ -16,13 +16,13 @@ class FichaAntropometica extends Model
         'Sexo',
         'FechadeNacimiento',
         'Mestruacion',
-        'Antropometrista/Evaluador',
+        'Antropometrista',
         'Anotador',
         'idfat',
         'TOMA1',
         'TOMA2',
         'TOMA3',
-        'Promedio/Mediana',
+        'PromedioOMediana',
     ];
 
 }
