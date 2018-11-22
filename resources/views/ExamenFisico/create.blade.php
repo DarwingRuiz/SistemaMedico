@@ -1,7 +1,8 @@
 @extends('layouts.admin')
 @section('head')
  <!-- Bootstrap Material Datetime Picker Css -->
-    <link href="../Recursos//plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" />
+    {{-- <link href="../Recursos//plugins/bootstrap-material-datetimepicker/css/bootstrap-material-datetimepicker.css" rel="stylesheet" /> --}}
+   
      <style> 
 input {
     /*width: 400px;
@@ -383,7 +384,7 @@ th {
                                                                     <div class="form-group form-float">
                                                                         <div class="form-line">
                                                                             {{-- <input type="text" name="fechaEvaluacion" class="form-control" /> --}}
-                                                                            <input type="text" name="fechaE" disabled="true" class="form-control" value="<?php echo date("d-m-Y");?>">
+                                                                            <input type="text" name="fechaEx"  class="form-control" id="fecha" value="   ">
                                                                             <label class="form-label">Fecha de evaluacion</label>
                                                                         </div>
                                                                     </div>
@@ -407,13 +408,24 @@ th {
                                                                 </div>
                                                                 <div class="col-sm-6">
                                                                     {{-- <label class="form-label">Fecha de nacimiento </label> --}}
-                                                                  <div class="form-group">
+                                                                  {{-- <div class="form-group">
                                                                         <div class="form-line">
                                                                             <input type="text" name="fechaNac" class="datepicker form-control" placeholder="Por favor seleccione una fecha">
                                                                         </div>
+                                                                    </div> --}}
+                                                                    <div class="demo-masked-input">
+                                                                         <div class="input-group">
+                                                                            <span class="input-group-addon">
+                                                                                <i class="material-icons">date_range</i>
+                                                                            </span>
+                                                                            <div class="form-line">
+                                                                                <input type="text" class="form-control date" placeholder="Ex: 30/07/2016">
+                                                                            </div>
+                                                                         </div>
                                                                     </div>
+                                                                </div>
                                                                 
-                                                                    </div>
+                                                                    
                                                                     <div class="col-sm-6">
                                                                         @if ($atleta[0]->genero=="Masculino")
                                                                             <div class="form-group form-float">
@@ -702,8 +714,31 @@ th {
         <!--Final Contenido-->
 @endsection 
 @section('scripts')
-    <script src="../Recursos/plugins/momentjs/moment.js"></script>
-    <script src="../Recursos/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script>
+    {{-- <script src="../Recursos/plugins/momentjs/moment.js"></script>
+    <script src="../Recursos/plugins/bootstrap-material-datetimepicker/js/bootstrap-material-datetimepicker.js"></script> --}}
   <!-- Autosize Plugin Js -->
-    <script src="../Recursos/plugins/autosize/autosize.js"></script>
+    {{-- <script src="../Recursos/plugins/autosize/autosize.js"></script> --}}
+     <!-- Input Mask Plugin Js -->
+    <script src="../Recursos/plugins/jquery-inputmask/jquery.inputmask.bundle.js"></script>
+<script>
+$( document ).ready(function() {
+
+    var now = new Date();
+
+    var day = ("0" + now.getDate()).slice(-2);
+    var month = ("0" + (now.getMonth() + 1)).slice(-2);
+
+    var today =(day)+"-" +(month)+"-"+now.getFullYear() ;
+    $("#fecha").text=today;
+    $("#fecha").val(today);
+    console.log(today);
+});
+</script>
+<script>
+    $(function () {
+        var $demoMaskedInput = $('.demo-masked-input');
+        $demoMaskedInput.find('.date').inputmask('dd/mm/yyyy', { placeholder: '__/__/____' });
+    });
+    // $demoMaskedInput.find('.date').inputmask('dd/mm/yyyy', { placeholder: '__/__/____' });
+</script>
 @endsection

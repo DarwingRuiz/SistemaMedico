@@ -286,7 +286,7 @@
 
     <!-- Custom Js -->
     <script src="/Recursos/js/admin.js"></script>
-    <script src="/Recursos/js/pages/forms/basic-form-elements.js"></script>
+    {{-- <script src="/Recursos/js/pages/forms/basic-form-elements.js"></script> --}}
     @yield('scripts')
 
     <!-- Demo Js -->

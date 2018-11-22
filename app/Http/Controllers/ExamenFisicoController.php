@@ -9,6 +9,7 @@ use SistemaMedico\ExamenFisico;
 use SistemaMedico\Anexos;
 use SistemaMedico\Ccap;
 use SistemaMedico\FichaAntropometica;
+use Carbon\Carbon;
 
 class ExamenFisicoController extends Controller
 {
@@ -566,25 +567,27 @@ class ExamenFisicoController extends Controller
     //         $anexo->Observaciones = $request->get('observacioneCCA');
     //         $anexo->save();
     //     }
-        // ficha antropometrica
-        // $FA=new FichaAntropometica();
-        // $FA->idatleta = $request->get('txt_atleta'); 
-        // $FA->NombreyApellido=$request->get("nombre");
-        // $FA->sexo = $request->get("genero");
-        // $FA->EvaluacionN = $request->get("numEvaluacion");
-        // $FA->FechadeEvaluacion = $request->get("fechaE");
-        // $FA->FechadeNacimiento = $request->get("fechaNac");
-        // $FA->Mestruacion ="";
-        // $FA->Antropometrista = $request->get("Antropometrista");
-        // $FA->Anotador = $request->get("anotador");
-        // $FA->idfat ="1";
-        // $FA->TOMA1 = "2";
-        // $FA->TOMA2 = "4";
-        // $FA->TOMA3 ="5";
-        // $FA->PromedioOMediana = "6";
-        // $FA->save();
+        //ficha antropometrica
+        $mytime = Carbon::now('America/Managua');
+        $FA=new FichaAntropometica();
+        $FA->idatleta = $request->get('txt_atleta'); 
+        $FA->NombreyApellido=$request->get("nombre");
+        $FA->sexo = $request->get("genero");
+        $FA->EvaluacionN = $request->get("numEvaluacion");
+        $FA->FechadeEvaluacion = $mytime->toDateTimeString();;
+        $FA->FechadeNacimiento = $request->get("fechaNac");
+        $FA->Mestruacion ="";
+        $FA->Antropometrista = $request->get("Antropometrista");
+        $FA->Anotador = $request->get("anotador");
+        $FA->idfat ="1";
+        $FA->TOMA1 = "2";
+        $FA->TOMA2 = "4";
+        $FA->TOMA3 ="5";
+        $FA->PromedioOMediana = "6";
+        $FA->save();
+        // $valor = Carbon::createFromFormat( 'd/m/Y', $request->input('fechaEx'));
+        // dd($request->get('fechaEx'));
         
-        dd($request->get("fechaE"));
         return redirect('/atleta');
     } 
 
