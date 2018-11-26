@@ -869,7 +869,9 @@ class ExamenFisicoController extends Controller
      */
     public function show($id)
     {
-        //
+        dd("vistashow");
+        // $atleta = Atleta::findOrFail($id);
+        // return view('vistas.vista_1', compact('atleta'));
     }
 
     /**

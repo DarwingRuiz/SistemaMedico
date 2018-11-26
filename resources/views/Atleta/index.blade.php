@@ -16,7 +16,7 @@
                   <div class="el-card-avatar el-overlay-1"> <img  src="{{asset('imagenes/perfiles/'.$at->Foto)}}" alt="{{ $at->pnombre}}" />
                       <div class="el-overlay scrl-dwn">
                           <ul class="el-info">
-                              <li><a class="btn default btn-outline image-popup-vertical-fit" href="{{asset('imagenes/perfiles/'.$at->Foto)}}"><i class="icon-magnifier"></i></a></li>
+                              <li><a class="btn default btn-outline image-popup-vertical-fit" href="{{URL::action('AtletaController@show',$atleta->id)}}"><i class="icon-magnifier"></i></a></li>
                               <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li>
                           </ul>
                       </div>
