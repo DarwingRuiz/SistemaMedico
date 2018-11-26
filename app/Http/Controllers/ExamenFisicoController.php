@@ -568,25 +568,295 @@ class ExamenFisicoController extends Controller
     //         $anexo->save();
     //     }
         //ficha antropometrica
+        // peso corporal
         $mytime = Carbon::now('America/Managua');
         $FA=new FichaAntropometica();
         $FA->idatleta = $request->get('txt_atleta'); 
         $FA->NombreyApellido=$request->get("nombre");
         $FA->sexo = $request->get("genero");
         $FA->EvaluacionN = $request->get("numEvaluacion");
-        $FA->FechadeEvaluacion = $mytime->toDateTimeString();;
-        $FA->FechadeNacimiento = $request->get("fechaNac");
-        $FA->Mestruacion ="";
+        $FA->FechadeEvaluacion = Carbon::createFromFormat('d/m/Y', $request->input('fechaEx'));
+        $FA->FechadeNacimiento = Carbon::createFromFormat('d/m/Y', $request->input('fechaNac'));
+        if ($request->get("genero")=="Masculino") {
+            $FA->Mestruacion = "";    
+        }
+        elseif ($request->get("genero") == "Femenino") {
+            $FA->Mestruacion = $request->get("genero"); 
+        }
         $FA->Antropometrista = $request->get("Antropometrista");
         $FA->Anotador = $request->get("anotador");
         $FA->idfat ="1";
-        $FA->TOMA1 = "2";
-        $FA->TOMA2 = "4";
-        $FA->TOMA3 ="5";
-        $FA->PromedioOMediana = "6";
+        $FA->TOMA1 = $request->get("PCtoma1");
+        $FA->TOMA2 = $request->get("PCtoma2");
+        $FA->TOMA3 = $request->get("PCtoma3");
+        $FA->PromedioOMediana = $request->get("PCpromed");
         $FA->save();
-        // $valor = Carbon::createFromFormat( 'd/m/Y', $request->input('fechaEx'));
-        // dd($request->get('fechaEx'));
+        //talla
+        $mytime = Carbon::now('America/Managua');
+        $FA = new FichaAntropometica();
+        $FA->idatleta = $request->get('txt_atleta');
+        $FA->NombreyApellido = $request->get("nombre");
+        $FA->sexo = $request->get("genero");
+        $FA->EvaluacionN = $request->get("numEvaluacion");
+        $FA->FechadeEvaluacion = Carbon::createFromFormat('d/m/Y', $request->input('fechaEx'));
+        $FA->FechadeNacimiento = Carbon::createFromFormat('d/m/Y', $request->input('fechaNac'));
+        if ($request->get("genero") == "Masculino") {
+            $FA->Mestruacion = "";
+        } elseif ($request->get("genero") == "Femenino") {
+            $FA->Mestruacion = $request->get("genero");
+        }
+        $FA->Antropometrista = $request->get("Antropometrista");
+        $FA->Anotador = $request->get("anotador");
+        $FA->idfat = "2";
+        $FA->TOMA1 = $request->get("Ttoma1");
+        $FA->TOMA2 = $request->get("Ttoma2");
+        $FA->TOMA3 = $request->get("Ttoma3");
+        $FA->PromedioOMediana = $request->get("Tpromed");
+        $FA->save();
+        // talla sentado
+        $mytime = Carbon::now('America/Managua');
+        $FA = new FichaAntropometica();
+        $FA->idatleta = $request->get('txt_atleta');
+        $FA->NombreyApellido = $request->get("nombre");
+        $FA->sexo = $request->get("genero");
+        $FA->EvaluacionN = $request->get("numEvaluacion");
+        $FA->FechadeEvaluacion = Carbon::createFromFormat('d/m/Y', $request->input('fechaEx'));
+        $FA->FechadeNacimiento = Carbon::createFromFormat('d/m/Y', $request->input('fechaNac'));
+        if ($request->get("genero") == "Masculino") {
+            $FA->Mestruacion = "";
+        } elseif ($request->get("genero") == "Femenino") {
+            $FA->Mestruacion = $request->get("genero");
+        }
+        $FA->Antropometrista = $request->get("Antropometrista");
+        $FA->Anotador = $request->get("anotador");
+        $FA->idfat = "3";
+        $FA->TOMA1 = $request->get("Tstoma1");
+        $FA->TOMA2 = $request->get("Tstoma2");
+        $FA->TOMA3 = $request->get("Tstoma3");
+        $FA->PromedioOMediana = $request->get("Tspromed");
+        $FA->save();
+        //envergadura
+        $mytime = Carbon::now('America/Managua');
+        $FA = new FichaAntropometica();
+        $FA->idatleta = $request->get('txt_atleta');
+        $FA->NombreyApellido = $request->get("nombre");
+        $FA->sexo = $request->get("genero");
+        $FA->EvaluacionN = $request->get("numEvaluacion");
+        $FA->FechadeEvaluacion = Carbon::createFromFormat('d/m/Y', $request->input('fechaEx'));
+        $FA->FechadeNacimiento = Carbon::createFromFormat('d/m/Y', $request->input('fechaNac'));
+        if ($request->get("genero") == "Masculino") {
+            $FA->Mestruacion = "";
+        } elseif ($request->get("genero") == "Femenino") {
+            $FA->Mestruacion = $request->get("genero");
+        }
+        $FA->Antropometrista = $request->get("Antropometrista");
+        $FA->Anotador = $request->get("anotador");
+        $FA->idfat = "4";
+        $FA->TOMA1 = $request->get("Etoma1");
+        $FA->TOMA2 = $request->get("Etoma2");
+        $FA->TOMA3 = $request->get("Etoma3");
+        $FA->PromedioOMediana = $request->get("Epromed");
+        $FA->save();
+        //Subescapular
+        $mytime = Carbon::now('America/Managua');
+        $FA = new FichaAntropometica();
+        $FA->idatleta = $request->get('txt_atleta');
+        $FA->NombreyApellido = $request->get("nombre");
+        $FA->sexo = $request->get("genero");
+        $FA->EvaluacionN = $request->get("numEvaluacion");
+        $FA->FechadeEvaluacion = Carbon::createFromFormat('d/m/Y', $request->input('fechaEx'));
+        $FA->FechadeNacimiento = Carbon::createFromFormat('d/m/Y', $request->input('fechaNac'));
+        if ($request->get("genero") == "Masculino") {
+            $FA->Mestruacion = "";
+        } elseif ($request->get("genero") == "Femenino") {
+            $FA->Mestruacion = $request->get("genero");
+        }
+        $FA->Antropometrista = $request->get("Antropometrista");
+        $FA->Anotador = $request->get("anotador");
+        $FA->idfat = "5";
+        $FA->TOMA1 = $request->get("SCtoma1");
+        $FA->TOMA2 = $request->get("SCtoma2");
+        $FA->TOMA3 = $request->get("SCtoma3");
+        $FA->PromedioOMediana = $request->get("SCpromed");
+        $FA->save();
+        //Tricipital
+        $mytime = Carbon::now('America/Managua');
+        $FA = new FichaAntropometica();
+        $FA->idatleta = $request->get('txt_atleta');
+        $FA->NombreyApellido = $request->get("nombre");
+        $FA->sexo = $request->get("genero");
+        $FA->EvaluacionN = $request->get("numEvaluacion");
+        $FA->FechadeEvaluacion = Carbon::createFromFormat('d/m/Y', $request->input('fechaEx'));
+        $FA->FechadeNacimiento = Carbon::createFromFormat('d/m/Y', $request->input('fechaNac'));
+        if ($request->get("genero") == "Masculino") {
+            $FA->Mestruacion = "";
+        } elseif ($request->get("genero") == "Femenino") {
+            $FA->Mestruacion = $request->get("genero");
+        }
+        $FA->Antropometrista = $request->get("Antropometrista");
+        $FA->Anotador = $request->get("anotador");
+        $FA->idfat = "6";
+        $FA->TOMA1 = $request->get("TTtoma1");
+        $FA->TOMA2 = $request->get("TTtoma2");
+        $FA->TOMA3 = $request->get("TTtoma3");
+        $FA->PromedioOMediana = $request->get("TTpromed");
+        $FA->save();
+        //Bicipital
+        $mytime = Carbon::now('America/Managua');
+        $FA = new FichaAntropometica();
+        $FA->idatleta = $request->get('txt_atleta');
+        $FA->NombreyApellido = $request->get("nombre");
+        $FA->sexo = $request->get("genero");
+        $FA->EvaluacionN = $request->get("numEvaluacion");
+        $FA->FechadeEvaluacion = Carbon::createFromFormat('d/m/Y', $request->input('fechaEx'));
+        $FA->FechadeNacimiento = Carbon::createFromFormat('d/m/Y', $request->input('fechaNac'));
+        if ($request->get("genero") == "Masculino") {
+            $FA->Mestruacion = "";
+        } elseif ($request->get("genero") == "Femenino") {
+            $FA->Mestruacion = $request->get("genero");
+        }
+        $FA->Antropometrista = $request->get("Antropometrista");
+        $FA->Anotador = $request->get("anotador");
+        $FA->idfat = "7";
+        $FA->TOMA1 = $request->get("BCtoma1");
+        $FA->TOMA2 = $request->get("BCtoma2");
+        $FA->TOMA3 = $request->get("BCtoma3");
+        $FA->PromedioOMediana = $request->get("BCpromed");
+        $FA->save();
+        //Supracrestal o cresta iliaca
+        $mytime = Carbon::now('America/Managua');
+        $FA = new FichaAntropometica();
+        $FA->idatleta = $request->get('txt_atleta');
+        $FA->NombreyApellido = $request->get("nombre");
+        $FA->sexo = $request->get("genero");
+        $FA->EvaluacionN = $request->get("numEvaluacion");
+        $FA->FechadeEvaluacion = Carbon::createFromFormat('d/m/Y', $request->input('fechaEx'));
+        $FA->FechadeNacimiento = Carbon::createFromFormat('d/m/Y', $request->input('fechaNac'));
+        if ($request->get("genero") == "Masculino") {
+            $FA->Mestruacion = "";
+        } elseif ($request->get("genero") == "Femenino") {
+            $FA->Mestruacion = $request->get("genero");
+        }
+        $FA->Antropometrista = $request->get("Antropometrista");
+        $FA->Anotador = $request->get("anotador");
+        $FA->idfat = "8";
+        $FA->TOMA1 = $request->get("CItoma1");
+        $FA->TOMA2 = $request->get("CItoma2");
+        $FA->TOMA3 = $request->get("CItoma3");
+        $FA->PromedioOMediana = $request->get("CIpromed");
+        $FA->save();
+        //Supracrestal o suprailiaco
+        $mytime = Carbon::now('America/Managua');
+        $FA = new FichaAntropometica();
+        $FA->idatleta = $request->get('txt_atleta');
+        $FA->NombreyApellido = $request->get("nombre");
+        $FA->sexo = $request->get("genero");
+        $FA->EvaluacionN = $request->get("numEvaluacion");
+        $FA->FechadeEvaluacion = Carbon::createFromFormat('d/m/Y', $request->input('fechaEx'));
+        $FA->FechadeNacimiento = Carbon::createFromFormat('d/m/Y', $request->input('fechaNac'));
+        if ($request->get("genero") == "Masculino") {
+            $FA->Mestruacion = "";
+        } elseif ($request->get("genero") == "Femenino") {
+            $FA->Mestruacion = $request->get("genero");
+        }
+        $FA->Antropometrista = $request->get("Antropometrista");
+        $FA->Anotador = $request->get("anotador");
+        $FA->idfat = "9";
+        $FA->TOMA1 = $request->get("SCotoma1");
+        $FA->TOMA2 = $request->get("SCotoma2");
+        $FA->TOMA3 = $request->get("SCotoma3");
+        $FA->PromedioOMediana = $request->get("SCopromed");
+        $FA->save();
+        //Abdominal
+        $mytime = Carbon::now('America/Managua');
+        $FA = new FichaAntropometica();
+        $FA->idatleta = $request->get('txt_atleta');
+        $FA->NombreyApellido = $request->get("nombre");
+        $FA->sexo = $request->get("genero");
+        $FA->EvaluacionN = $request->get("numEvaluacion");
+        $FA->FechadeEvaluacion = Carbon::createFromFormat('d/m/Y', $request->input('fechaEx'));
+        $FA->FechadeNacimiento = Carbon::createFromFormat('d/m/Y', $request->input('fechaNac'));
+        if ($request->get("genero") == "Masculino") {
+            $FA->Mestruacion = "";
+        } elseif ($request->get("genero") == "Femenino") {
+            $FA->Mestruacion = $request->get("genero");
+        }
+        $FA->Antropometrista = $request->get("Antropometrista");
+        $FA->Anotador = $request->get("anotador");
+        $FA->idfat = "10";
+        $FA->TOMA1 = $request->get("ABtoma1");
+        $FA->TOMA2 = $request->get("ABtoma2");
+        $FA->TOMA3 = $request->get("ABtoma3");
+        $FA->PromedioOMediana = $request->get("ABpromed");
+        $FA->save();
+        //Muslo anterior
+        $mytime = Carbon::now('America/Managua');
+        $FA = new FichaAntropometica();
+        $FA->idatleta = $request->get('txt_atleta');
+        $FA->NombreyApellido = $request->get("nombre");
+        $FA->sexo = $request->get("genero");
+        $FA->EvaluacionN = $request->get("numEvaluacion");
+        $FA->FechadeEvaluacion = Carbon::createFromFormat('d/m/Y', $request->input('fechaEx'));
+        $FA->FechadeNacimiento = Carbon::createFromFormat('d/m/Y', $request->input('fechaNac'));
+        if ($request->get("genero") == "Masculino") {
+            $FA->Mestruacion = "";
+        } elseif ($request->get("genero") == "Femenino") {
+            $FA->Mestruacion = $request->get("genero");
+        }
+        $FA->Antropometrista = $request->get("Antropometrista");
+        $FA->Anotador = $request->get("anotador");
+        $FA->idfat = "11";
+        $FA->TOMA1 = $request->get("MAtoma1");
+        $FA->TOMA2 = $request->get("MAtoma2");
+        $FA->TOMA3 = $request->get("MAtoma3");
+        $FA->PromedioOMediana = $request->get("MApromed");
+        $FA->save();
+        //
+        // $mytime = Carbon::now('America/Managua');
+        // $FA = new FichaAntropometica();
+        // $FA->idatleta = $request->get('txt_atleta');
+        // $FA->NombreyApellido = $request->get("nombre");
+        // $FA->sexo = $request->get("genero");
+        // $FA->EvaluacionN = $request->get("numEvaluacion");
+        // $FA->FechadeEvaluacion = Carbon::createFromFormat('d/m/Y', $request->input('fechaEx'));
+        // $FA->FechadeNacimiento = Carbon::createFromFormat('d/m/Y', $request->input('fechaNac'));
+        // if ($request->get("genero") == "Masculino") {
+        //     $FA->Mestruacion = "";
+        // } elseif ($request->get("genero") == "Femenino") {
+        //     $FA->Mestruacion = $request->get("genero");
+        // }
+        // $FA->Antropometrista = $request->get("Antropometrista");
+        // $FA->Anotador = $request->get("anotador");
+        // $FA->idfat = "1";
+        // $FA->TOMA1 = $request->get("PCtoma1");
+        // $FA->TOMA2 = $request->get("PCtoma2");
+        // $FA->TOMA3 = $request->get("PCtoma3");
+        // $FA->PromedioOMediana = $request->get("PCpromed");
+        // $FA->save();
+        // //
+        // $mytime = Carbon::now('America/Managua');
+        // $FA = new FichaAntropometica();
+        // $FA->idatleta = $request->get('txt_atleta');
+        // $FA->NombreyApellido = $request->get("nombre");
+        // $FA->sexo = $request->get("genero");
+        // $FA->EvaluacionN = $request->get("numEvaluacion");
+        // $FA->FechadeEvaluacion = Carbon::createFromFormat('d/m/Y', $request->input('fechaEx'));
+        // $FA->FechadeNacimiento = Carbon::createFromFormat('d/m/Y', $request->input('fechaNac'));
+        // if ($request->get("genero") == "Masculino") {
+        //     $FA->Mestruacion = "";
+        // } elseif ($request->get("genero") == "Femenino") {
+        //     $FA->Mestruacion = $request->get("genero");
+        // }
+        // $FA->Antropometrista = $request->get("Antropometrista");
+        // $FA->Anotador = $request->get("anotador");
+        // $FA->idfat = "1";
+        // $FA->TOMA1 = $request->get("PCtoma1");
+        // $FA->TOMA2 = $request->get("PCtoma2");
+        // $FA->TOMA3 = $request->get("PCtoma3");
+        // $FA->PromedioOMediana = $request->get("PCpromed");
+        // $FA->save();
+        // $valor = Carbon::createFromFormat('d/m/Y', $request->input('fechaEx'));
+        // dd($valor);
         
         return redirect('/atleta');
     } 

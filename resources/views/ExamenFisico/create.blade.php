@@ -415,11 +415,8 @@ th {
                                                                     </div> --}}
                                                                     <div class="demo-masked-input">
                                                                          <div class="input-group">
-                                                                            <span class="input-group-addon">
-                                                                                <i class="material-icons">date_range</i>
-                                                                            </span>
                                                                             <div class="form-line">
-                                                                                <input type="text" class="form-control date" placeholder="Ex: 30/07/2016">
+                                                                                <input type="text" name="fechaNac" class="form-control date" placeholder="Ex: 30/07/2016">
                                                                             </div>
                                                                          </div>
                                                                     </div>
@@ -728,7 +725,7 @@ $( document ).ready(function() {
     var day = ("0" + now.getDate()).slice(-2);
     var month = ("0" + (now.getMonth() + 1)).slice(-2);
 
-    var today =(day)+"-" +(month)+"-"+now.getFullYear() ;
+    var today =(day)+"/" +(month)+"/"+now.getFullYear() ;
     $("#fecha").text=today;
     $("#fecha").val(today);
     console.log(today);
