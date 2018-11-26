@@ -618,7 +618,7 @@ th {
                                                             <th colspan="6">Diametros (cm)</th>
                                                             </tr>
                                                             <tr>
-                                                            <td>13</td>
+                                                            <td>20</td>
                                                             <td>Humero</td>
                                                             <td><input type="text" name="Humerotoma1"></td>
                                                             <td><input type="text" name="Humerotoma2"></td>
@@ -626,7 +626,7 @@ th {
                                                             <td><input type="text" name="Humeropromed"></td>
                                                             </tr>
                                                             <tr>
-                                                            <td>14</td>
+                                                            <td>21</td>
                                                             <td>Muñeca</td>
                                                             <td><input type="text" name="Muñecatoma1"></td>
                                                             <td><input type="text" name="Muñecatoma2"></td>
@@ -634,7 +634,7 @@ th {
                                                             <td><input type="text" name="Muñecapromed"></td>
                                                             </tr>
                                                             <tr>
-                                                            <td>15</td>
+                                                            <td>22</td>
                                                             <td>Femur</td>
                                                             <td><input type="text" name="femurtoma1"></td>
                                                             <td><input type="text" name="femurtoma2"></td>

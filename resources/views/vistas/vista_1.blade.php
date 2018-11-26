@@ -7,18 +7,18 @@
         <link rel="icon" href="Vista1/img/favicon.png" type="image/png">
         <title>MeetMe Personal</title>
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="Vista1/css/bootstrap.css">
-        <link rel="stylesheet" href="Vista1/vendors/linericon/style.css">
-        <link rel="stylesheet" href="Vista1/css/font-awesome.min.css">
-        <link rel="stylesheet" href="Vista1/vendors/owl-carousel/owl.carousel.min.css">
-        <link rel="stylesheet" href="Vista1/vendors/lightbox/simpleLightbox.css">
-        <link rel="stylesheet" href="Vista1/vendors/nice-select/css/nice-select.css">
-        <link rel="stylesheet" href="Vista1/vendors/animate-css/animate.css">
-        <link rel="stylesheet" href="Vista1/vendors/popup/magnific-popup.css">
-        <link rel="stylesheet" href="Vista1/vendors/flaticon/flaticon.css">
+        <link rel="stylesheet" href="/Vista1/css/bootstrap.css">
+        <link rel="stylesheet" href="/Vista1/vendors/linericon/style.css">
+        <link rel="stylesheet" href="/Vista1/css/font-awesome.min.css">
+        <link rel="stylesheet" href="/Vista1/vendors/owl-carousel/owl.carousel.min.css">
+        <link rel="stylesheet" href="/Vista1/vendors/lightbox/simpleLightbox.css">
+        <link rel="stylesheet" href="/Vista1/vendors/nice-select/css/nice-select.css">
+        <link rel="stylesheet" href="/Vista1/vendors/animate-css/animate.css">
+        <link rel="stylesheet" href="/Vista1/vendors/popup/magnific-popup.css">
+        <link rel="stylesheet" href="/Vista1/vendors/flaticon/flaticon.css">
         <!-- main css -->
-        <link rel="stylesheet" href="Vista1/css/style.css">
-        <link rel="stylesheet" href="Vista1/css/responsive.css">
+        <link rel="stylesheet" href="/Vista1/css/style.css">
+        <link rel="stylesheet" href="/Vista1/css/responsive.css">
     </head>
     <body>
         
@@ -70,12 +70,12 @@
 					<div class="banner_content">
 						<div class="media">
 							<div class="d-flex">
-								<img src="{{asset('imagenes/perfiles/'.$at->Foto)}}" alt="">
+								<img src="{{asset('imagenes/perfiles/'.$atleta->Foto)}}" alt="">
 							</div>
 							<div class="media-body">
 								<div class="personal_text">
 									<h6>Hello Everybody, i am</h6>
-									<h3>{{$atleta->NombreCompleto}}</h3>
+									<h3>{{$atleta->nombrecompleto}}</h3>
 									<h4>Junior UI/UX Developer</h4>
 									<p>You will begin to realise why this exercise is called the Dickens Pattern (with reference to the ghost showing Scrooge some different futures)</p>
 									<ul class="list basic_info">
