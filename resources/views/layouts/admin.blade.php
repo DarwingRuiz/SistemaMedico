@@ -171,7 +171,7 @@
         <div class="container-fluid">
             <div class="block-header">
                 
-                <h2 style="text-transform: uppercase;">{{Request::path()}}</h2>
+                {{-- <h2 style="text-transform: uppercase;">{{Request::path()}}</h2> --}}
             </div>
             @yield('content')
             {{--  <div class="row el-element-overlay">
