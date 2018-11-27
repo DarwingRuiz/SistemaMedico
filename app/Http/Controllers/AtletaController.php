@@ -139,7 +139,7 @@ class AtletaController extends Controller
     public function show($id)
     {
         $atleta = Atleta::findOrFail($id);
-        return view('vistas.vista_1', compact('atleta'));
+        return view('vistas.vista2', compact('atleta'));
     }
 
     /**
