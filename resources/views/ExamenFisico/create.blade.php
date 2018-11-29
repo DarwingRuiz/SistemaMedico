@@ -61,7 +61,7 @@ th {
                           <div class="col-md-12">
                             <div class="tab-content">
                             <!--                    PRIMER TAB  														-->
-                                <div class="tab-pane " id="tab1">
+                                <div class="tab-pane active" id="tab1">
                                       <div class="col-md-12">
                                           <fieldset>
                             <!--			 TABLA BORDEADA		 														-->
@@ -174,12 +174,12 @@ th {
                                           <textarea name="Recomendaciones" rows="6" cols="40" placeholder="Detalles..."></textarea>
                                         </div>
                                       </div>
-                                    <div class="col-md-12">
+                                    {{-- <div class="col-md-12">
                                       <div class="btn-group" role="group">
                                           <button type="button" class="btn bg-indigo waves-effect btnNext">SIGUIENTE</button>
                                           
                                       </div>
-                                    </div>
+                                    </div> --}}
                                   </div>
                                 <!--                        SEGUNDO TAB                                                     -->
                                 <div class="tab-pane" id="tab2">
@@ -344,7 +344,7 @@ th {
                                     
                                 </div>
                                 <!--                TERCER  TAB                                                          -->
-                                <div class="tab-pane active" id="tab3">
+                                <div class="tab-pane " id="tab3">
                                       <div class="col-md-12">
                                           <fieldset>
                                             <div class="row clearfix">
@@ -737,5 +737,9 @@ $( document ).ready(function() {
         $demoMaskedInput.find('.date').inputmask('dd/mm/yyyy', { placeholder: '__/__/____' });
     });
     // $demoMaskedInput.find('.date').inputmask('dd/mm/yyyy', { placeholder: '__/__/____' });
+    $(function () {
+        var $demoMaskedInput = $('.demo-masked-input');
+        $demoMaskedInput.find('.cedula').inputmask('[0-3]/mm/yyyy', { placeholder: '__/__/____' });
+    });
 </script>
 @endsection

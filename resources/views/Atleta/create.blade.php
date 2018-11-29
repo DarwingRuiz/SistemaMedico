@@ -83,7 +83,7 @@
                                 <div class="col-md-4">
                                   <div class="form-group form-float">
                                     <div class="form-line">
-                                      <input type="text" class="form-control" name="edad"  value="{{old('edad')}}" id="edad" >
+                                      <input type="number" min="1" class="form-control" name="edad"  value="{{old('edad')}}" id="edad" >
                                       <label class="form-label">Edad</label>
                                     </div>
                                   </div>

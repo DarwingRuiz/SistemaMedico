@@ -15,6 +15,7 @@ use SistemaMedico\Deporte;
 use SistemaMedico\Cuestionariomedicamentos;
 Use SistemaMedico\Http\Requests\AtletaFormRequest;
 use SistemaMedico\Hospital;
+use SistemaMedico\HistorialMedico;
 //use Laracasts\Flash\Flash;
 
 //use SistemaMedico\Http\Requests;
@@ -139,11 +140,22 @@ class AtletaController extends Controller
      */
     public function show($id)
     {
+        //datos atleta
         $atleta = Atleta::findOrFail($id);
         $hospital=Hospital::get();
         $municipio=DB::table('municipio')->get();
         $departamento=DB::table('departamento')->get();
-        return view('vistas.vista2', compact('atleta','hospital','municipio','departamento'));
+
+        //cuestionario medico
+        $medicamento=DB::table('medicamentos')
+                ->where('idatleta', '=', $id)
+                ->get();
+        $alergia=DB::table('alergia')
+                ->where('idatleta', '=', $id)
+                ->get();
+         // preguntas
+         $HM=HistorialMedico::get()->where('idatleta','=',$id);
+        return view('vistas.vista2', compact('atleta','hospital','municipio','departamento','alergia','medicamento','HM'));
     }
 
     /**

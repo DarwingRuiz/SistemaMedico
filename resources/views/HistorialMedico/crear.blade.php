@@ -147,7 +147,7 @@
                                                   <div class="form-group form-float">
                                                     <div class="form-line">
                                                           <input type="text" id="txtalergiacomida" class="form-control" name="txtalergiacomida" >
-                                                          <label class="form-label">Aque comida eres alergico</label>
+                                                          <label class="form-label">A que comida eres alergico</label>
                                                     </div>
                                                   </div>
                                               </div>
@@ -175,7 +175,7 @@
                                                  <div class="form-group form-float">
                                                      <div class="form-line">
                                                           <input type="text"  class="form-control" name="txtotra_alergia" >
-                                                          <label class="form-label">A que piquetes eres alergico</label>
+                                                          <label class="form-label">A que eres alergico</label>
                                                      </div>
                                                   </div>
                                               </div>
@@ -203,7 +203,7 @@
                                     </ul>
                                     {{-- sub tab content --}}
                                     <div class="tab-content">
-                                        <div class="tab-pane p-20 active" id="sub1">
+                                        <div class="tab-pane active" id="sub1">
                                             <fieldset>
                                                  <div class="row col-md-12">
                                                   <div class="col-sm-10">
@@ -479,7 +479,7 @@
                                                 </div>{{-- pregunta 2 --}}
                                                 <div class=" row col-md-12">
                                                     <div class="col-md-10">
-                                                        <label for="">¿Ha sufridoalgun familiar un desmayo inexplicable o convulsiones?</label>
+                                                        <label for="">¿Ha sufrido algun familiar un desmayo inexplicable o convulsiones?</label>
 
                                                     </div>
                                                     <div class="col-md-2">
@@ -494,7 +494,7 @@
                                                 </div>{{-- pregunta 3 --}}
                                                 <div class="row col-md-12">
                                                     <div class="col-md-10">
-                                                        <label for="">¿alguien de su familia padece de Diabetes?</label>
+                                                        <label for="">¿Alguien de su familia padece de Diabetes?</label>
 
                                                     </div>
                                                     <div class="col-md-2">
@@ -509,7 +509,7 @@
                                                 </div>{{-- pregunta 4 --}}
                                                 <div class="row col-md-12">
                                                     <div class="col-md-10">
-                                                        <label for="">¿alguien de su familia padece de asma?</label>
+                                                        <label for="">¿Alguien de su familia padece de asma?</label>
 
                                                     </div>
                                                     <div class="col-md-2">
@@ -960,7 +960,7 @@
                                     </div>
                                     <div class="row col-sm-12">
                                         <div class="col-md-12 m-b-20">
-                                            <label>las necesidades economicas del atleta para su practica deportiva son asumidas por:</label>
+                                            <label>Las necesidades economicas del atleta para su practica deportiva son asumidas por:</label>
                                         </div>
                                         <div class="col-sm-6">
                                             <div class="col-md-12">
