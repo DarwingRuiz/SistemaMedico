@@ -690,19 +690,27 @@ class CuestionarioMedicoController extends Controller
         $inf3->detalles="";
         $inf3->idatleta= $request->get('txt_atleta');
         $inf3->save();
-        
+
         $inf4=new Educacion();
         $inf4->pregunta="Ultimo nivel academico terminado";
         $inf4->respuesta=$request->get("nivelaca");
-        if (empty($request->get("txt_donde_Estudia")))
-        {
-            $inf4->detalles="";
-        }
-        else{
-            $inf4->detalles=$request->get("txt_donde_Estudia");
+        if ($request->get("nivelaca") =="Especializacion/Maestria") {
+
+            $inf4->detalles=$request->get("especializacion_maestria");
         }
         $inf4->idatleta= $request->get('txt_atleta');
         $inf4->save();
+        if (!empty($request->get("txt_donde_Estudia")))
+        {
+            $inf5=new Educacion();
+            $inf5->pregunta="¿Donde Estudia?";
+            $inf5->respuesta=$request->get("txt_donde_Estudia");
+            $inf5->detalles="";
+            $inf5->idatleta= $request->get('txt_atleta');
+            $inf5->save();
+        }
+        
+       
         /**
          *
          * todo sobre habitacion
