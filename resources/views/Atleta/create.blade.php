@@ -338,9 +338,9 @@
   </div>
 @endsection
 {{-- modal Categoria --}}
-<div id="responsive-modal" class="modal fade" tabindex="-1" role="dialog"  style="display: none;">
+<div id="responsive-modal1" class="modal fade " tabindex="-1" role="dialog"  style="display: none;">
         <div class="modal-dialog">
-            <div class="modal-content">
+            <div class="modal-content ">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                     <h4 class="modal-title">Crear Categoria</h4>
@@ -348,20 +348,20 @@
                 <form class="floating-labels" id="form_Categoria" action="{{route('category.store')}}" method="POST" role="form">
                   {{csrf_field()}}
                 <div class="modal-body">
-                            
-                              
-                      <div class="form-group">
-
-                         <select class="form-control p-0" name="c_deporte" id="select-deporte-categoira">
+                    <div class="form-group">
+                      <select class="form-control p-0" name="c_deporte" id="select-deporte-categoira">
                           <option value="0" disable="true" selected="true">=== Seleccione un deporte ===</option>
-                          @foreach ($deporte as $key => $value)
-                            <option value="{{$value->id_deporte}}">{{ $value->nombre }}</option>
-                          @endforeach
-                        </select>
-              </div>
-              <div class="form-group">
-                <input type="text" name="categoria_nombre" class="form-control" id="categoria_nombre">
-                  <label for="categoria_nombre" class="control-label">Nombre de la Categoria</label>
+                            @foreach ($deporte as $key => $value)
+                              <option value="{{$value->id_deporte}}">{{ $value->nombre }}</option>
+                            @endforeach
+                      </select>
+                    </div>
+              <div class="form-group form-float">
+                <div class="form-line">
+                  <input type="text" name="categoria_nombre" class="form-control" id="categoria_nombre">
+                  <label for="categoria_nombre" class="form-label">Nombre de la Categoria</label>
+                </div>
+               
               </div>
           
               </div>
@@ -372,9 +372,48 @@
               </form>
           </div>
       </div>
-        </div>
-
-        {{-- modal hospital--}}
+</div>
+<div class="modal fade" id="responsive-modal" tabindex="-1" role="dialog" style="display: none;">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 style="color:black;" class="modal-title" id="defaultModalLabel">Modal title</h4>
+                        </div>
+                        <div class="modal-body">
+                           <form class="floating-labels" id="form_Categoria" action="{{route('category.store')}}" method="POST" role="form">
+                  {{csrf_field()}}
+                <div class="modal-body">
+                    <div class="form-group">
+                      <select class="form-control p-0" name="c_deporte" id="select-deporte-categoira">
+                          <option value="0" disable="true" selected="true">=== Seleccione un deporte ===</option>
+                            @foreach ($deporte as $key => $value)
+                              <option value="{{$value->id_deporte}}">{{ $value->nombre }}</option>
+                            @endforeach
+                      </select>
+                    </div>
+              <div class="form-group form-float">
+                <div class="form-line">
+                  <input type="text" name="categoria_nombre" class="form-control" id="categoria_nombre">
+                  <label for="categoria_nombre" class="form-label">Nombre de la Categoria</label>
+                </div>
+               
+              </div>
+          
+              </div>
+              <div class="modal-footer">
+                  <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
+                   <button type="submit"  class="btn btn-danger waves-effect waves-light " id="guardar_categoria">Guardar</button>
+              </div>
+              </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-link waves-effect">SAVE CHANGES</button>
+                            <button type="button" class="btn btn-link waves-effect" data-dismiss="modal">CLOSE</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+{{-- modal hospital--}}
 <div id="responsive-modalH" class="modal fade" tabindex="-1" role="dialog" style="display: none;">
                 <div class="modal-dialog">
                     <div class="modal-content">
@@ -553,7 +592,7 @@
               type: $(this).attr("method"),//el método post o get del formulario
               data: $(this).serialize(),//obtenemos todos los datos del formulario
               error: function(){
-             console.log("");
+             console.log("Error al guardar");
               },
               success:function(data){
                 console.log("guardado Correctamente");
@@ -577,7 +616,7 @@
                   "showMethod": "show",
                   "hideMethod": "slideUp"
                 };
-                toastr["success"]("Categoria Agregada Correctamente");
+                toastr["success"](data.mensaje);
               }
            });
           });

@@ -389,7 +389,7 @@
                                                                   <div class="col-md-8" id="otros_Historial_medico" style="display:none;">
                                                                         <div class="form-group form-float">
                                                                             <div class="form-line">
-                                                                                <input type="text" id="txtanti" class="form-control" name="txt_especificacion_otros" >
+                                                                                <input type="text" id="txtotrasenfermedades" class="form-control" name="txt_especificacion_otros" >
                                                                                 <label class="form-label"> Especifique</label>
                                                                             </div>
                                                                             
@@ -623,7 +623,7 @@
                                                     <div class="col-md-12" >
                                                         <div class="form-group form-float">
                                                             <div class="form-line">
-                                                                <input type="text" id="txtanti" class="form-control" name="cirugias" >
+                                                                <input type="text" class="form-control" name="cirugias" >
                                                                 <label class="form-label"> Especifique</label>
                                                             </div>
                                                             
@@ -898,7 +898,7 @@
                                                 <div class="row col-md-12">
 
                                                     <div class="col-md-6">
-                                                        <div class="form-group ">
+                                                        <div class="form-group form-float">
                                                             <div class="form-line">
                                                                 <input type="text" class="form-control" name="sitio" >
                                                                 <label class="form-label">los sitios donde entrena</label>
@@ -1206,7 +1206,7 @@
                                                            <div class="col-md-12" id="menosdecuatro" style="display:none;">
                                                                <div class="form-group form-float">
                                                                    <div class="form-line">
-                                                                       <input type="text"  class="form-control" name="txtmenosde4" >
+                                                                       <input type="text"  class="form-control" name="txt_menosde4" >
                                                                        <label class="form-label">Especificar</label>
                                                                    </div>
                                                                </div>
@@ -1259,7 +1259,7 @@
                                                           <div class="col-md-12" id="especializaciont" style="display:none;">
                                                                <div class="form-group form-float">
                                                                    <div class="form-line">
-                                                                       <input type="text"  class="form-control" name="txtmenosde4" >
+                                                                       <input type="text"  class="form-control" name="especializacion_maestria" >
                                                                        <label class="form-label">Especificar</label>
                                                                    </div>
                                                                </div>

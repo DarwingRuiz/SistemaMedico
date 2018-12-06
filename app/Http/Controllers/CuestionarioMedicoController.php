@@ -92,7 +92,7 @@ class CuestionarioMedicoController extends Controller
             $cuestionario->descripcion=$request->get('txt_medicamentos');
             $cuestionario->idatleta=$request->get('txt_atleta');
             $cuestionario->save();
-        }
+        } 
         if (Input::get('antiflamatorio'))
         {
             $cuestionario2=new Cuestionariomedicamentos();
@@ -170,11 +170,11 @@ class CuestionarioMedicoController extends Controller
             /*
             *que guarde que no tiene alergias
              * */
-            $alergias=new Alergias();
-            $alergias->alergia="no tiene alergias";
-            $alergias->descripcion=" ";
-            $alergias->idatleta=$request->get('txt_atleta');
-            $alergias->save();
+            // $alergias=new Alergias();
+            // $alergias->alergia="no tiene alergias";
+            // $alergias->descripcion=" ";
+            // $alergias->idatleta=$request->get('txt_atleta');
+            // $alergias->save();
 
         }
         /**
@@ -671,7 +671,7 @@ class CuestionarioMedicoController extends Controller
         $inf3->preguntas="Numero de personas con las que Vive";
         if ($request->get("numvive")=="4 o menos"){
             $inf3->respuesta=$request->get("numvive");
-            $inf3->detalles=$request->get("txtmenosde4");
+            $inf3->detalles=$request->get("txt_menosde4");
             $inf3->idatleta= $request->get('txt_atleta');
             $inf3->save();
         }
@@ -690,6 +690,7 @@ class CuestionarioMedicoController extends Controller
         $inf3->detalles="";
         $inf3->idatleta= $request->get('txt_atleta');
         $inf3->save();
+        
         $inf4=new Educacion();
         $inf4->pregunta="Ultimo nivel academico terminado";
         $inf4->respuesta=$request->get("nivelaca");

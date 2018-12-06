@@ -62,7 +62,7 @@
             <div class="navbar-header">
                 
                 <a href="javascript:void(0);" class="bars"></a>
-                <a class="navbar-brand" href="index.html"> Sistema Medico</a>
+                <a class="navbar-brand" href="#">Sistema Medico</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar-collapse">                    
             </div>

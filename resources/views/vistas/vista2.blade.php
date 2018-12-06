@@ -84,7 +84,7 @@
             <div class="col-xs-12 col-sm-12 col-md-12 col-lg-6">
                 <div class="card">
                     <div class="header bg-cyan">
-                        <h2 align="center">CUESTIONARIO MÉDICO</h2>
+                        <h2 align="center">ALERGIAS</h2>
                     </div>
                     <div class="body">
                         <div class="row">
@@ -102,24 +102,33 @@
                                     </div>
                                     <div class="col-md-6">
                                         @forelse ($alergia as $al)
-                                        @if(!$medicamento->isEmpty())
-                                            {{-- // $data is not empty --}}
-                                            <label for="">{{$al->alergia}}</label><br>
-                                            <label for="" style="text-transform: uppercase;  font-weight: normal;">{{$al->descripcion}}</label>
-                                            <br>
-                                        @else
-                                            <p>No tiene Cuestionario Médico</p>
-                                        @endif
+                                            @if(!$medicamento->isEmpty())
+                                                {{-- // $data is not empty --}}
+                                                <label for="">{{$al->alergia}}</label><br>
+                                                <label for="" style="text-transform: uppercase;  font-weight: normal;">{{$al->descripcion}}</label>
+                                                <br>
+                                            @else
+                                                <p>No tiene Cuestionario Médico</p>
+                                            @endif
                                         @empty
-                                        <p>No tiene Cuestionario Médico</p>
+                                            <p>No tiene Cuestionario Médico</p>
                                         @endforelse
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>  
+            <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                <div class="card">
+                    <div class="header bg-cyan">
+                        <h2 align="center">PREGUNTAS</h2>
+                    </div>
+                    <div class="body">
+                        <div class="row">
                             <div class="col-md-12">
-                                
                                 <div class="col-md-12">
-                                    <h2 align="center" class="card-inside-title">PREGUNTAS</h2>
                                     <h5 style="color:black;">HISTORIAL MEDICO</h5>
                                     <div class="col-md-12">
                                           @forelse ($HM as $hm)

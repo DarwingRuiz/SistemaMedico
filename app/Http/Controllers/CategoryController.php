@@ -42,7 +42,7 @@ class CategoryController extends Controller
           $categoria->categoria=$request->get('categoria_nombre');
           $categoria->iddeporte=$request->get('c_deporte');
           $categoria->save(); 
-          return response()->json(['message' => 'Insertado correctamente']);
+          return response()->json(['mensaje' => 'Insertado correctamente']);
     }
 
     /**
