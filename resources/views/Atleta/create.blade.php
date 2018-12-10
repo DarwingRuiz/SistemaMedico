@@ -5,6 +5,7 @@
    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"> 
    <!-- Bootstrap Select Css -->
     <link href="../Recursos/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../Recursos/css/notificacion.css">
 @endsection
 @section('content')
   <div class="row clearfix">
@@ -346,7 +347,7 @@
                               <h4 style="color:black;" class="modal-title">Crear Categoria</h4>
                         </div>
                         <div class="modal-body">
-                           <form class="floating-labels" id="form_Categoria" action="{{route('category.store')}}" method="POST" role="form">
+                           <form  id="form_Categoria" action="{{route('category.store')}}" method="POST" role="form">
                               {{csrf_field()}}
                                 <div class="modal-body">
                                     <div class="form-group">
@@ -366,13 +367,13 @@
                                       </div>
               
                                 </div>
-                            
+                             <div class="modal-footer">
+                                <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
+                                <button type="submit"  class="btn btn-danger waves-effect waves-light " id="guardar_categoria">Guardar</button>
+                            </div>
                             </form>
                         </div>
-                       <div class="modal-footer">
-                          <button type="button" class="btn btn-default waves-effect" data-dismiss="modal">Cerrar</button>
-                         <button type="submit"  class="btn btn-danger waves-effect waves-light " id="guardar_categoria">Guardar</button>
-                       </div>
+                      
                     </div>
                 </div>
             </div>
@@ -406,7 +407,8 @@
    <script src="../Recursos/plugins/dropify/dist/js/dropify.min.js"></script> 
  {{--  <script src="../assets/plugins/toast-master/js/jquery.toast.js"></script>
   <script src="js/toastr.js"></script> --}}
-   <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script> 
+  <script src="../Recursos/plugins/bootstrap-notify/bootstrap-notify.js"></script>
+   {{--  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>   --}}
    
     <!-- Select Plugin Js -->
     {{--  <script src="../Recursos/plugins/bootstrap-select/js/bootstrap-select.js"></script>  --}}
@@ -556,14 +558,14 @@
               type: $(this).attr("method"),//el método post o get del formulario
               data: $(this).serialize(),//obtenemos todos los datos del formulario
               error: function(){
-             console.log("Error al guardar");
+             console.log(this.responseText);
               },
               success:function(data){
-                console.log("guardado Correctamente");
+                console.log(data);
                 $("#responsive-modal").modal('hide');
                 
 
-                toastr.options = {
+                /*toastr.options = {
                   "closeButton": false,
                   "debug": false,
                   "newestOnTop": false,
@@ -580,7 +582,55 @@
                   "showMethod": "show",
                   "hideMethod": "slideUp"
                 };
-                toastr["success"](data.mensaje);
+                toastr["success"](data.mensaje);*/
+
+                 /* var allowDismiss = true;
+
+                  $.notify({
+                      icon: 'glyphicon glyphicon-user',
+                      title: 'Byron Morgan',
+	                    message: 'Momentum reduce child mortality effectiveness incubation empowerment connect.'
+                      
+                  },
+                      {
+                          
+                          type: 'bg-green',
+                          allow_dismiss: allowDismiss,
+                          newest_on_top: true,
+                          timer: 1000,
+                          placement: {
+                              from: 'top',
+                              align: 'right'
+                          },
+                          animate: {
+                              enter: 'animated bounceInDown',
+		                          exit: 'animated bounceOutUp'
+                          },
+                          template: '<div data-notify="container" class="bootstrap-notify-container alert alert-dismissible {0} ' + (allowDismiss ? "p-r-35" : "") + '" role="alert">' +
+                          '<button type="button" aria-hidden="true" class="close" data-notify="dismiss">×</button>' +
+                          '<span data-notify="icon"></span> ' +
+                          '<span data-notify="title">{1}</span> ' +
+                          '<span data-notify="message">{2}</span>' +
+                          '<div class="progress" data-notify="progressbar">' +
+                          '<div class="progress-bar progress-bar-{0}" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" style="width: 0%;"></div>' +
+                          '</div>' +
+                          '<a href="{3}" target="{4}" data-notify="url"></a>' +
+                          '</div>'
+                      });*/
+                $.notify({
+                    icon: '../images/check.png',
+                    title: 'Categoria Guardada Correctamente',
+                    message: data.categoria
+                  },{
+                    type: 'minimalist',
+                    delay: 5000,
+                    icon_type: 'image',
+                    template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
+                      '<img data-notify="icon" class="img-circle pull-left">' +
+                      '<span data-notify="title">{1}</span>' +
+                      '<span data-notify="message">{2}</span>' +
+                    '</div>'
+                  });
               }
            });
           });
