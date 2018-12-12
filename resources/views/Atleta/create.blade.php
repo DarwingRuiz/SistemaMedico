@@ -564,9 +564,17 @@
               success:function(data){
                 //console.log(data);
                 $("#responsive-modal").modal('hide');
+                document.getElementById("#form_Categoria").reset();
                 MostrarNotificacion("Succes","Categoria Guardada Correctamente",data.categoria,"../images/check.png");
 
-                 /* var allowDismiss = true;
+                
+              }
+           });
+          });
+        }); 
+     </script>
+@endsection
+{{--  /* var allowDismiss = true;
 
                   $.notify({
                       icon: 'glyphicon glyphicon-user',
@@ -613,10 +621,4 @@
                       '<span data-notify="title">{1}</span>' +
                       '<span data-notify="message">{2}</span>' +
                     '</div>'
-                  });*/
-              }
-           });
-          });
-        }); 
-     </script>
-@endsection
+                  });*/ --}}

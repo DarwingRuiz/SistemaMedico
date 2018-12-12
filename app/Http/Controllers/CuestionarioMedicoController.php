@@ -698,6 +698,9 @@ class CuestionarioMedicoController extends Controller
 
             $inf4->detalles=$request->get("especializacion_maestria");
         }
+        else{
+            $inf4->detalles="";
+        }
         $inf4->idatleta= $request->get('txt_atleta');
         $inf4->save();
         if (!empty($request->get("txt_donde_Estudia")))
