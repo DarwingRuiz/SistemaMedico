@@ -408,6 +408,7 @@
  {{--  <script src="../assets/plugins/toast-master/js/jquery.toast.js"></script>
   <script src="js/toastr.js"></script> --}}
   <script src="../Recursos/plugins/bootstrap-notify/bootstrap-notify.js"></script>
+  <script src="../Recursos/js/notificacion.js"></script>
    {{--  <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.js"></script>   --}}
    
     <!-- Select Plugin Js -->
@@ -561,28 +562,9 @@
              console.log(this.responseText);
               },
               success:function(data){
-                console.log(data);
+                //console.log(data);
                 $("#responsive-modal").modal('hide');
-                
-
-                /*toastr.options = {
-                  "closeButton": false,
-                  "debug": false,
-                  "newestOnTop": false,
-                  "progressBar": true,
-                  "positionClass":"toast-top-right",
-                  "preventDuplicates": true,
-                  "onclick": null,
-                  "showDuration": "300",
-                  "hideDuration": "1000",
-                  "timeOut": "5000",
-                  "extendedTimeOut": "1000",
-                  "showEasing": "swing",
-                  "hideEasing": "swing",
-                  "showMethod": "show",
-                  "hideMethod": "slideUp"
-                };
-                toastr["success"](data.mensaje);*/
+                MostrarNotificacion("Succes","Categoria Guardada Correctamente",data.categoria,"../images/check.png");
 
                  /* var allowDismiss = true;
 
@@ -617,12 +599,13 @@
                           '<a href="{3}" target="{4}" data-notify="url"></a>' +
                           '</div>'
                       });*/
-                $.notify({
+                /*$.notify({
                     icon: '../images/check.png',
                     title: 'Categoria Guardada Correctamente',
                     message: data.categoria
                   },{
-                    type: 'minimalist',
+                    type: 'Succes',
+                    showProgressbar: false,
                     delay: 5000,
                     icon_type: 'image',
                     template: '<div data-notify="container" class="col-xs-11 col-sm-3 alert alert-{0}" role="alert">' +
@@ -630,7 +613,7 @@
                       '<span data-notify="title">{1}</span>' +
                       '<span data-notify="message">{2}</span>' +
                     '</div>'
-                  });
+                  });*/
               }
            });
           });
