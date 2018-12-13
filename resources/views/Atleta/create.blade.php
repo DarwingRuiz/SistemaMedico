@@ -346,12 +346,13 @@
                              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
                               <h4 style="color:black;" class="modal-title">Crear Categoria</h4>
                         </div>
+                        
                         <div class="modal-body">
                            <form  id="form_Categoria" action="{{route('category.store')}}" method="POST" role="form">
                               {{csrf_field()}}
                                 <div class="modal-body">
                                     <div class="form-group">
-                                      <select class="form-control p-0" name="c_deporte" id="select-deporte-categoira">
+                                      <select class="form-control p-0" name="c_deporte" id="select-deporte-categoria">
                                           <option value="0" disable="true" selected="true">=== Seleccione un deporte ===</option>
                                             @foreach ($deporte as $key => $value)
                                               <option value="{{$value->id_deporte}}">{{ $value->nombre }}</option>
@@ -359,7 +360,7 @@
                                       </select>
                                     </div>
                                       <div class="form-group form-float">
-                                        <div class="form-line">
+                                        <div id="div_texto" class="form-line">
                                           <input type="text" name="categoria_nombre" class="form-control" id="categoria_nombre">
                                           <label for="categoria_nombre" class="form-label">Nombre de la Categoria</label>
                                         </div>
@@ -552,7 +553,15 @@
         //cuando hagamos submit al formulario con id id_del_formulario
         //se procesara este script javascript
          $("#form_Categoria").submit(function(e){
-           e.preventDefault();
+           selector = $("#select-deporte-categoria").val();
+           nombre = $("#categoria_nombre").val();
+            e.preventDefault();
+           console.log(nombre);
+          if(nombre==="" || nombre===" "){
+              if(selector===0){ alert("no ha seleccionado un deporte");}
+              $("#div_texto").addClass("focused error");
+          } 
+          else{
             $.ajax({
               url: $(this).attr("action"),//action del formulario, ej:
               //http://localhost/mi_proyecto/mi_controlador/mi_funcion
@@ -564,12 +573,16 @@
               success:function(data){
                 //console.log(data);
                 $("#responsive-modal").modal('hide');
-                document.getElementById("#form_Categoria").reset();
+                $('#form_Categoria').trigger("reset");
+                $("#categoria_nombre").blur();
+
+                //document.getElementById("#form_Categoria").reset();
                 MostrarNotificacion("Succes","Categoria Guardada Correctamente",data.categoria,"../images/check.png");
 
                 
               }
            });
+          }
           });
         }); 
      </script>
