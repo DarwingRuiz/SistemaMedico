@@ -102,12 +102,12 @@
             <div class="menu">
                 <ul class="list">
                     <li class="header">Menu</li>
-                    <li class="{{active('home')}}">
-                        <a href="/home">
+                    {{-- <li class="{{active('a')}}">
+                        <a href="/atleta">
                             <i class="material-icons">home</i>
                             <span>Inicio</span>
                         </a>
-                    </li>
+                    </li> --}}
                     @can('Listar_atleta')
                         <li class="{{active('atleta')}}" >
                             <a href="/atleta">

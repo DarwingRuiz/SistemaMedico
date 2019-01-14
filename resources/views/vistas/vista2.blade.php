@@ -25,6 +25,9 @@
                                     <label for="" class="m-r-10">Genero:</label><br>
                                     <label for="" style="text-transform: uppercase;  font-weight: normal;">{{$atleta->genero}}</label>
                                     <br>
+                                    <label for="" class="m-r-10">Embarazo:</label><br>  
+                                    <label for="" style="text-transform: uppercase;  font-weight: normal;">{{$atleta->embarazo}}</label>
+                                    <br>
                                     <label for="" class="m-r-10">Numero de cédula:</label><br>
                                     <label for="" style="text-transform: uppercase;  font-weight: normal;">{{$atleta->numcedula}}</label>
                                     <br>

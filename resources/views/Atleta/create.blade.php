@@ -556,9 +556,11 @@
            selector = $("#select-deporte-categoria").val();
            nombre = $("#categoria_nombre").val();
             e.preventDefault();
-           console.log(nombre);
+          // console.log(nombre);
           if(nombre==="" || nombre===" "){
-              if(selector===0){ alert("no ha seleccionado un deporte");}
+              if(selector ==0){ 
+                alert("no ha seleccionado un deporte");
+                }
               $("#div_texto").addClass("focused error");
           } 
           else{

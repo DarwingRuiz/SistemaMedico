@@ -146,10 +146,11 @@ class AtletaController extends Controller
         $municipio=DB::table('municipio')->get();
         $departamento=DB::table('departamento')->get();
 
-        //cuestionario medico
+        //Examen Fisico
         $medicamento=DB::table('medicamentos')
                 ->where('idatleta', '=', $id)
                 ->get();
+        //alergias
         $alergia=DB::table('alergia')
                 ->where('idatleta', '=', $id)
                 ->get();
@@ -166,7 +167,8 @@ class AtletaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $atleta=Atleta::findOrfail($id);
+        return view("Atleta.edit",compact('atleta'));
     }
 
     /**

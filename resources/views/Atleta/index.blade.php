@@ -16,8 +16,8 @@
                   <div class="el-card-avatar el-overlay-1"> <img  src="{{asset('imagenes/perfiles/'.$at->Foto)}}" alt="{{ $at->pnombre}}" />
                       <div class="el-overlay scrl-dwn">
                           <ul class="el-info">
-            <li><a class="btn default btn-outline image-popup-vertical-fit" href="{{ route('atleta.show', $at->id) }}"><i class="icon-user"></i></a></li>
-                              {{-- <li><a class="btn default btn-outline" href="javascript:void(0);"><i class="icon-link"></i></a></li> --}}
+                                <li><a class="btn default btn-outline image-popup-vertical-fit" href="{{ route('atleta.show', $at->id) }}"><i class="mdi mdi-account"></i></a></li>
+                                <li><a class="btn default btn-outline image-popup-vertical-fit" href="{{ route('atleta.edit', $at->id) }}"><i class="mdi mdi-account-edit"></i></a></li>
                           </ul>
                       </div>
                   </div>
@@ -63,6 +63,13 @@
 @section('scripts')
   {{--  <script src="../assets/plugins/Magnific-Popup-master/dist/jquery.magnific-popup.min.js"></script>
   <script src="../assets/plugins/Magnific-Popup-master/dist/jquery.magnific-popup-init.js"></script>  --}}
+  <script>
+        $.getJSON("/atleta/", function(data) {
+            // Aquí puedes manejar la variable data, que contiene el array con los datos del JSON.
+            console.log(" "+data.atleta+" "+ data.foto);
+           // alert(data['login']);
+        });
+    </script>
 @endsection
 {{-- menu viejo --}}
 {{-- @section('menu')
