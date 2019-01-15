@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 @section('head')
-   <link rel="stylesheet" href="../Recursos/plugins/dropify/dist/css/dropify.min.css"> 
+   {{-- <link rel="stylesheet" href="../Recursos/plugins/dropify/dist/css/dropify.min.css">  --}}
       {{-- <link href="../assets/plugins/toast-master/css/jquery.toast.css" rel="stylesheet"> --}}
    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"> 
    <!-- Bootstrap Select Css -->

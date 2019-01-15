@@ -168,7 +168,11 @@ class AtletaController extends Controller
     public function edit($id)
     {
         $atleta=Atleta::findOrfail($id);
-        return view("Atleta.edit",compact('atleta'));
+        $departamento=DB::table('departamento')->get();
+        $deporte=Deporte::all();
+        $hospital=DB::table('hospital')->get();
+        $municipio=DB::table('municipio')->get();
+        return view('Atleta.edit',compact('atleta','deporte','hospital','departamento','municipio'));
     }
 
     /**
