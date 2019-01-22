@@ -172,7 +172,9 @@ class AtletaController extends Controller
         $deporte=Deporte::all();
         $hospital=DB::table('hospital')->get();
         $municipio=DB::table('municipio')->get();
-        return view('Atleta.edit',compact('atleta','deporte','hospital','departamento','municipio'));
+        $categoria=DB::table('categorias')->get();
+        $atletaCat = DB::table('atleta_categoria')->get();
+        return view('Atleta.edit',compact('atleta','deporte','hospital','departamento','municipio','categoria','atletaCat'));
     }
 
     /**

@@ -18,7 +18,8 @@
 
     <!-- Waves Effect Css -->
     <link href="/Recursos/plugins/node-waves/waves.css" rel="stylesheet" />
-
+        <!-- Bootstrap Select Css -->
+    <link href="/Recursos/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
     <!-- Animation Css -->
     <link href="/Recursos/plugins/animate-css/animate.css" rel="stylesheet" />
 
@@ -255,8 +256,8 @@
     <!-- Bootstrap Core Js -->
     <script src="/Recursos/plugins/bootstrap/js/bootstrap.js"></script>
 
-    {{--  <!-- Select Plugin Js -->
-    <script src="/Recursos/plugins/bootstrap-select/js/bootstrap-select.js"></script>  --}}
+     <!-- Select Plugin Js -->
+    {{-- <script src="/Recursos/plugins/bootstrap-select/js/bootstrap-select.js"></script>  --}}
 
     <!-- Slimscroll Plugin Js -->
     <script src="/Recursos/plugins/jquery-slimscroll/jquery.slimscroll.js"></script>

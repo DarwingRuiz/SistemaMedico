@@ -1,10 +1,10 @@
 @extends('layouts.admin')
 @section('head')
-   {{-- <link rel="stylesheet" href="../Recursos/plugins/dropify/dist/css/dropify.min.css">  --}}
+   <link rel="stylesheet" href="../Recursos/plugins/dropify/dist/css/dropify.min.css"> 
       {{-- <link href="../assets/plugins/toast-master/css/jquery.toast.css" rel="stylesheet"> --}}
-   <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css"> 
+   {{-- <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/toastr.min.css">  --}}
    <!-- Bootstrap Select Css -->
-    <link href="../Recursos/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
+    <link href="/Recursos/plugins/bootstrap-select/css/bootstrap-select.css" rel="stylesheet" />
     <link rel="stylesheet" href="../Recursos/css/notificacion.css">
 @endsection
 @section('content')
@@ -173,7 +173,7 @@
                                  </div>
                              </div>
                              <div class="col-md-4">
-                               <div class="form-group col-md-4 m-t-10 ">
+                               <div class="form-group col-md-4 ">
                                   <select class="form-control " name="departamento" id="select-departamento">
                                     <option value="0" disable="true" selected="true">==Seleccione un Departamento==</option>
                                     @foreach ($departamento as $key => $value)
