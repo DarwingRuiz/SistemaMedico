@@ -190,8 +190,8 @@
                                   </select>
                               </div>
                               </div>
-                              
                               <div class="col-md-12">
+                                <div class="col-md-2">
                                   <div class="form-group">
                                       <label>¿Tiene Seguro?</label><br>
                                       <div>
@@ -214,14 +214,18 @@
                                   <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#responsive-modalH" class="model_img img-responsive"> Crear Hospital</button>
                               </div>
                               <div class="col-md-6" id="hosp" style="display:none;">
-
-                                  <select  name="hospitalafiliado" class="form-control p-0">
-
+                                <div class="form-group">
+                           <select class="form-control" name="hospitalafiliado">
+                                    <option value="0" disable="true" selected="true">=== Seleccione un hospital ===</option>
                                       @foreach($hospital as $hos)
                                           <option value="{{$hos->id}}">{{$hos->Nombre}}</option>
                                       @endforeach
                                   </select>
+                                </div>
+                                 
                               </div>
+                              </div>
+                              
                             </div>
                           </fieldset>
                           </div>

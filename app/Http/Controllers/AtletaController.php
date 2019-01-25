@@ -140,23 +140,33 @@ class AtletaController extends Controller
      */
     public function show($id)
     {
-        //datos atleta
+         //datos atleta
         $atleta = Atleta::findOrFail($id);
         $hospital=Hospital::get();
         $municipio=DB::table('municipio')->get();
         $departamento=DB::table('departamento')->get();
 
-        //Examen Fisico
+        //cuestionario medico
         $medicamento=DB::table('medicamentos')
                 ->where('idatleta', '=', $id)
                 ->get();
-        //alergias
         $alergia=DB::table('alergia')
                 ->where('idatleta', '=', $id)
                 ->get();
          // preguntas
          $HM=HistorialMedico::get()->where('idatleta','=',$id);
-        return view('vistas.vista2', compact('atleta','hospital','municipio','departamento','alergia','medicamento','HM'));
+         $HF=HistoralFamiliar::get()->where('idatleta','=',$id);
+         $AL=AparatoLocomotor::get()->where('idatleta','=',$id);
+         $CD=CarreraDeportiva::get()->where('idatleta','=',$id);
+         $ILE=Situacion_laboral::get()->where('idDatosAtleta','=',$id);   
+         $AE=Apoyo_Economico::get()->where('idatleta','=',$id);
+         $CA=ConsiteApoyo::get()->where('idatleta','=',$id);
+         $IFA=InformacionFamiliar::get()->where('idatleta','=',$id);
+         $ED=Educacion::get()->where('idatleta','=',$id);   
+         $HAB=Habitacion::get()->where('idatleta','=',$id);
+         $HATOS=Habitos::get()->where('idatleta','=',$id);
+         $EF=ExamenFisico::get()->where('idatleta','=',$id);
+        return view('vistas.vista2', compact('atleta','hospital','municipio','departamento','alergia','medicamento','HM', 'HF', 'AL', 'CD', 'ILE', 'AE', 'CA', 'IFA', 'ED', 'HAB', 'HATOS'));
     }
 
     /**
@@ -184,9 +194,65 @@ class AtletaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(AtletaFormRequest $request, $id)
     {
-        //
+        $atleta=Atleta::findOrFail($id);
+       
+        if (Input::hasFile('foto'))
+        {
+            // prmero se elimina la foto antigua
+            $name=$atleta->foto;
+            $path=public_path().'/imagenes/perfiles/';
+            $file->delete($path,$name);
+            // $atleta->foto=$name;
+            
+            // se sube una nueva foto
+            // $file=$request->file('foto');
+            // $path=public_path().'/imagenes/perfiles/';
+            // $name=$request->get('pnombre').$file->getClientOriginalName();
+            // $file->move($path,$name);
+            // $atleta->foto=$name;
+        }
+        // $atleta->pnombre=$request->get('pnombre');
+        // $atleta->snombre=$request->get('snombre');
+        // $atleta->papellido=$request->get('papellido');
+        // $atleta->sapellido=$request->get('sapellido');
+        // $atleta->nombrecompleto=$request->get('pnombre')." ".$request->get('snombre')." ".$request->get('papellido')." ".$request->get('sapellido');
+        // $atleta->edad=$request->get('edad');
+        // $atleta->fecharegistro=$mytime->toDateTimeString();
+        // $atleta->genero=$request->get('genero');
+        // $atleta->numcedula=$request->get('numcedula');
+        // $atleta->correoe=$request->get('correoe');
+        // $atleta->tconvencional=$request->get('tconvencional');
+        // $atleta->tcelular=$request->get('tcelular');
+        // if ($request->get('genero')=="Masculino")
+        // {
+        //     $atleta->embarazo="no";
+        // }
+        // elseif ($request->get('genero')=="Femenino"){
+        //     $atleta->embarazo=$request->get('embarazo');
+        // }
+        // $atleta->tseguro=$request->get('seguro');
+
+        // if ($request->get('seguro')=="Si"){
+        //     $atleta->hospital=$request->get('hospitalafiliado');
+        // }
+        // else{
+        //     $atleta->hospital="1";
+        // }
+        // $atleta->direccion=$request->get('direccion');
+        // // $atleta->departamento=$request->get('departamento');
+        // $atleta->municipio=$request->get('municipio');
+        // $atleta->nombremadre=$request->get('nombremadre');
+        // $atleta->telmadre=$request->get('telmadre');
+        // $atleta->nombrepadre=$request->get('nombrepadre');
+        // $atleta->telpadre=$request->get('telpadre');
+        // $atleta->emergencia=$request->get('emergencia');
+        // $atleta->diremergencia=$request->get('diremergencia');
+        // $atleta->update(); 
+        
+        // $atleta->categoria()->sync($request->get('categoria'));
+        return redirect('/atleta');
     }
 
     /**

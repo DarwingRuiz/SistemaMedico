@@ -51,7 +51,7 @@
                                   <div id="div_secundario">
                                     <div class="form-group col-md-12">
                                             <div class="col-md-12 m-b-30">
-                                              <label>fotografia</label>
+                                              <label>Fotografia</label>
                                             </div>
                                           <img src="{{asset('imagenes/perfiles/'.$atleta->Foto)}}" alt="foto de {{$atleta->nombrecompleto}}">
                                            <button type="button" class="btn bg-green waves-effect " onclick="mostrarfoto()">Cambiar</button>
@@ -246,8 +246,8 @@
                                   
                                   @if ($atleta->tseguro=="Si")
                                     <div class="col-md-4" id="hosp" >
-                                      <div class="form-goup">
-                                        <select  name="hospitalafiliado" class="form-control">
+                                      <div class="form-group">
+                                        <select  name="hospitalafiliado" class="form-control p-0">
                                             @foreach($hospital as $hos)
                                             @if ($atleta->hospital!="1")
                                               @if ($atleta->hospital == $hos->id)
@@ -265,7 +265,7 @@
                                     @else
                                     <div class="col-md-4 t-20" id="hosp" style="display:none;">
                                       <div class="form-group">
-                                        <select  name="hospitalafiliado" class="form-control">
+                                        <select  name="hospitalafiliado" class="form-control p-0">
                                           @foreach($hospital as $hos)
                                               <option value="{{$hos->id}}">{{$hos->Nombre}}</option>
                                           @endforeach
@@ -294,18 +294,22 @@
                                 </div>
                                 <div class="col-md-12">
                                   @foreach ($atletaCat as $AC)
-                                      @if ($atleta->id == $AC->atleta_id){
-                                        @foreach ($categoria as $cat)
+                                      @if ($atleta->id == $AC->atleta_id) 
+                                         @foreach ($categoria as $cat)
                                           @if ($cat->id== $AC->categoria_id)
                                             @foreach ($deporte as $depo)
                                                 @if ($cat->iddeporte == $depo->id_deporte)
-                                                <label for="">{{$depo->Nombre}}</label>
-                                                 {{-- <la type="text" name="deporte" value="{{$depo->Nombre}}"> --}}
+                                                <label for="">Deporte Anterior: </label>
+                                                  <label for="">{{$depo->nombre}}</label>
+                                                  <div style="display:none;">
+                                                      <input type="text"  value="{{$depo->id_deporte}}" class="form-control" name="txt_id_deporte" >
+                                                  </div>
+                                                  
                                                 @endif
                                             @endforeach
                                           @endif
-                                        @endforeach
-                                       }   
+                                        @endforeach 
+                                       
                                       @endif
                                   @endforeach
                                   
@@ -316,6 +320,23 @@
                                   <select class="form-control p-0" name="categoria" id="select-categoria">
                                     <option value="0" disable="true" selected="true">=== Seleccione sus Categoria ===</option>
                                   </select>
+                                </div>
+                                <div class="col-md-12">
+                                  @foreach ($atletaCat as $AC)
+                                      @if ($atleta->id == $AC->atleta_id) 
+                                         @foreach ($categoria as $cat)
+                                          @if ($cat->id== $AC->categoria_id)
+                                            <label for="">Categoria Anterior: </label>
+                                            <label for="">{{$cat->categoria}}</label>
+                                            <div style="display:none;">
+                                                <input type="text"  value="{{$cat->id}}" class="form-control" name="txt_id_categoria" >
+                                            </div>
+                                            
+                                          @endif
+                                        @endforeach 
+                                       
+                                      @endif
+                                  @endforeach
                                 </div>
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#responsive-modal" class="model_img img-responsive"> Crear Categoria</button>
                               </div>
@@ -568,7 +589,7 @@
        var Id_deporte = $(this).val();
        //Ajax
          $.get('/api/categoria/'+Id_deporte+'/categoria',function (data) {
-           var html_select= '<option value="" disable>==Seleccione una Categoria==</option>';
+           var html_select= '<option value="" disable>Seleccione una Categoria</option>';
            for (var i = 0; i < data.length; ++i) {
              html_select += '<option value="'+data[i].id+'">'+data[i].categoria+'</option>';
             }
